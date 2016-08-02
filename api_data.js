@@ -3,6 +3,7 @@ define({ "api": [
     "type": "post",
     "url": "/users/add",
     "title": "Register New User",
+    "version": "1.0.0",
     "name": "add",
     "group": "Users",
     "parameter": {
@@ -78,7 +79,6 @@ define({ "api": [
         }
       ]
     },
-    "version": "0.0.0",
     "filename": "src/Controller/UsersController.php",
     "groupTitle": "Users"
   },

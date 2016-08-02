@@ -55,7 +55,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n \"success\": true,\n  \"data\": {\n          \"id\": 2\n  }      \n}",
+          "content": "HTTP/1.1 200 OK\n{\n \"response\": {\n               \"status\": true,\n               \"data\": {\n                         \"id\": 8\n                         }\n             }\n }",
           "type": "json"
         }
       ]
@@ -66,15 +66,15 @@
           {
             "group": "Error 4xx",
             "optional": false,
-            "field": "MandatoryParamMissing",
-            "description": "<p>Mandatory Param missing</p>"
+            "field": "ErrorInRequest",
+            "description": "<p>Invalid request</p>"
           }
         ]
       },
       "examples": [
         {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n \"success\":false,\n \"message\":\"Mandatory param missing.\"\n}",
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 400 Bad Request\n{\n \"success\":false,\n \"message\":\"Invalid Request.\"\n}",
           "type": "json"
         }
       ]
@@ -138,7 +138,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n \"success\": true,\n  \"data\": {\n          \"id\": 2,\n          \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjIsImV4cCI6MTQ3MDIyNjI5M30.InrHIhgBAae6gJ9nTXaN5CV4oZhxcOvAv0fyS8DJ7Kw\"\n  }      \n}",
+          "content": "HTTP/1.1 200 OK\n{\n \"response\": {\n               \"status\": true,\n               \"data\": {\n                        \"id\": 7,\n                        \"token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjcsImV4cCI6MTQ3MDc0NDI5MX0.i1Jxt5__1oOlmltXoOVIC-17f4rM48nl4uzkahWmU1c\"\n                       }\n             }\n}",
           "type": "json"
         }
       ]
@@ -147,7 +147,7 @@
       "examples": [
         {
           "title": "Error-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n \"status\":false,\n \"message\":\"Invalid User!: You should not be peeking around here.\"\n}",
+          "content": "HTTP/1.1 200 OK\n{\n \"status\":false,\n \"message\":\"Invalid User!\"\n}",
           "type": "json"
         }
       ],

@@ -1,7 +1,394 @@
 define({ "api": [
   {
     "type": "post",
-    "url": "/users/add",
+    "url": "/api/activities/:id",
+    "title": "Get Vendor activities",
+    "version": "1.0.0",
+    "name": "view",
+    "group": "Activities",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": false,
+            "field": "id",
+            "description": "<p>vendor's id</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "status",
+            "description": "<p>status of the request.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "data",
+            "description": "<p>contains response.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "   HTTP/1.1 200 OK\n\n{\n     \"response\": {\n         \"status\": true,\n         \"data\": {\n             \"Activities\": [\n                 {\n                     \"id\": 1,\n                     \"vendor_id\": 4,\n                     \"user_id\": null,\n                     \"reward_method_id\": 1,\n                     \"service_id\": null,\n                     \"attribute\": null,\n                     \"attribute_type\": null,\n                     \"action\": \"reward\",\n                     \"points\": \"100\",\n                     \"status\": true,\n                     \"created\": \"2016-09-11T12:52:01+0000\",\n                     \"modified\": \"2016-09-11T12:52:01+0000\",\n                     \"service\": null,\n                     \"reward_method\": {\n                         \"id\": 1,\n                         \"name\": \"wallet_credit\",\n                         \"label\": \"Wallet Credit\",\n                         \"status\": true,\n                         \"created\": \"2016-09-10T06:55:07+0000\",\n                         \"modified\": \"2016-09-10T06:55:07+0000\"\n                     },\n                     \"user\": null,\n                     \"vendor\": {\n                         \"id\": 4,\n                         \"name\": \"niteeshs\",\n                         \"created\": \"2016-09-11T12:30:52+0000\",\n                         \"modified\": \"2016-09-11T12:30:52+0000\",\n                         \"status\": true,\n                         \"deleted\": null\n                     }\n                 }\n             ]\n         }\n     }\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "peoplehub/src/Controller/Api/ActivitiesController.php",
+    "groupTitle": "Activities"
+  },
+  {
+    "type": "post",
+    "url": "/api/redeemedCredits/",
+    "title": "Redeem Store credit (By Vendor)",
+    "version": "1.0.0",
+    "name": "addStore",
+    "group": "RedeemedCredits",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": false,
+            "field": "vendor_id",
+            "description": "<p>: vendor's id who is redeeming the store credit</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "attribute_type",
+            "description": "<p>attribute type: can be email or phone or card.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "attribute",
+            "description": "<p>value of attribute type.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": "<p>status of the request.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "   HTTP/1.1 200 OK\n{\n   \"response\": {\n     \"status\": true,\n     \"message\": \"points redeemed\"\n   }\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "peoplehub/src/Controller/Api/RedeemedCreditsController.php",
+    "groupTitle": "RedeemedCredits"
+  },
+  {
+    "type": "post",
+    "url": "/api/redeemedCredits/",
+    "title": "Redeem wallet credit (By user)",
+    "version": "1.0.0",
+    "name": "addWallet",
+    "group": "RedeemedCredits",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "service",
+            "description": "<p>: can be amazon or tango</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": "<p>status of the request.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "   HTTP/1.1 200 OK\n{\n   \"response\": {\n     \"status\": true,\n     \"message\": \"Gift coupon requested\"\n   }\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "peoplehub/src/Controller/Api/RedeemedCreditsController.php",
+    "groupTitle": "RedeemedCredits"
+  },
+  {
+    "type": "GET",
+    "url": "/api/resellers/token/",
+    "title": "Get reseller's access token",
+    "version": "1.0.0",
+    "name": "token",
+    "group": "Reseller",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>Base_64encode(client_secret:client_id).</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": "<p>status of the request.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "  HTTP/1.1 200 OK\n{\n  \"response\": {\n                \"status\": true,\n                \"data\": {\n                    \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImV4cCI6MTQ3MTQyNjE2Mn0.VN1h-2Hl8eLdbxzH743KOS0uVu65en7kvuY4HuCnx0w\",\n                    \"expires\": 1471426162\n                }\n              }\n  }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "peoplehub/src/Controller/Api/ResellersController.php",
+    "groupTitle": "Reseller"
+  },
+  {
+    "type": "post",
+    "url": "/api/rewardCredits/",
+    "title": "Reward Credit to user",
+    "version": "1.0.0",
+    "name": "add",
+    "group": "RewardCredits",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": false,
+            "field": "vendor_id",
+            "description": "<p>Vendor's Id.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "attribute_type",
+            "description": "<p>attribute type: can be email or phone or card.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "attribute",
+            "description": "<p>value of attribute type.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": false,
+            "field": "points",
+            "description": "<p>reward to credit.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "reward_type",
+            "description": "<p>: can be wallet_credit or reward_credit.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": "<p>status of the request.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "   HTTP/1.1 200 OK\n {\n     \"response\": {\n         \"status\": true,\n         \"message\": \"Reward offered successfully\"\n     }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "peoplehub/src/Controller/Api/RewardCreditsController.php",
+    "groupTitle": "RewardCredits"
+  },
+  {
+    "type": "GET",
+    "url": "/api/rewardCredits/",
+    "title": "Get all available rewards and detail",
+    "version": "1.0.0",
+    "name": "index",
+    "group": "RewardCredits",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": "<p>status of the request.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n   {\n  \"response\": {\n      \"status\": true,\n     \"data\": {\n          \"id\": 2,\n          \"total_credits\": [\n              {\n                  \"name\": \"wallet_credit\",\n                  \"value\": 1100,\n                  \"label\": \"Wallet Credit\"\n              },\n              {\n                  \"name\": \"store_credit\",\n                  \"value\": 1100,\n                  \"label\": \"Store Credit\"\n              }\n          ],\n          \"user_credits\": [\n              {\n                  \"id\": 1,\n                  \"vendor_id\": 1,\n                  \"user_id\": 2,\n                  \"attribute\": \"78945613\",\n                  \"attribute_type\": \"phone\",\n                  \"points\": 500,\n                  \"vendor_reward_type_id\": 1,\n                  \"created\": \"2016-08-11T11:11:41+0000\",\n                  \"modified\": \"2016-08-11T11:11:45+0000\",\n                  \"vendor_reward_type\": {\n                      \"id\": 1,\n                      \"vendor_id\": 1,\n                      \"reward_method_id\": 1,\n                      \"created\": \"2016-08-11T11:04:43+0000\",\n                      \"modified\": \"2016-08-11T11:04:43+0000\",\n                      \"status\": true,\n                      \"reward_method\": {\n                          \"id\": 1,\n                          \"name\": \"wallet_credit\",\n                          \"label\": \"Wallet Credit\",\n                          \"status\": true,\n                          \"created\": \"2016-08-11T11:04:05+0000\",\n                          \"modified\": \"2016-08-11T11:04:05+0000\"\n                      }\n                  },\n                  \"vendor\": {\n                      \"id\": 1,\n                      \"name\": \"nitesh121\",\n                      \"created\": \"2016-08-11T11:04:43+0000\",\n                      \"modified\": \"2016-08-11T11:04:43+0000\",\n                      \"status\": true,\n                      \"deleted\": null\n                  }\n              },\n              {\n                  \"id\": 2,\n                  \"vendor_id\": 2,\n                  \"user_id\": 2,\n                \"attribute\": \"78945613\",\n                  \"attribute_type\": \"phone\",\n                  \"points\": 1100,\n                  \"vendor_reward_type_id\": 2,\n                  \"created\": \"2016-08-11T11:12:16+0000\",\n                  \"modified\": \"2016-08-11T11:12:20+0000\",\n                  \"vendor_reward_type\": {\n                      \"id\": 2,\n                      \"vendor_id\": 2,\n                      \"reward_method_id\": 1,\n                      \"created\": \"2016-08-11T11:12:07+0000\",\n                      \"modified\": \"2016-08-11T11:12:07+0000\",\n                      \"status\": true,\n                     \"reward_method\": {\n                          \"id\": 1,\n                          \"name\": \"wallet_credit\",\n                          \"label\": \"Wallet Credit\",\n                          \"status\": true,\n                          \"created\": \"2016-08-11T11:04:05+0000\",\n                          \"modified\": \"2016-08-11T11:04:05+0000\"\n                      }\n                  },\n                  \"vendor\": {\n                      \"id\": 2,\n                      \"name\": \"nitesh\",\n                      \"created\": \"2016-08-11T11:12:07+0000\",\n                      \"modified\": \"2016-08-11T11:12:07+0000\",\n                      \"status\": true,\n                      \"deleted\": null\n                  }\n            }\n         }\n      }  \n  }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "peoplehub/src/Controller/Api/RewardCreditsController.php",
+    "groupTitle": "RewardCredits"
+  },
+  {
+    "type": "GET",
+    "url": "/api/rewardCredits/:id",
+    "title": "Get available rewards of a user",
+    "version": "1.0.0",
+    "name": "view",
+    "group": "RewardCredits",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Users's Id.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": "<p>status of the request.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "    HTTP/1.1 200 OK\n{\n  \"response\": {\n               \"status\": true,\n               \"data\": {\n                           \"id\": \"2\",\n                           \"wallet_credit\": 1100,\n                           \"store_credit\": 1100\n                       }\n               }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "peoplehub/src/Controller/Api/RewardCreditsController.php",
+    "groupTitle": "RewardCredits"
+  },
+  {
+    "type": "GET",
+    "url": "/api/storeCredits/:vendor_id/:user_id",
+    "title": "View store credit of a user",
+    "version": "1.0.0",
+    "name": "viewStoreCredit",
+    "group": "RewardCredits",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": false,
+            "field": "vendor_id",
+            "description": "<p>Vendor's Id.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": false,
+            "field": "user_id",
+            "description": "<p>User's Id.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": "<p>status of the request.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "  HTTP/1.1 200 OK\n{\n    \"response\": {\n                    \"status\": true,\n                    \"data\": {\n                        \"user_id\": \"2\",\n                        \"vendor_id\": \"2\",\n                        \"total_store_credit\": 1100\n                    }\n                }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "peoplehub/src/Controller/Api/RewardCreditsController.php",
+    "groupTitle": "RewardCredits"
+  },
+  {
+    "type": "post",
+    "url": "/api/users/",
     "title": "Register New User",
     "version": "1.0.0",
     "name": "add",
@@ -145,6 +532,135 @@ define({ "api": [
     },
     "filename": "peoplehub/src/Controller/Api/UsersController.php",
     "groupTitle": "Users"
+  },
+  {
+    "type": "POST",
+    "url": "/api/vebdorBillings/",
+    "title": "Generate Vendor's Bill",
+    "version": "1.0.0",
+    "name": "add",
+    "group": "Vendor_Billings",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": false,
+            "field": "vendor_id",
+            "description": "<p>Vendor's Id.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": "<p>status of the request.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"response\": {\n          \"status\": true,\n           \"data\": {\n             \"vendor_id\": 1,\n              \"points\": \"200\",\n              \"billable_amount\": \"$4\",\n              \"total_transactions\": 1\n           }\n      }\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "peoplehub/src/Controller/Api/VendorBillingsController.php",
+    "groupTitle": "Vendor_Billings"
+  },
+  {
+    "type": "GET",
+    "url": "/api/vebdorBillings/:id/all",
+    "title": "View  Vendor's Bill of all months",
+    "version": "1.0.0",
+    "name": "all",
+    "group": "Vendor_Billings",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Vendor's Id.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": "<p>status of the request.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "  HTTP/1.1 200 OK\n{\n     \"response\": {\n        \"status\": true,\n        \"vendor_id\": \"1\",\n        \"data\": [\n            {\n                \"points\": \"200\",\n                \"billable_amount\": \"$4\",\n               \"total_transactions\": 1,\n                \"from_date\": \"2016-07-01 00:00:00\",\n                \"to_date\": \"2016-08-02 00:00:00\"\n            },\n            {\n                \"points\": \"400\",\n                \"billable_amount\": \"8\",\n                \"total_transactions\": 1,\n                \"from_date\": \"2016-06-01 00:00:00\",\n                \"to_date\": \"2016-07-02 00:00:00\"\n            }\n        ]\n   }\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "peoplehub/src/Controller/Api/VendorBillingsController.php",
+    "groupTitle": "Vendor_Billings"
+  },
+  {
+    "type": "GET",
+    "url": "/api/vebdorBillings/:id",
+    "title": "View Vendor's Bill",
+    "version": "1.0.0",
+    "name": "view",
+    "group": "Vendor_Billings",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Vendor's Id.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": "<p>status of the request.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"response\": {\n          \"status\": true,\n           \"data\": {\n             \"vendor_id\": 1,\n              \"points\": \"200\",\n              \"billable_amount\": \"$4\",\n              \"total_transactions\": 1\n           }\n      }\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "peoplehub/src/Controller/Api/VendorBillingsController.php",
+    "groupTitle": "Vendor_Billings"
   },
   {
     "type": "put",
@@ -377,32 +893,13 @@ define({ "api": [
         }
       ]
     },
-    "error": {
-      "fields": {
-        "Error 4xx": [
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "ErrorInRequest",
-            "description": "<p>Invalid request</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Error-Response:",
-          "content": "HTTP/1.1 400 Bad Request\n{\n \"success\":false,\n \"message\":\"Invalid Request.\"\n}",
-          "type": "json"
-        }
-      ]
-    },
     "filename": "peoplehub/src/Controller/Api/VendorsController.php",
     "groupTitle": "Vendors"
   },
   {
-    "type": "post",
-    "url": "/userCards/",
-    "title": "Add New Card",
+    "type": "POST",
+    "url": "/api/userCards/",
+    "title": "Add User's Card",
     "version": "1.0.0",
     "name": "add",
     "group": "userCards",
@@ -439,32 +936,13 @@ define({ "api": [
         }
       ]
     },
-    "error": {
-      "fields": {
-        "Error 4xx": [
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "ErrorInRequest",
-            "description": "<p>Invalid request</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Error-Response:",
-          "content": "HTTP/1.1 400 Bad Request\n{\n \"success\":false,\n \"message\":\"Invalid Request.\"\n}",
-          "type": "json"
-        }
-      ]
-    },
     "filename": "peoplehub/src/Controller/Api/UserCardsController.php",
     "groupTitle": "userCards"
   },
   {
     "type": "put",
-    "url": "/userCards/id",
-    "title": "update existing card",
+    "url": "/userCards/:id",
+    "title": "Update existing card",
     "version": "1.0.0",
     "name": "edit",
     "group": "userCards",
@@ -501,21 +979,32 @@ define({ "api": [
         }
       ]
     },
-    "error": {
+    "filename": "peoplehub/src/Controller/Api/UserCardsController.php",
+    "groupTitle": "userCards"
+  },
+  {
+    "type": "GET",
+    "url": "/api/userCards/",
+    "title": "List User's Cards",
+    "version": "1.0.0",
+    "name": "index",
+    "group": "userCards",
+    "success": {
       "fields": {
-        "Error 4xx": [
+        "Success 200": [
           {
-            "group": "Error 4xx",
+            "group": "Success 200",
+            "type": "Boolean",
             "optional": false,
-            "field": "ErrorInRequest",
-            "description": "<p>Invalid request</p>"
+            "field": "success",
+            "description": "<p>status of the request.</p>"
           }
         ]
       },
       "examples": [
         {
-          "title": "Error-Response:",
-          "content": "HTTP/1.1 400 Bad Request\n{\n \"success\":false,\n \"message\":\"Invalid Request.\"\n}",
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"response\":\n             {\n               \"status\": true,\n               \"data\":\n                       [\n                        {\n                          \"id\": 3,\n                          \"user_id\": 2,\n                          \"card_number\": \"110093\",\n                          \"status\": true,\n                          \"created\": \"2016-08-11T08:04:05+0000\",\n                          \"modified\": \"2016-08-11T08:04:05+0000\"\n                        },\n                        {\n                          \"id\": 4,\n                          \"user_id\": 2,\n                          \"card_number\": \"110094\",\n                          \"status\": true,\n                          \"created\": \"2016-08-11T08:04:13+0000\",\n                          \"modified\": \"2016-08-11T08:04:13+0000\"\n                        }\n                       ]\n             }\n  }",
           "type": "json"
         }
       ]
@@ -525,60 +1014,11 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/userCards/",
-    "title": "List User's Cards",
-    "version": "1.0.0",
-    "name": "index",
-    "group": "usercards",
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Boolean",
-            "optional": false,
-            "field": "success",
-            "description": "<p>status of the request.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  \"response\":\n  {\n  \"status\": true,\n  \"data\":\n  [\n  {\n  \"id\": 3,\n  \"user_id\": 2,\n  \"card_number\": \"110093\",\n  \"status\": true,\n  \"created\": \"2016-08-11T08:04:05+0000\",\n  \"modified\": \"2016-08-11T08:04:05+0000\"\n  },\n  {\n  \"id\": 4,\n  \"user_id\": 2,\n  \"card_number\": \"110094\",\n  \"status\": true,\n  \"created\": \"2016-08-11T08:04:13+0000\",\n  \"modified\": \"2016-08-11T08:04:13+0000\"\n  }\n  ]\n  }\n  }",
-          "type": "json"
-        }
-      ]
-    },
-    "error": {
-      "fields": {
-        "Error 4xx": [
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "ErrorInRequest",
-            "description": "<p>Invalid request</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Error-Response:",
-          "content": "HTTP/1.1 400 Bad Request\n{\n \"success\":false,\n \"message\":\"Invalid Request.\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "peoplehub/src/Controller/Api/UserCardsController.php",
-    "groupTitle": "usercards"
-  },
-  {
-    "type": "GET",
-    "url": "/userCards/id",
-    "title": "List User's Cards",
+    "url": "/api/userCards/:id",
+    "title": "Detail of partiular user card",
     "version": "1.0.0",
     "name": "view",
-    "group": "usercards",
+    "group": "userCards",
     "success": {
       "fields": {
         "Success 200": [
@@ -594,31 +1034,12 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  \"response\":\n  {\n  \"status\": true,\n  \"data\":\n  [\n  {\n  \"id\": 3,\n  \"card_number\": \"110096\"\n  },\n  ]\n  }\n  }",
-          "type": "json"
-        }
-      ]
-    },
-    "error": {
-      "fields": {
-        "Error 4xx": [
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "ErrorInRequest",
-            "description": "<p>Invalid request</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Error-Response:",
-          "content": "HTTP/1.1 400 Bad Request\n{\n \"success\":false,\n \"message\":\"Invalid Request.\"\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  \"response\":\n            {\n              \"status\": true,\n              \"data\":\n                    [\n                      {\n                        \"id\": 3,\n                        \"card_number\": \"110096\"\n                      },\n                    ]\n            }\n  }",
           "type": "json"
         }
       ]
     },
     "filename": "peoplehub/src/Controller/Api/UserCardsController.php",
-    "groupTitle": "usercards"
+    "groupTitle": "userCards"
   }
 ] });

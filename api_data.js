@@ -1,6 +1,43 @@
 define({ "api": [
   {
     "type": "post",
+    "url": "/api/activities/",
+    "title": "Get User's activities",
+    "version": "1.0.0",
+    "name": "index",
+    "group": "Activities",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "status",
+            "description": "<p>status of the request.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "data",
+            "description": "<p>contains response.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "   HTTP/1.1 200 OK\n\n{\n     \"response\": {\n         \"status\": true,\n         \"data\": {\n             \"Activities\": [\n                 {\n                         \"id\": 3,\n                         \"vendor_id\": null,\n                         \"user_id\": 2,\n                         \"reward_method_id\": 1,\n                         \"service_id\": 1,\n                         \"attribute\": null,\n                         \"attribute_type\": null,\n                         \"action\": \"redeem\",\n                         \"points\": \"30\",\n                         \"status\": true,\n                         \"created\": \"2016-03-29T19:23:13+0000\",\n                         \"modified\": \"2016-03-29T19:23:13+0000\",\n                         \"service\": {\n                             \"id\": 1,\n                             \"name\": \"amazon\",\n                             \"label\": \"Amazon\",\n                             \"status\": true,\n                             \"created\": \"2016-09-12T09:07:40+0000\",\n                             \"modified\": \"2016-09-12T09:07:40+0000\"\n                         },\n                         \"reward_method\": {\n                             \"id\": 1,\n                             \"name\": \"wallet_credit\",\n                             \"label\": \"Wallet Credit\",\n                            \"status\": true,\n                             \"created\": \"2016-09-12T09:07:40+0000\",\n                            \"modified\": \"2016-09-12T09:07:40+0000\"\n                        },\n                         \"user\": {\n                             \"id\": 2,\n                             \"name\": \"Test User 1\",\n                             \"email\": \"testuser1@gmail.com\",\n                             \"role_id\": 2,\n                             \"created\": \"2016-09-12T09:07:40+0000\",\n                             \"modified\": \"2016-09-12T09:07:40+0000\",\n                             \"status\": true,\n                             \"uuid\": \"8bb60894-d389-48e0-b072-d7cce819dcae\",\n                             \"phone\": \"9878943352\"\n                        },\n                         \"vendor\": null\n                     },\n                     {\n                         \"id\": 5,\n                         \"vendor_id\": null,\n                         \"user_id\": 2,\n                         \"reward_method_id\": 1,\n                         \"service_id\": 1,\n                         \"attribute\": null,\n                         \"attribute_type\": null,\n                         \"action\": \"redeem\",\n                         \"points\": \"100\",\n                         \"status\": true,\n                         \"created\": \"2016-03-30T14:02:24+0000\",\n                         \"modified\": \"2016-03-30T14:02:24+0000\",\n                         \"service\": {\n                            \"id\": 1,\n                            \"name\": \"amazon\",\n                             \"label\": \"Amazon\",\n                             \"status\": true,\n                             \"created\": \"2016-09-12T09:07:40+0000\",\n                             \"modified\": \"2016-09-12T09:07:40+0000\"\n                         },\n                         \"reward_method\": {\n                             \"id\": 1,\n                             \"name\": \"wallet_credit\",\n                             \"label\": \"Wallet Credit\",\n                             \"status\": true,\n                             \"created\": \"2016-09-12T09:07:40+0000\",\n                             \"modified\": \"2016-09-12T09:07:40+0000\"\n                         },\n                         \"user\": {\n                             \"id\": 2,\n                             \"name\": \"Test User 1\",\n                             \"email\": \"testuser1@gmail.com\",\n                             \"role_id\": 2,\n                             \"created\": \"2016-09-12T09:07:40+0000\",\n                             \"modified\": \"2016-09-12T09:07:40+0000\",\n                             \"status\": true,\n                             \"uuid\": \"8bb60894-d389-48e0-b072-d7cce819dcae\",\n                             \"phone\": \"9878943352\"\n                        },\n                         \"vendor\": null\n                    }\n             ]\n         }\n     }\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "peoplehub/src/Controller/Api/ActivitiesController.php",
+    "groupTitle": "Activities"
+  },
+  {
+    "type": "post",
     "url": "/api/activities/:id",
     "title": "Get Vendor activities",
     "version": "1.0.0",

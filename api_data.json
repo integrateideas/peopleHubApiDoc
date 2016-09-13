@@ -187,6 +187,96 @@
     "groupTitle": "RedeemedCredits"
   },
   {
+    "type": "POST",
+    "url": "/api/resellerBillings/",
+    "title": "Generate Reseller's Bill",
+    "version": "1.0.0",
+    "name": "add",
+    "group": "Reseller_Billings",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "status",
+            "description": "<p>status of the request.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n   \"response\": {\n        \"status\": true,\n        \"reseller_id\": 1,\n        \"data\": {\n            \"points\": \"850\",\n            \"billable_amount\": \"$17\",\n            \"total_transactions\": 8,\n            \"vendor_bills\": [\n                {\n                    \"vendor_id\": 1,\n                    \"points_redeemed\": \"400\",\n                    \"billable_amount\": \"$8\",\n                    \"total_transactions\": 4\n                },\n                {\n                    \"vendor_id\": 2,\n                    \"points_redeemed\": \"450\",\n                    \"billable_amount\": \"$9\",\n                    \"total_transactions\": 4\n                }\n            ]\n        }\n    }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "peoplehub/src/Controller/Api/ResellerBillingsController.php",
+    "groupTitle": "Reseller_Billings"
+  },
+  {
+    "type": "POST",
+    "url": "/api/resellerBillings/:month/:year",
+    "title": "Generate Reseller's Bill",
+    "version": "1.0.0",
+    "name": "view",
+    "group": "Reseller_Billings",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "status",
+            "description": "<p>status of the request.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n\n{\n    \"response\": {\n        \"status\": true,\n        \"reseller_id\": 1,\n        \"data\": [\n            {\n                \"points\": \"1408\",\n                \"billable_amount\": \"$28.16\",\n                \"total_transactions\": 14,\n                \"from_date\": \"2016-06-02 00:00:00\",\n                \"to_date\": \"2016-07-02 00:00:00\"\n            },\n            {\n                \"points\": \"564\",\n                \"billable_amount\": \"$11.28\",\n                \"total_transactions\": 8,\n                \"from_date\": \"2016-05-02 00:00:00\",\n                \"to_date\": \"2016-06-02 00:00:00\"\n            },\n            {\n                \"points\": \"1310\",\n                \"billable_amount\": \"$26.2\",\n                \"total_transactions\": 9,\n                \"from_date\": \"2016-04-02 00:00:00\",\n                \"to_date\": \"2016-05-02 00:00:00\"\n            },\n            {\n                \"points\": \"850\",\n                \"billable_amount\": \"$17\",\n                \"total_transactions\": 8,\n                \"from_date\": \"2016-03-02 00:00:00\",\n                \"to_date\": \"2016-04-02 00:00:00\"\n            }\n        ]\n    }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "peoplehub/src/Controller/Api/ResellerBillingsController.php",
+    "groupTitle": "Reseller_Billings"
+  },
+  {
+    "type": "POST",
+    "url": "/api/resellerBillings/:month/:year",
+    "title": "Generate Reseller's Bill",
+    "version": "1.0.0",
+    "name": "view",
+    "group": "Reseller_Billings",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "status",
+            "description": "<p>status of the request.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n   \"response\": {\n        \"status\": true,\n        \"reseller_id\": 1,\n        \"data\": {\n            \"points\": \"850\",\n            \"billable_amount\": \"$17\",\n            \"total_transactions\": 8,\n            \"vendor_bills\": [\n                {\n                    \"vendor_id\": 1,\n                    \"points_redeemed\": \"400\",\n                    \"billable_amount\": \"$8\",\n                    \"total_transactions\": 4\n                },\n                {\n                    \"vendor_id\": 2,\n                    \"points_redeemed\": \"450\",\n                    \"billable_amount\": \"$9\",\n                    \"total_transactions\": 4\n                }\n            ]\n        }\n    }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "peoplehub/src/Controller/Api/ResellerBillingsController.php",
+    "groupTitle": "Reseller_Billings"
+  },
+  {
     "type": "GET",
     "url": "/api/resellers/token/",
     "title": "Get reseller's access token",
@@ -572,7 +662,7 @@
   },
   {
     "type": "POST",
-    "url": "/api/vebdorBillings/",
+    "url": "/api/vendorBillings/",
     "title": "Generate Vendor's Bill",
     "version": "1.0.0",
     "name": "add",
@@ -586,6 +676,13 @@
             "optional": false,
             "field": "vendor_id",
             "description": "<p>Vendor's Id.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": false,
+            "field": "month",
+            "description": "<p>month of which bill has to be generated.</p>"
           }
         ]
       }
@@ -883,6 +980,36 @@
         {
           "title": "Success-Response:",
           "content": "HTTP/1.1 200 OK\n{\n \"response\": {\n               \"status\": true,\n               \"data\": {\n                         \"id\": 8\n                         }\n             }\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "peoplehub/src/Controller/Api/VendorsController.php",
+    "groupTitle": "Vendors"
+  },
+  {
+    "type": "get",
+    "url": "/api/vendors/",
+    "title": "get vendor's list of a reseller",
+    "version": "1.0.0",
+    "name": "index",
+    "group": "Vendors",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": "<p>status of the request.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "    HTTP/1.1 200 OK\n{\n    \"response\": {\n        \"status\": true,\n        \"data\": [\n            {\n                \"id\": 1,\n                \"reseller_id\": 1,\n                \"vendor_id\": 1,\n                \"status\": true,\n                \"created\": \"2016-09-10T06:55:08+0000\",\n                \"modified\": \"2016-09-10T06:55:08+0000\",\n                \"vendor\": {\n                    \"id\": 1,\n                    \"name\": \"Vendor1\",\n                    \"created\": \"2016-09-10T06:55:08+0000\",\n                    \"modified\": \"2016-09-10T06:55:08+0000\",\n                    \"status\": true,\n                    \"deleted\": null,\n                    \"vendor_reward_types\": [\n                        {\n                            \"id\": 1,\n                            \"vendor_id\": 1,\n                            \"reward_method_id\": 1,\n                            \"created\": \"2016-09-10T06:55:08+0000\",\n                            \"modified\": \"2016-09-10T06:55:08+0000\",\n                            \"status\": true,\n                            \"reward_method\": {\n                                \"id\": 1,\n                                \"name\": \"wallet_credit\",\n                                \"label\": \"Wallet Credit\",\n                                \"status\": true,\n                                \"created\": \"2016-09-10T06:55:07+0000\",\n                                \"modified\": \"2016-09-10T06:55:07+0000\"\n                            }\n                        }\n                    ],\n                    \"vendor_contacts\": [\n                        {\n                            \"id\": 1,\n                            \"vendor_id\": 1,\n                            \"email\": \"vendor1@gmail.com\",\n                            \"phone\": \"1234567890\",\n                            \"is_primary\": true,\n                            \"created\": \"2016-09-10T06:55:08+0000\",\n                            \"modified\": \"2016-09-10T06:55:08+0000\"\n                        }\n                    ]\n                }\n            },\n            {\n                \"id\": 2,\n                \"reseller_id\": 1,\n                \"vendor_id\": 2,\n                \"status\": true,\n                \"created\": \"2016-09-10T06:55:08+0000\",\n                \"modified\": \"2016-09-10T06:55:08+0000\",\n                \"vendor\": {\n                    \"id\": 2,\n                    \"name\": \"Vendor2\",\n                    \"created\": \"2016-09-10T06:55:08+0000\",\n                    \"modified\": \"2016-09-10T06:55:08+0000\",\n                    \"status\": true,\n                    \"deleted\": null,\n                    \"vendor_reward_types\": [\n                        {\n                            \"id\": 2,\n                            \"vendor_id\": 2,\n                            \"reward_method_id\": 1,\n                            \"created\": \"2016-09-10T06:55:08+0000\",\n                            \"modified\": \"2016-09-10T06:55:08+0000\",\n                            \"status\": true,\n                            \"reward_method\": {\n                               \"id\": 1,\n                                \"name\": \"wallet_credit\",\n                                \"label\": \"Wallet Credit\",\n                                \"status\": true,\n                                \"created\": \"2016-09-10T06:55:07+0000\",\n                                \"modified\": \"2016-09-10T06:55:07+0000\"\n                            }\n                        }\n                    ],\n                    \"vendor_contacts\": [\n                        {\n                            \"id\": 2,\n                            \"vendor_id\": 2,\n                            \"email\": \"vendor2@gmail.com\",\n                            \"phone\": \"1234567890\",\n                            \"is_primary\": true,\n                            \"created\": \"2016-09-10T06:55:08+0000\",\n                            \"modified\": \"2016-09-10T06:55:08+0000\"\n                        }\n                    ]\n                }\n            }\n          ]\n        }\n    }",
           "type": "json"
         }
       ]

@@ -193,6 +193,19 @@ define({ "api": [
     "version": "1.0.0",
     "name": "add",
     "group": "Reseller_Billings",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": false,
+            "field": "month",
+            "description": "<p>month of which bill has to be generated.</p>"
+          }
+        ]
+      }
+    },
     "success": {
       "fields": {
         "Success 200": [
@@ -217,11 +230,11 @@ define({ "api": [
     "groupTitle": "Reseller_Billings"
   },
   {
-    "type": "POST",
+    "type": "get",
     "url": "/api/resellerBillings/:month/:year",
-    "title": "Generate Reseller's Bill",
+    "title": "view Reseller's Bill of all months",
     "version": "1.0.0",
-    "name": "view",
+    "name": "all",
     "group": "Reseller_Billings",
     "success": {
       "fields": {
@@ -247,9 +260,9 @@ define({ "api": [
     "groupTitle": "Reseller_Billings"
   },
   {
-    "type": "POST",
+    "type": "get",
     "url": "/api/resellerBillings/:month/:year",
-    "title": "Generate Reseller's Bill",
+    "title": "view Reseller's Bill of specific month",
     "version": "1.0.0",
     "name": "view",
     "group": "Reseller_Billings",

@@ -1367,11 +1367,11 @@ define({ "api": [
   },
   {
     "type": "POST",
-    "url": "/api/vendor/instant-redeem/",
-    "title": "instant redeem api",
-    "description": "<p>This api is used to redeem points instantly.</p>",
+    "url": "/api/vendor/UserInstantRedemptions/",
+    "title": "view all instant redemptions",
+    "description": "<p>This api is used to view all instant redemptions.</p>",
     "version": "1.1.0",
-    "name": "instant_redeem",
+    "name": "viewInstantRedemptions",
     "group": "Vendor_Apis",
     "header": {
       "fields": {
@@ -1386,45 +1386,11 @@ define({ "api": [
         ]
       }
     },
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "Integer",
-            "optional": false,
-            "field": "user_id",
-            "description": "<p>contains user's id for which point has to be redeemed.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "Float",
-            "optional": false,
-            "field": "price",
-            "description": "<p>price to redeem</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "service",
-            "description": "<p>cotains service can be amazon or tango.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": true,
-            "field": "description",
-            "description": "<p>cotains description.</p>"
-          }
-        ]
-      }
-    },
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n  {\n    \"response\": {\n        \"status\": true,\n        \"message\": \"Reward offered successfully\"\n    }\n}",
+          "content": "HTTP/1.1 200 OK\n  {\n\"response\": {\n    \"status\": true,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"service_id\": 2,\n            \"description\": \"asadd\",\n            \"vendor_id\": 1,\n            \"user_id\": 1,\n            \"price\": 100,\n            \"created\": \"2016-11-04T08:31:43+00:00\",\n            \"modified\": \"2016-11-04T08:31:43+00:00\",\n            \"deleted\": null,\n            \"status\": true,\n            \"service\": {\n                \"id\": 2,\n                \"name\": \"tango\",\n                \"label\": \"Tango Card\",\n                \"status\": true,\n                \"created\": \"2016-10-20T11:15:26+00:00\",\n                \"modified\": \"2016-10-20T11:15:26+00:00\"\n            },\n            \"user\": {\n                \"id\": 1,\n                \"uuid\": \"88e4bc36-a680-4a25-9b99-d125a82e3f22\",\n                \"name\": \"admin\",\n                \"email\": \"nitesh.srivastava@twinspark.co\",\n                \"phone\": null,\n                \"role_id\": 1,\n                \"created\": \"2016-10-20T11:15:25+00:00\",\n                \"modified\": \"2016-10-20T11:15:25+00:00\",\n                \"status\": true,\n                \"username\": \"admin\",\n                \"isEmailVerified\": false\n            }\n        }\n      ]\n    }\n  }",
           "type": "json"
         }
       ]

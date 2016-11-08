@@ -722,7 +722,7 @@ define({ "api": [
     "type": "post",
     "url": "/users/logout",
     "title": "Logout User",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "name": "logout",
     "group": "User_Apis",
     "header": {
@@ -977,7 +977,7 @@ define({ "api": [
     "type": "GET",
     "url": "/api/vendor/rewardCredits/",
     "title": "Get all available rewards and detail",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "name": "get_all_reward_credits",
     "group": "Vendor_Apis",
     "header": {
@@ -1014,6 +1014,91 @@ define({ "api": [
       ]
     },
     "filename": "src/Controller/Api/Vendor/RewardCreditsController.php",
+    "groupTitle": "Vendor_Apis"
+  },
+  {
+    "type": "POST",
+    "url": "/api/vendor/UserInstantRedemptions/",
+    "title": "instant redemption",
+    "description": "<p>This api is used to redeem instantly.</p>",
+    "version": "1.1.0",
+    "name": "provideInstantRedemptions",
+    "group": "Vendor_Apis",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>Vendor's Access Token</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "price",
+            "optional": false,
+            "field": "instant",
+            "description": "<p>redeem price.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "user_id",
+            "description": "<p>User's Id.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "service",
+            "description": "<p>service name amazon/tango to redeem reward, not required if redemption is in_house</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": true,
+            "field": "in_house",
+            "description": "<p>true if in house redemtion else false.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "description",
+            "description": "<p>description of redemtion, required if redemption is in_house else not</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "id",
+            "description": "<p>redemption Id.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n   \"status\": true,\n   \"data\": {\n       \"id\": 10,\n       \"message\": \"Reward offered successfully\"\n   }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/Controller/Api/Vendor/UserInstantRedemptionsController.php",
     "groupTitle": "Vendor_Apis"
   },
   {
@@ -1094,7 +1179,7 @@ define({ "api": [
     "groupTitle": "Vendor_Apis"
   },
   {
-    "type": "POST",
+    "type": "GET",
     "url": "/api/vendor/UserInstantRedemptions/",
     "title": "view all instant redemptions",
     "description": "<p>This api is used to view all instant redemptions.</p>",

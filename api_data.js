@@ -711,107 +711,6 @@ define({ "api": [
     "groupTitle": "Reseller_Billings"
   },
   {
-    "type": "post",
-    "url": "/api/rewardCredits/",
-    "title": "Reward Credit to user",
-    "version": "1.0.0",
-    "name": "add",
-    "group": "RewardCredits",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "integer",
-            "optional": false,
-            "field": "vendor_id",
-            "description": "<p>Vendor's Id.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "attribute_type",
-            "description": "<p>attribute type: can be email or phone or card.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "attribute",
-            "description": "<p>value of attribute type.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "integer",
-            "optional": false,
-            "field": "points",
-            "description": "<p>reward to credit.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "reward_type",
-            "description": "<p>: can be wallet_credit or reward_credit.</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Boolean",
-            "optional": false,
-            "field": "success",
-            "description": "<p>status of the request.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "   HTTP/1.1 200 OK\n {\n     \"response\": {\n         \"status\": true,\n         \"message\": \"Reward offered successfully\"\n     }\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "src/Controller/Api/Vendor/RewardCreditsController.php",
-    "groupTitle": "RewardCredits"
-  },
-  {
-    "type": "GET",
-    "url": "/api/rewardCredits/",
-    "title": "Get all available rewards and detail",
-    "version": "1.0.0",
-    "name": "index",
-    "group": "RewardCredits",
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Boolean",
-            "optional": false,
-            "field": "success",
-            "description": "<p>status of the request.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n   {\n  \"response\": {\n      \"status\": true,\n     \"data\": {\n          \"id\": 2,\n          \"total_credits\": [\n              {\n                  \"name\": \"wallet_credit\",\n                  \"value\": 1100,\n                  \"label\": \"Wallet Credit\"\n              },\n              {\n                  \"name\": \"store_credit\",\n                  \"value\": 1100,\n                  \"label\": \"Store Credit\"\n              }\n          ],\n          \"user_credits\": [\n              {\n                  \"id\": 1,\n                  \"vendor_id\": 1,\n                  \"user_id\": 2,\n                  \"attribute\": \"78945613\",\n                  \"attribute_type\": \"phone\",\n                  \"points\": 500,\n                  \"vendor_reward_type_id\": 1,\n                  \"created\": \"2016-08-11T11:11:41+0000\",\n                  \"modified\": \"2016-08-11T11:11:45+0000\",\n                  \"vendor_reward_type\": {\n                      \"id\": 1,\n                      \"vendor_id\": 1,\n                      \"reward_method_id\": 1,\n                      \"created\": \"2016-08-11T11:04:43+0000\",\n                      \"modified\": \"2016-08-11T11:04:43+0000\",\n                      \"status\": true,\n                      \"reward_method\": {\n                          \"id\": 1,\n                          \"name\": \"wallet_credit\",\n                          \"label\": \"Wallet Credit\",\n                          \"status\": true,\n                          \"created\": \"2016-08-11T11:04:05+0000\",\n                          \"modified\": \"2016-08-11T11:04:05+0000\"\n                      }\n                  },\n                  \"vendor\": {\n                      \"id\": 1,\n                      \"name\": \"nitesh121\",\n                      \"created\": \"2016-08-11T11:04:43+0000\",\n                      \"modified\": \"2016-08-11T11:04:43+0000\",\n                      \"status\": true,\n                      \"deleted\": null\n                  }\n              },\n              {\n                  \"id\": 2,\n                  \"vendor_id\": 2,\n                  \"user_id\": 2,\n                \"attribute\": \"78945613\",\n                  \"attribute_type\": \"phone\",\n                  \"points\": 1100,\n                  \"vendor_reward_type_id\": 2,\n                  \"created\": \"2016-08-11T11:12:16+0000\",\n                  \"modified\": \"2016-08-11T11:12:20+0000\",\n                  \"vendor_reward_type\": {\n                      \"id\": 2,\n                      \"vendor_id\": 2,\n                      \"reward_method_id\": 1,\n                      \"created\": \"2016-08-11T11:12:07+0000\",\n                      \"modified\": \"2016-08-11T11:12:07+0000\",\n                      \"status\": true,\n                     \"reward_method\": {\n                          \"id\": 1,\n                          \"name\": \"wallet_credit\",\n                          \"label\": \"Wallet Credit\",\n                          \"status\": true,\n                          \"created\": \"2016-08-11T11:04:05+0000\",\n                          \"modified\": \"2016-08-11T11:04:05+0000\"\n                      }\n                  },\n                  \"vendor\": {\n                      \"id\": 2,\n                      \"name\": \"nitesh\",\n                      \"created\": \"2016-08-11T11:12:07+0000\",\n                      \"modified\": \"2016-08-11T11:12:07+0000\",\n                      \"status\": true,\n                      \"deleted\": null\n                  }\n            }\n         }\n      }\n  }",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "src/Controller/Api/Vendor/RewardCreditsController.php",
-    "groupTitle": "RewardCredits"
-  },
-  {
     "type": "GET",
     "url": "/api/rewardCredits/:id",
     "title": "Get available rewards of a user",
@@ -1363,6 +1262,126 @@ define({ "api": [
       ]
     },
     "filename": "src/Controller/Api/Vendor/VendorsController.php",
+    "groupTitle": "Vendor_Apis"
+  },
+  {
+    "type": "GET",
+    "url": "/api/vendor/rewardCredits/",
+    "title": "Get all available rewards and detail",
+    "version": "1.0.0",
+    "name": "get_all_reward_credits",
+    "group": "Vendor_Apis",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>Vendor's Access Token</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": "<p>status of the request.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n   {\n  \"response\": {\n      \"status\": true,\n     \"data\": {\n          \"id\": 2,\n          \"total_credits\": [\n              {\n                  \"name\": \"wallet_credit\",\n                  \"value\": 1100,\n                  \"label\": \"Wallet Credit\"\n              },\n              {\n                  \"name\": \"store_credit\",\n                  \"value\": 1100,\n                  \"label\": \"Store Credit\"\n              }\n          ],\n          \"user_credits\": [\n              {\n                  \"id\": 1,\n                  \"vendor_id\": 1,\n                  \"user_id\": 2,\n                  \"attribute\": \"78945613\",\n                  \"attribute_type\": \"phone\",\n                  \"points\": 500,\n                  \"vendor_reward_type_id\": 1,\n                  \"created\": \"2016-08-11T11:11:41+0000\",\n                  \"modified\": \"2016-08-11T11:11:45+0000\",\n                  \"vendor_reward_type\": {\n                      \"id\": 1,\n                      \"vendor_id\": 1,\n                      \"reward_method_id\": 1,\n                      \"created\": \"2016-08-11T11:04:43+0000\",\n                      \"modified\": \"2016-08-11T11:04:43+0000\",\n                      \"status\": true,\n                      \"reward_method\": {\n                          \"id\": 1,\n                          \"name\": \"wallet_credit\",\n                          \"label\": \"Wallet Credit\",\n                          \"status\": true,\n                          \"created\": \"2016-08-11T11:04:05+0000\",\n                          \"modified\": \"2016-08-11T11:04:05+0000\"\n                      }\n                  },\n                  \"vendor\": {\n                      \"id\": 1,\n                      \"name\": \"nitesh121\",\n                      \"created\": \"2016-08-11T11:04:43+0000\",\n                      \"modified\": \"2016-08-11T11:04:43+0000\",\n                      \"status\": true,\n                      \"deleted\": null\n                  }\n              },\n              {\n                  \"id\": 2,\n                  \"vendor_id\": 2,\n                  \"user_id\": 2,\n                \"attribute\": \"78945613\",\n                  \"attribute_type\": \"phone\",\n                  \"points\": 1100,\n                  \"vendor_reward_type_id\": 2,\n                  \"created\": \"2016-08-11T11:12:16+0000\",\n                  \"modified\": \"2016-08-11T11:12:20+0000\",\n                  \"vendor_reward_type\": {\n                      \"id\": 2,\n                      \"vendor_id\": 2,\n                      \"reward_method_id\": 1,\n                      \"created\": \"2016-08-11T11:12:07+0000\",\n                      \"modified\": \"2016-08-11T11:12:07+0000\",\n                      \"status\": true,\n                     \"reward_method\": {\n                          \"id\": 1,\n                          \"name\": \"wallet_credit\",\n                          \"label\": \"Wallet Credit\",\n                          \"status\": true,\n                          \"created\": \"2016-08-11T11:04:05+0000\",\n                          \"modified\": \"2016-08-11T11:04:05+0000\"\n                      }\n                  },\n                  \"vendor\": {\n                      \"id\": 2,\n                      \"name\": \"nitesh\",\n                      \"created\": \"2016-08-11T11:12:07+0000\",\n                      \"modified\": \"2016-08-11T11:12:07+0000\",\n                      \"status\": true,\n                      \"deleted\": null\n                  }\n            }\n         }\n      }\n  }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/Controller/Api/Vendor/RewardCreditsController.php",
+    "groupTitle": "Vendor_Apis"
+  },
+  {
+    "type": "post",
+    "url": "/api/rewardCredits/",
+    "title": "Reward Credit to user",
+    "version": "1.0.0",
+    "name": "rewardCreditToUser",
+    "group": "Vendor_Apis",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>Vendor's Access Token</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "attribute_type",
+            "description": "<p>attribute type: can be email or phone or card.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "attribute",
+            "description": "<p>value of attribute type.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": false,
+            "field": "points",
+            "description": "<p>reward to credit.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "reward_type",
+            "description": "<p>: can be wallet_credit or reward_credit.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": "<p>status of the request.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "   HTTP/1.1 200 OK\n {\n     \"response\": {\n         \"status\": true,\n         \"message\": \"Reward offered successfully\"\n     }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/Controller/Api/Vendor/RewardCreditsController.php",
     "groupTitle": "Vendor_Apis"
   },
   {

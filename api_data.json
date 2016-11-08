@@ -1,249 +1,5 @@
 [
   {
-    "type": "post",
-    "url": "/api/activities/",
-    "title": "Get User's activities",
-    "version": "1.0.0",
-    "name": "index",
-    "group": "Activities",
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Boolean",
-            "optional": false,
-            "field": "status",
-            "description": "<p>status of the request.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "Array",
-            "optional": false,
-            "field": "data",
-            "description": "<p>contains response.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "   HTTP/1.1 200 OK\n\n{\n     \"response\": {\n         \"status\": true,\n         \"data\": {\n             \"Activities\": [\n                 {\n                         \"id\": 3,\n                         \"vendor_id\": null,\n                         \"user_id\": 2,\n                         \"reward_method_id\": 1,\n                         \"service_id\": 1,\n                         \"attribute\": null,\n                         \"attribute_type\": null,\n                         \"action\": \"redeem\",\n                         \"points\": \"30\",\n                         \"status\": true,\n                         \"created\": \"2016-03-29T19:23:13+0000\",\n                         \"modified\": \"2016-03-29T19:23:13+0000\",\n                         \"service\": {\n                             \"id\": 1,\n                             \"name\": \"amazon\",\n                             \"label\": \"Amazon\",\n                             \"status\": true,\n                             \"created\": \"2016-09-12T09:07:40+0000\",\n                             \"modified\": \"2016-09-12T09:07:40+0000\"\n                         },\n                         \"reward_method\": {\n                             \"id\": 1,\n                             \"name\": \"wallet_credit\",\n                             \"label\": \"Wallet Credit\",\n                            \"status\": true,\n                             \"created\": \"2016-09-12T09:07:40+0000\",\n                            \"modified\": \"2016-09-12T09:07:40+0000\"\n                        },\n                         \"user\": {\n                             \"id\": 2,\n                             \"name\": \"Test User 1\",\n                             \"email\": \"testuser1@gmail.com\",\n                             \"role_id\": 2,\n                             \"created\": \"2016-09-12T09:07:40+0000\",\n                             \"modified\": \"2016-09-12T09:07:40+0000\",\n                             \"status\": true,\n                             \"uuid\": \"8bb60894-d389-48e0-b072-d7cce819dcae\",\n                             \"phone\": \"9878943352\"\n                        },\n                         \"vendor\": null\n                     },\n                     {\n                         \"id\": 5,\n                         \"vendor_id\": null,\n                         \"user_id\": 2,\n                         \"reward_method_id\": 1,\n                         \"service_id\": 1,\n                         \"attribute\": null,\n                         \"attribute_type\": null,\n                         \"action\": \"redeem\",\n                         \"points\": \"100\",\n                         \"status\": true,\n                         \"created\": \"2016-03-30T14:02:24+0000\",\n                         \"modified\": \"2016-03-30T14:02:24+0000\",\n                         \"service\": {\n                            \"id\": 1,\n                            \"name\": \"amazon\",\n                             \"label\": \"Amazon\",\n                             \"status\": true,\n                             \"created\": \"2016-09-12T09:07:40+0000\",\n                             \"modified\": \"2016-09-12T09:07:40+0000\"\n                         },\n                         \"reward_method\": {\n                             \"id\": 1,\n                             \"name\": \"wallet_credit\",\n                             \"label\": \"Wallet Credit\",\n                             \"status\": true,\n                             \"created\": \"2016-09-12T09:07:40+0000\",\n                             \"modified\": \"2016-09-12T09:07:40+0000\"\n                         },\n                         \"user\": {\n                             \"id\": 2,\n                             \"name\": \"Test User 1\",\n                             \"email\": \"testuser1@gmail.com\",\n                             \"role_id\": 2,\n                             \"created\": \"2016-09-12T09:07:40+0000\",\n                             \"modified\": \"2016-09-12T09:07:40+0000\",\n                             \"status\": true,\n                             \"uuid\": \"8bb60894-d389-48e0-b072-d7cce819dcae\",\n                             \"phone\": \"9878943352\"\n                        },\n                         \"vendor\": null\n                    }\n             ]\n         }\n     }\n }",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "src/Controller/Api/User/ActivitiesController.php",
-    "groupTitle": "Activities"
-  },
-  {
-    "type": "post",
-    "url": "/api/activities/:id",
-    "title": "Get Vendor activities",
-    "version": "1.0.0",
-    "name": "view",
-    "group": "Activities",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "integer",
-            "optional": false,
-            "field": "id",
-            "description": "<p>vendor's id</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Boolean",
-            "optional": false,
-            "field": "status",
-            "description": "<p>status of the request.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "Array",
-            "optional": false,
-            "field": "data",
-            "description": "<p>contains response.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "   HTTP/1.1 200 OK\n\n{\n     \"response\": {\n         \"status\": true,\n         \"data\": {\n             \"Activities\": [\n                 {\n                     \"id\": 1,\n                     \"vendor_id\": 4,\n                     \"user_id\": null,\n                     \"reward_method_id\": 1,\n                     \"service_id\": null,\n                     \"attribute\": null,\n                     \"attribute_type\": null,\n                     \"action\": \"reward\",\n                     \"points\": \"100\",\n                     \"status\": true,\n                     \"created\": \"2016-09-11T12:52:01+0000\",\n                     \"modified\": \"2016-09-11T12:52:01+0000\",\n                     \"service\": null,\n                     \"reward_method\": {\n                         \"id\": 1,\n                         \"name\": \"wallet_credit\",\n                         \"label\": \"Wallet Credit\",\n                         \"status\": true,\n                         \"created\": \"2016-09-10T06:55:07+0000\",\n                         \"modified\": \"2016-09-10T06:55:07+0000\"\n                     },\n                     \"user\": null,\n                     \"vendor\": {\n                         \"id\": 4,\n                         \"name\": \"niteeshs\",\n                         \"created\": \"2016-09-11T12:30:52+0000\",\n                         \"modified\": \"2016-09-11T12:30:52+0000\",\n                         \"status\": true,\n                         \"deleted\": null\n                     }\n                 }\n             ]\n         }\n     }\n }",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "src/Controller/Api/User/ActivitiesController.php",
-    "groupTitle": "Activities"
-  },
-  {
-    "type": "post",
-    "url": "/api/redeemedCredits/",
-    "title": "Redeem Store credit (By Vendor)",
-    "version": "1.0.0",
-    "name": "addStore",
-    "group": "RedeemedCredits",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "integer",
-            "optional": false,
-            "field": "vendor_id",
-            "description": "<p>: vendor's id who is redeeming the store credit</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "attribute_type",
-            "description": "<p>attribute type: can be email or phone or card.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "attribute",
-            "description": "<p>value of attribute type.</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Boolean",
-            "optional": false,
-            "field": "success",
-            "description": "<p>status of the request.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "   HTTP/1.1 200 OK\n{\n   \"response\": {\n     \"status\": true,\n     \"message\": \"points redeemed\"\n   }\n }",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "src/Controller/Api/Vendor/RedeemedCreditsController.php",
-    "groupTitle": "RedeemedCredits"
-  },
-  {
-    "type": "post",
-    "url": "/api/redeemedCredits/",
-    "title": "Redeem Store credit (By Vendor)",
-    "version": "1.0.0",
-    "name": "addStore",
-    "group": "RedeemedCredits",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "integer",
-            "optional": false,
-            "field": "vendor_id",
-            "description": "<p>: vendor's id who is redeeming the store credit</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "attribute_type",
-            "description": "<p>attribute type: can be email or phone or card.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "attribute",
-            "description": "<p>value of attribute type.</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Boolean",
-            "optional": false,
-            "field": "success",
-            "description": "<p>status of the request.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "   HTTP/1.1 200 OK\n{\n   \"response\": {\n     \"status\": true,\n     \"message\": \"points redeemed\"\n   }\n }",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "src/Controller/Api/RedeemedCreditsController.php",
-    "groupTitle": "RedeemedCredits"
-  },
-  {
-    "type": "post",
-    "url": "/api/redeemedCredits/",
-    "title": "Redeem wallet credit (By user)",
-    "version": "1.0.0",
-    "name": "addWallet",
-    "group": "RedeemedCredits",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "service",
-            "description": "<p>: can be amazon or tango</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Boolean",
-            "optional": false,
-            "field": "success",
-            "description": "<p>status of the request.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "   HTTP/1.1 200 OK\n{\n   \"response\": {\n     \"status\": true,\n     \"message\": \"Gift coupon requested\"\n   }\n }",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "src/Controller/Api/RedeemedCreditsController.php",
-    "groupTitle": "RedeemedCredits"
-  },
-  {
     "type": "POST",
     "url": "/api/reseller/vendors",
     "title": "Add Vendor",
@@ -484,7 +240,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n  {\n    \"response\": {\n                  \"status\": true,\n                  \"data\": {\n                      \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImV4cCI6MTQ3MTQyNjE2Mn0.VN1h-2Hl8eLdbxzH743KOS0uVu65en7kvuY4HuCnx0w\",\n                      \"expires\": 2016-11-04 09:32:16\n                  }\n                }\n    }",
+          "content": "HTTP/1.1 200 OK\n  {\n       \"status\": true,\n       \"data\": {\n           \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImV4cCI6IjIwMTYtMTEtMDggMDg6MjM6MDUifQ.pqVfbn5UqYSpes-lhyjRQTBLpd4C4OSt986KIQaS2YM\",\n           \"expires\": \"2016-11-08 08:23:05\"\n       }\n   }",
           "type": "json"
         }
       ]
@@ -536,6 +292,204 @@
         {
           "title": "Success-Response:",
           "content": "HTTP/1.1 200 OK\n{\n\"response\":\n{\n    \"status\": true,\n    \"data\":\n    [\n        {\n            \"id\": 1,\n            \"reseller_id\": 1,\n            \"vendor_id\": 1,\n            \"status\": true,\n            \"created\": \"2016-10-20T11:15:26+00:00\",\n            \"modified\": \"2016-10-20T11:15:26+00:00\",\n            \"vendor\":\n            {\n                \"id\": 1,\n                \"name\": \"Vendor1\",\n                \"created\": \"2016-10-20T11:15:26+00:00\",\n                \"modified\": \"2016-10-20T11:15:26+00:00\",\n                \"status\": true,\n                \"deleted\": null,\n                \"vendor_reward_types\":\n                [\n                    {\n                        \"id\": 3,\n                        \"vendor_id\": 1,\n                        \"reward_method_id\": 6,\n                        \"created\": \"2016-11-01T02:03:43+00:00\",\n                        \"modified\": \"2016-11-01T02:03:43+00:00\",\n                        \"status\": true,\n                        \"reward_method\":\n                        {\n                            \"id\": 6,\n                            \"name\": \"instant_redeem\",\n                            \"label\": \"Instant Redeemption\",\n                            \"status\": true,\n                            \"created\": \"2016-11-04T08:06:10+00:00\",\n                            \"modified\": \"2016-11-04T08:06:10+00:00\"\n                        }\n                    }\n                ],\n                \"vendor_contacts\":\n                [\n                    {\n                        \"id\": 1,\n                        \"vendor_id\": 1,\n                        \"email\": \"vendor1@gmail.com\",\n                        \"phone\": \"1234567890\",\n                        \"is_primary\": true,\n                        \"created\": \"2016-10-20T11:15:26+00:00\",\n                        \"modified\": \"2016-10-20T11:15:26+00:00\"\n                    }\n                 ]\n             }\n         }\n       ]\n     }\n  }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/Controller/Api/Reseller/VendorsController.php",
+    "groupTitle": "Reseller_Apis"
+  },
+  {
+    "type": "put",
+    "url": "/api/vendor/vendors/",
+    "title": "Update vendor's detail",
+    "version": "1.1.0",
+    "name": "Update_Vendor_s_detail",
+    "group": "Reseller_Apis",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Vendor's Id.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "name",
+            "description": "<p>Vendor's organizarion name.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": true,
+            "field": "status",
+            "description": "<p>Vendor's status.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": true,
+            "field": "vendor_contacts",
+            "description": "<p>Contain vendor contact relacted data.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "email",
+            "description": "<p>Vendor's email.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "phone",
+            "description": "<p>Vendor's Phone number.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": true,
+            "field": "is_primary",
+            "description": "<p>is primary contact.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": true,
+            "field": "vendor_reward_types",
+            "description": "<p>Contain vendor reward type relacted data.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "reward_method_id",
+            "description": "<p>reward method's id: 1-wallet credit, 2-store credit.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": "<p>status of the request.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n \"response\": {\n              \"status\": true,\n               \"message\": \"Vendor's data updated successfully\"\n              }\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/Controller/Api/Vendor/VendorsController.php",
+    "groupTitle": "Reseller_Apis"
+  },
+  {
+    "type": "put",
+    "url": "/api/reseller/vendors/:id",
+    "title": "Update vendor detail",
+    "version": "1.1.0",
+    "name": "Update_vendor_detail",
+    "group": "Reseller_Apis",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Vendor's Id.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "name",
+            "description": "<p>Vendor's organizarion name.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": true,
+            "field": "status",
+            "description": "<p>Vendor's status.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": true,
+            "field": "vendor_contacts",
+            "description": "<p>Contain vendor contact relacted data.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "email",
+            "description": "<p>Vendor's email.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "phone",
+            "description": "<p>Vendor's Phone number.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": true,
+            "field": "is_primary",
+            "description": "<p>is primary contact.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": true,
+            "field": "vendor_reward_types",
+            "description": "<p>Contain vendor reward type relacted data.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "reward_method_id",
+            "description": "<p>reward method's id: 1-wallet credit, 2-store credit.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": "<p>status of the request.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n \"response\": {\n              \"status\": true,\n               \"message\": \"Vendor's data updated successfully\"\n              }\n }",
           "type": "json"
         }
       ]
@@ -606,152 +560,6 @@
     },
     "filename": "src/Controller/Api/Reseller/VendorsController.php",
     "groupTitle": "Reseller_Apis"
-  },
-  {
-    "type": "POST",
-    "url": "/api/resellerBillings/",
-    "title": "Generate Reseller's Bill",
-    "version": "1.0.0",
-    "name": "add",
-    "group": "Reseller_Billings",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "integer",
-            "optional": false,
-            "field": "month",
-            "description": "<p>month of which bill has to be generated.</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Boolean",
-            "optional": false,
-            "field": "status",
-            "description": "<p>status of the request.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n   \"response\": {\n        \"status\": true,\n        \"reseller_id\": 1,\n        \"data\": {\n            \"points\": \"850\",\n            \"billable_amount\": \"$17\",\n            \"total_transactions\": 8,\n            \"vendor_bills\": [\n                {\n                    \"vendor_id\": 1,\n                    \"points_redeemed\": \"400\",\n                    \"billable_amount\": \"$8\",\n                    \"total_transactions\": 4\n                },\n                {\n                    \"vendor_id\": 2,\n                    \"points_redeemed\": \"450\",\n                    \"billable_amount\": \"$9\",\n                    \"total_transactions\": 4\n                }\n            ]\n        }\n    }\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "src/Controller/Api/Reseller/ResellerBillingsController.php",
-    "groupTitle": "Reseller_Billings"
-  },
-  {
-    "type": "get",
-    "url": "/api/resellerBillings/:month/:year",
-    "title": "view Reseller's Bill of all months",
-    "version": "1.0.0",
-    "name": "all",
-    "group": "Reseller_Billings",
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Boolean",
-            "optional": false,
-            "field": "status",
-            "description": "<p>status of the request.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n\n{\n    \"response\": {\n        \"status\": true,\n        \"reseller_id\": 1,\n        \"data\": [\n            {\n                \"points\": \"1408\",\n                \"billable_amount\": \"$28.16\",\n                \"total_transactions\": 14,\n                \"from_date\": \"2016-06-02 00:00:00\",\n                \"to_date\": \"2016-07-02 00:00:00\"\n            },\n            {\n                \"points\": \"564\",\n                \"billable_amount\": \"$11.28\",\n                \"total_transactions\": 8,\n                \"from_date\": \"2016-05-02 00:00:00\",\n                \"to_date\": \"2016-06-02 00:00:00\"\n            },\n            {\n                \"points\": \"1310\",\n                \"billable_amount\": \"$26.2\",\n                \"total_transactions\": 9,\n                \"from_date\": \"2016-04-02 00:00:00\",\n                \"to_date\": \"2016-05-02 00:00:00\"\n            },\n            {\n                \"points\": \"850\",\n                \"billable_amount\": \"$17\",\n                \"total_transactions\": 8,\n                \"from_date\": \"2016-03-02 00:00:00\",\n                \"to_date\": \"2016-04-02 00:00:00\"\n            }\n        ]\n    }\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "src/Controller/Api/Reseller/ResellerBillingsController.php",
-    "groupTitle": "Reseller_Billings"
-  },
-  {
-    "type": "get",
-    "url": "/api/resellerBillings/:month/:year",
-    "title": "view Reseller's Bill of specific month",
-    "version": "1.0.0",
-    "name": "view",
-    "group": "Reseller_Billings",
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Boolean",
-            "optional": false,
-            "field": "status",
-            "description": "<p>status of the request.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n   \"response\": {\n        \"status\": true,\n        \"reseller_id\": 1,\n        \"data\": {\n            \"points\": \"850\",\n            \"billable_amount\": \"$17\",\n            \"total_transactions\": 8,\n            \"vendor_bills\": [\n                {\n                    \"vendor_id\": 1,\n                    \"points_redeemed\": \"400\",\n                    \"billable_amount\": \"$8\",\n                    \"total_transactions\": 4\n                },\n                {\n                    \"vendor_id\": 2,\n                    \"points_redeemed\": \"450\",\n                    \"billable_amount\": \"$9\",\n                    \"total_transactions\": 4\n                }\n            ]\n        }\n    }\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "src/Controller/Api/Reseller/ResellerBillingsController.php",
-    "groupTitle": "Reseller_Billings"
-  },
-  {
-    "type": "GET",
-    "url": "/api/rewardCredits/:id",
-    "title": "Get available rewards of a user",
-    "version": "1.0.0",
-    "name": "view",
-    "group": "RewardCredits",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "integer",
-            "optional": false,
-            "field": "id",
-            "description": "<p>Users's Id.</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Boolean",
-            "optional": false,
-            "field": "success",
-            "description": "<p>status of the request.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "    HTTP/1.1 200 OK\n{\n  \"response\": {\n               \"status\": true,\n               \"data\": {\n                           \"id\": \"2\",\n                           \"wallet_credit\": 1100,\n                           \"store_credit\": 1100\n                       }\n               }\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "src/Controller/Api/Vendor/RewardCreditsController.php",
-    "groupTitle": "RewardCredits"
   },
   {
     "type": "POST",
@@ -1166,105 +974,6 @@
     "groupTitle": "Vendor_Apis"
   },
   {
-    "type": "put",
-    "url": "/api/vendor/vendors/",
-    "title": "Update vendor's Info",
-    "version": "1.0.0",
-    "name": "Update_Vendor_s_detail",
-    "group": "Vendor_Apis",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "integer",
-            "optional": false,
-            "field": "id",
-            "description": "<p>Vendor's Id.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": true,
-            "field": "name",
-            "description": "<p>Vendor's organizarion name.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "Boolean",
-            "optional": true,
-            "field": "status",
-            "description": "<p>Vendor's status.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "Array",
-            "optional": true,
-            "field": "vendor_contacts",
-            "description": "<p>Contain vendor contact relacted data.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": true,
-            "field": "email",
-            "description": "<p>Vendor's email.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": true,
-            "field": "phone",
-            "description": "<p>Vendor's Phone number.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "Boolean",
-            "optional": true,
-            "field": "is_primary",
-            "description": "<p>is primary contact.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "Array",
-            "optional": true,
-            "field": "vendor_reward_types",
-            "description": "<p>Contain vendor reward type relacted data.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": true,
-            "field": "reward_method_id",
-            "description": "<p>reward method's id: 1-wallet credit, 2-store credit.</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Boolean",
-            "optional": false,
-            "field": "success",
-            "description": "<p>status of the request.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n \"response\": {\n              \"status\": true,\n               \"message\": \"Vendor's data updated successfully\"\n              }\n }",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "src/Controller/Api/Vendor/VendorsController.php",
-    "groupTitle": "Vendor_Apis"
-  },
-  {
     "type": "GET",
     "url": "/api/vendor/rewardCredits/",
     "title": "Get all available rewards and detail",
@@ -1309,9 +1018,9 @@
   },
   {
     "type": "post",
-    "url": "/api/rewardCredits/",
+    "url": "/api/vendor/rewardCredits/",
     "title": "Reward Credit to user",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "name": "rewardCreditToUser",
     "group": "Vendor_Apis",
     "header": {
@@ -1421,7 +1130,7 @@
     "type": "get",
     "url": "/api/vendor/me",
     "title": "View Loggedin Vendor's Info",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "name": "viewVendorDetail",
     "group": "Vendor_Apis",
     "header": {
@@ -1473,386 +1182,5 @@
     },
     "filename": "src/Controller/Api/Vendor/VendorsController.php",
     "groupTitle": "Vendor_Apis"
-  },
-  {
-    "type": "POST",
-    "url": "/api/vendorBillings/",
-    "title": "Generate Vendor's Bill",
-    "version": "1.0.0",
-    "name": "add",
-    "group": "Vendor_Billings",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "integer",
-            "optional": false,
-            "field": "vendor_id",
-            "description": "<p>Vendor's Id.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "integer",
-            "optional": false,
-            "field": "month",
-            "description": "<p>month of which bill has to be generated.</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Boolean",
-            "optional": false,
-            "field": "success",
-            "description": "<p>status of the request.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  \"response\": {\n          \"status\": true,\n           \"data\": {\n             \"vendor_id\": 1,\n              \"points\": \"200\",\n              \"billable_amount\": \"$4\",\n              \"total_transactions\": 1\n           }\n      }\n }",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "src/Controller/Api/Vendor/VendorBillingsController.php",
-    "groupTitle": "Vendor_Billings"
-  },
-  {
-    "type": "GET",
-    "url": "/api/vebdorBillings/:id/all",
-    "title": "View  Vendor's Bill of all months",
-    "version": "1.0.0",
-    "name": "all",
-    "group": "Vendor_Billings",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "integer",
-            "optional": false,
-            "field": "id",
-            "description": "<p>Vendor's Id.</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Boolean",
-            "optional": false,
-            "field": "success",
-            "description": "<p>status of the request.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "  HTTP/1.1 200 OK\n{\n     \"response\": {\n        \"status\": true,\n        \"vendor_id\": \"1\",\n        \"data\": [\n            {\n                \"points\": \"200\",\n                \"billable_amount\": \"$4\",\n               \"total_transactions\": 1,\n                \"from_date\": \"2016-07-01 00:00:00\",\n                \"to_date\": \"2016-08-02 00:00:00\"\n            },\n            {\n                \"points\": \"400\",\n                \"billable_amount\": \"8\",\n                \"total_transactions\": 1,\n                \"from_date\": \"2016-06-01 00:00:00\",\n                \"to_date\": \"2016-07-02 00:00:00\"\n            }\n        ]\n   }\n }",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "src/Controller/Api/Vendor/VendorBillingsController.php",
-    "groupTitle": "Vendor_Billings"
-  },
-  {
-    "type": "GET",
-    "url": "/api/vebdorBillings/:id",
-    "title": "View Vendor's Bill",
-    "version": "1.0.0",
-    "name": "view",
-    "group": "Vendor_Billings",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "integer",
-            "optional": false,
-            "field": "id",
-            "description": "<p>Vendor's Id.</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Boolean",
-            "optional": false,
-            "field": "success",
-            "description": "<p>status of the request.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  \"response\": {\n          \"status\": true,\n           \"data\": {\n             \"vendor_id\": 1,\n              \"points\": \"200\",\n              \"billable_amount\": \"$4\",\n              \"total_transactions\": 1\n           }\n      }\n }",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "src/Controller/Api/Vendor/VendorBillingsController.php",
-    "groupTitle": "Vendor_Billings"
-  },
-  {
-    "type": "put",
-    "url": "/api/vendors/:id",
-    "title": "Update vendor's Info",
-    "version": "1.0.0",
-    "name": "Update",
-    "group": "Vendors",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "integer",
-            "optional": false,
-            "field": "id",
-            "description": "<p>Vendor's Id.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": true,
-            "field": "name",
-            "description": "<p>Vendor's organizarion name.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "Boolean",
-            "optional": true,
-            "field": "status",
-            "description": "<p>Vendor's status.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "Array",
-            "optional": true,
-            "field": "vendor_contacts",
-            "description": "<p>Contain vendor contact relacted data.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": true,
-            "field": "email",
-            "description": "<p>Vendor's email.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": true,
-            "field": "phone",
-            "description": "<p>Vendor's Phone number.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "Boolean",
-            "optional": true,
-            "field": "is_primary",
-            "description": "<p>is primary contact.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "Array",
-            "optional": true,
-            "field": "vendor_reward_types",
-            "description": "<p>Contain vendor reward type relacted data.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": true,
-            "field": "reward_method_id",
-            "description": "<p>reward method's id: 1-wallet credit, 2-store credit.</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Boolean",
-            "optional": false,
-            "field": "success",
-            "description": "<p>status of the request.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n \"response\": {\n              \"status\": true,\n               \"message\": \"Vendor's data updated successfully\"\n              }\n }",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "src/Controller/Api/Reseller/VendorsController.php",
-    "groupTitle": "Vendors"
-  },
-  {
-    "type": "POST",
-    "url": "/api/userCards/",
-    "title": "Add User's Card",
-    "version": "1.0.0",
-    "name": "add",
-    "group": "userCards",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "Integer",
-            "optional": false,
-            "field": "card_number",
-            "description": "<p>Card Number.</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Boolean",
-            "optional": false,
-            "field": "success",
-            "description": "<p>status of the request.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n \"response\": {\n               \"status\": true,\n               \"data\": {\n                         \"id\": 4\n                         }\n             }\n }",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "src/Controller/Api/User/UserCardsController.php",
-    "groupTitle": "userCards"
-  },
-  {
-    "type": "put",
-    "url": "/userCards/:id",
-    "title": "Update existing card",
-    "version": "1.0.0",
-    "name": "edit",
-    "group": "userCards",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "Integer",
-            "optional": false,
-            "field": "card_number",
-            "description": "<p>Card Number.</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Boolean",
-            "optional": false,
-            "field": "success",
-            "description": "<p>status of the request.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n \"response\": {\n              \"status\": true,\n               \"message\": \"cards data updated successfully\"\n              }\n }",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "src/Controller/Api/User/UserCardsController.php",
-    "groupTitle": "userCards"
-  },
-  {
-    "type": "GET",
-    "url": "/api/userCards/",
-    "title": "List User's Cards",
-    "version": "1.0.0",
-    "name": "index",
-    "group": "userCards",
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Boolean",
-            "optional": false,
-            "field": "success",
-            "description": "<p>status of the request.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  \"response\":\n             {\n               \"status\": true,\n               \"data\":\n                       [\n                        {\n                          \"id\": 3,\n                          \"user_id\": 2,\n                          \"card_number\": \"110093\",\n                          \"status\": true,\n                          \"created\": \"2016-08-11T08:04:05+0000\",\n                          \"modified\": \"2016-08-11T08:04:05+0000\"\n                        },\n                        {\n                          \"id\": 4,\n                          \"user_id\": 2,\n                          \"card_number\": \"110094\",\n                          \"status\": true,\n                          \"created\": \"2016-08-11T08:04:13+0000\",\n                          \"modified\": \"2016-08-11T08:04:13+0000\"\n                        }\n                       ]\n             }\n  }",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "src/Controller/Api/User/UserCardsController.php",
-    "groupTitle": "userCards"
-  },
-  {
-    "type": "GET",
-    "url": "/api/userCards/:id",
-    "title": "Detail of partiular user card",
-    "version": "1.0.0",
-    "name": "view",
-    "group": "userCards",
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Boolean",
-            "optional": false,
-            "field": "success",
-            "description": "<p>status of the request.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  \"response\":\n            {\n              \"status\": true,\n              \"data\":\n                    [\n                      {\n                        \"id\": 3,\n                        \"card_number\": \"110096\"\n                      },\n                    ]\n            }\n  }",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "src/Controller/Api/User/UserCardsController.php",
-    "groupTitle": "userCards"
   }
 ]

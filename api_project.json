@@ -1,12 +1,14 @@
 {
-  "name": "",
-  "version": "0.0.0",
-  "description": "",
+  "name": "People Hub",
+  "version": "1.1.0",
+  "description": "People Hub Apis",
+  "title": "People Hub Apis",
+  "url": "https://peoplehub.twinspark.co/peoplehub",
   "sampleUrl": false,
   "apidoc": "0.2.0",
   "generator": {
     "name": "apidoc",
-    "time": "2016-09-13T07:09:17.359Z",
+    "time": "2016-11-08T05:35:14.205Z",
     "url": "http://apidocjs.com",
     "version": "0.16.1"
   }

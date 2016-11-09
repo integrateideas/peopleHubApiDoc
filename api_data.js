@@ -18,7 +18,14 @@ define({ "api": [
             "description": "<p>Reseller Access Token</p>"
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "\"token\" => \"Bearer Reseller's Access Token\"",
+          "type": "php"
+        }
+      ]
     },
     "parameter": {
       "fields": {
@@ -80,7 +87,14 @@ define({ "api": [
             "description": "<p>contains reward_method_id.</p>"
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n    \"name\": \"nitesh\",\n    \"status\": 1,\n    \"vendor_contacts\": {\n        \"email\": \"snwites3h@gmail.com\",\n        \"phone\": \"99610403239\",\n        \"is_primary\": 1\n    },\n    \"vendor_reward_types\": [{\n        \"reward_method_id\": \"1\",\n        \"status\": 1\n    },\n    {\n        \"reward_method_id\": \"2\",\n        \"status\": 1\n    },\n    {\n        \"reward_method_id\": \"3\",\n        \"status\": 1\n    }\n  ]\n}",
+          "type": "json"
+        }
+      ]
     },
     "success": {
       "fields": {
@@ -141,17 +155,13 @@ define({ "api": [
       }
     },
     "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "token",
-            "description": "<p>Reseller's Access Token</p>"
-          }
-        ]
-      }
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "\"token\"=> \"Bearer Reseller's Access Token\"",
+          "type": "php"
+        }
+      ]
     },
     "success": {
       "fields": {
@@ -202,7 +212,14 @@ define({ "api": [
             "description": "<p>Basic (Base_64encode(client_secret:client_id))</p>"
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "\"token\" => \"Basic (Base_64encode(client_secret:client_id)\"",
+          "type": "php"
+        }
+      ]
     },
     "success": {
       "fields": {
@@ -267,7 +284,14 @@ define({ "api": [
             "description": "<p>Reseller's Access Token</p>"
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "\"token\"=> \"Bearer Reseller's Access Token\"",
+          "type": "php"
+        }
+      ]
     },
     "success": {
       "fields": {
@@ -373,7 +397,23 @@ define({ "api": [
             "description": "<p>reward method's id: 1-wallet credit, 2-store credit.</p>"
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n    \"name\": \"nitesh1\",\n    \"status\": 1,\n    \"vendor_contacts\": {\n        \"email\": \"snwites3h@gmail.com\",\n        \"phone\": \"99343403239\",\n        \"is_primary\": 1\n    },\n    \"vendor_reward_types\": [{\n        \"reward_method_id\": \"1\",\n        \"status\": 1\n    },\n    {\n        \"reward_method_id\": \"2\",\n        \"status\": 1\n    },\n    {\n        \"reward_method_id\": \"3\",\n        \"status\": 1\n    }\n  ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "header": {
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "\"token\" => \"Bearer Reseller's Access Token\"",
+          "type": "php"
+        }
+      ]
     },
     "success": {
       "fields": {
@@ -390,7 +430,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n {\n    \"status\": true,\n    \"data\": {\n        \"id\": 6,\n        \"name\": \"niteesh311\",\n        \"created\": \"2016-11-09T06:18:36+00:00\",\n        \"modified\": \"2016-11-09T06:32:08+00:00\",\n        \"status\": true,\n        \"deleted\": null,\n        \"reseller_vendors\": [\n            {\n                \"id\": 6,\n                \"reseller_id\": 1,\n                \"vendor_id\": 6,\n                \"status\": true,\n                \"created\": \"2016-11-09T06:18:36+00:00\",\n                \"modified\": \"2016-11-09T06:18:36+00:00\",\n                \"reseller\": {\n                    \"id\": 1,\n                    \"uuid\": \"d6057bd3-a5b0-401c-b0ee-ad9b277d1d9d\",\n                    \"org_name\": \"twinspark123\",\n                    \"client_identifier\": \"123456789\",\n                    \"client_secret\": \"123456789\",\n                    \"security_deposit\": 1500,\n                    \"status\": true,\n                    \"created\": \"2016-11-09T06:13:03+00:00\",\n                    \"modified\": \"2016-11-09T06:13:03+00:00\",\n                    \"deleted\": null\n                }\n            }\n        ],\n        \"vendor_contacts\": [\n            {\n                \"id\": 6,\n                \"vendor_id\": 6,\n                \"email\": \"snwites3h@gmail.com\",\n                \"phone\": \"99610403239\",\n                \"is_primary\": true,\n                \"created\": \"2016-11-09T06:18:36+00:00\",\n                \"modified\": \"2016-11-09T06:18:36+00:00\"\n            }\n        ],\n        \"vendor_reward_types\": [\n            {\n                \"id\": 12,\n                \"vendor_id\": 6,\n                \"reward_method_id\": 1,\n                \"created\": \"2016-11-09T06:32:08+00:00\",\n                \"modified\": \"2016-11-09T06:32:08+00:00\",\n                \"status\": true\n            },\n            {\n                \"id\": 13,\n                \"vendor_id\": 6,\n                \"reward_method_id\": 2,\n                \"created\": \"2016-11-09T06:32:08+00:00\",\n                \"modified\": \"2016-11-09T06:32:08+00:00\",\n                \"status\": true\n            }\n        ]\n    }\n}",
+          "content": "HTTP/1.1 200 OK\n {\n     \"status\": true,\n     \"data\": {\n         \"id\": 3,\n         \"name\": \"nitesh1\",\n         \"created\": \"2016-11-09T18:31:28+00:00\",\n         \"modified\": \"2016-11-09T18:35:47+00:00\",\n         \"status\": true,\n         \"deleted\": null,\n         \"reseller_vendors\": [\n             {\n                 \"id\": 3,\n                 \"reseller_id\": 1,\n                 \"vendor_id\": 3,\n                 \"status\": true,\n                 \"created\": \"2016-11-09T18:31:28+00:00\",\n                 \"modified\": \"2016-11-09T18:31:28+00:00\",\n                 \"reseller\": {\n                     \"id\": 1,\n                     \"uuid\": \"0fbad06c-d980-42f3-8c63-d7c1dd049acb\",\n                     \"org_name\": \"twinspark123\",\n                     \"client_identifier\": \"123456789\",\n                     \"client_secret\": \"123456789\",\n                     \"security_deposit\": 1500,\n                     \"status\": true,\n                     \"created\": \"2016-11-09T18:16:40+00:00\",\n                     \"modified\": \"2016-11-09T18:16:40+00:00\",\n                     \"deleted\": null\n                 }\n             }\n         ],\n         \"vendor_contacts\": [\n             {\n                 \"id\": 3,\n                 \"vendor_id\": 3,\n               \"email\": \"snwites3h@gmail.com\",\n               \"phone\": \"99610403239\",\n                 \"is_primary\": true,\n                 \"created\": \"2016-11-09T18:31:28+00:00\",\n                 \"modified\": \"2016-11-09T18:31:28+00:00\"\n             }\n         ],\n         \"vendor_reward_types\": [\n             {\n                 \"id\": 7,\n                 \"vendor_id\": 3,\n              \"reward_method_id\": 1,\n                 \"created\": \"2016-11-09T18:35:47+00:00\",\n                 \"modified\": \"2016-11-09T18:35:47+00:00\",\n                 \"status\": true,\n                 \"reward_method\": {\n                     \"id\": 1,\n                     \"name\": \"wallet_credit\",\n                     \"label\": \"Wallet Credit\",\n                     \"status\": true,\n                     \"created\": \"2016-11-09T18:16:40+00:00\",\n                     \"modified\": \"2016-11-09T18:16:40+00:00\"\n                 }\n             },\n             {\n                 \"id\": 8,\n                 \"vendor_id\": 3,\n                 \"reward_method_id\": 2,\n                 \"created\": \"2016-11-09T18:35:47+00:00\",\n                 \"modified\": \"2016-11-09T18:35:47+00:00\",\n                 \"status\": true,\n                 \"reward_method\": {\n                     \"id\": 2,\n                     \"name\": \"store_credit\",\n                     \"label\": \"Store Credit\",\n                     \"status\": true,\n                     \"created\": \"2016-11-09T18:16:40+00:00\",\n                     \"modified\": \"2016-11-09T18:16:40+00:00\"\n                 }\n             },\n           {\n               \"id\": 9,\n                 \"vendor_id\": 3,\n                 \"reward_method_id\": 3,\n                 \"created\": \"2016-11-09T18:35:47+00:00\",\n                 \"modified\": \"2016-11-09T18:35:47+00:00\",\n                 \"status\": true,\n                 \"reward_method\": {\n                     \"id\": 3,\n                     \"name\": \"instant_redeem\",\n                     \"label\": \"Instant Redeemption\",\n                     \"status\": true,\n                     \"created\": \"2016-11-09T18:16:40+00:00\",\n                     \"modified\": \"2016-11-09T18:16:40+00:00\"\n                 }\n             }\n         ]\n   }\n }",
           "type": "json"
         }
       ]
@@ -430,7 +470,14 @@ define({ "api": [
             "description": "<p>Reseller's Access Token</p>"
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "\"token\" => \"Bearer Reseller's Access Token\"",
+          "type": "php"
+        }
+      ]
     },
     "success": {
       "fields": {
@@ -670,7 +717,14 @@ define({ "api": [
             "description": "<p>Basic (Base_64encode(client_secret:client_id))</p>"
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "\"token\" => \"Basic (Base_64encode(client_secret:client_id)\"",
+          "type": "php"
+        }
+      ]
     },
     "parameter": {
       "fields": {
@@ -683,7 +737,14 @@ define({ "api": [
             "description": "<p>Vendor's id to login</p>"
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n  \"vendor_id\": 1\n}",
+          "type": "json"
+        }
+      ]
     },
     "success": {
       "fields": {

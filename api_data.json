@@ -111,7 +111,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"response\": {\n        \"status\": true,\n        \"data\": {\n            \"id\": 11\n        }\n    }\n}",
+          "content": "HTTP/1.1 200 OK\n\n{\n   \"status\": true,\n   \"data\": {\n       \"id\": 7,\n       \"name\": \"niteesh3112\",\n       \"created\": \"2016-11-09T06:20:09+00:00\",\n       \"modified\": \"2016-11-09T06:20:09+00:00\",\n       \"status\": true,\n       \"deleted\": null,\n       \"reseller_vendors\": [\n           {\n               \"id\": 7,\n               \"reseller_id\": 1,\n               \"vendor_id\": 7,\n               \"status\": true,\n               \"created\": \"2016-11-09T06:20:09+00:00\",\n               \"modified\": \"2016-11-09T06:20:09+00:00\",\n               \"reseller\": {\n                   \"id\": 1,\n                   \"uuid\": \"d6057bd3-a5b0-401c-b0ee-ad9b277d1d9d\",\n                   \"org_name\": \"twinspark123\",\n                   \"client_identifier\": \"123456789\",\n                   \"client_secret\": \"123456789\",\n                   \"security_deposit\": 1500,\n                   \"status\": true,\n                   \"created\": \"2016-11-09T06:13:03+00:00\",\n                   \"modified\": \"2016-11-09T06:13:03+00:00\",\n                   \"deleted\": null\n               }\n           }\n       ],\n       \"vendor_contacts\": [\n           {\n               \"id\": 7,\n               \"vendor_id\": 7,\n               \"email\": \"snwites3h@gmail.com\",\n               \"phone\": \"99610403239\",\n               \"is_primary\": true,\n               \"created\": \"2016-11-09T06:20:09+00:00\",\n               \"modified\": \"2016-11-09T06:20:09+00:00\"\n           }\n       ],\n       \"vendor_reward_types\": [\n           {\n               \"id\": 7,\n               \"vendor_id\": 7,\n               \"reward_method_id\": 1,\n               \"created\": \"2016-11-09T06:20:09+00:00\",\n               \"modified\": \"2016-11-09T06:20:09+00:00\",\n               \"status\": true\n           }\n       ]\n   }\n}",
           "type": "json"
         }
       ]
@@ -175,7 +175,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"response\":\n    {\n        \"status\": true,\n        \"data\":\n        {\n            \"message\": \"Vendor deleted successfully\"\n        }\n    }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"status\": true,\n    \"data\": {\n        \"message\": \"Vendor deleted successfully\"\n    }\n}",
           "type": "json"
         }
       ]
@@ -240,7 +240,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n  {\n       \"status\": true,\n       \"data\": {\n           \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImV4cCI6IjIwMTYtMTEtMDggMDg6MjM6MDUifQ.pqVfbn5UqYSpes-lhyjRQTBLpd4C4OSt986KIQaS2YM\",\n           \"expires\": \"2016-11-08 08:23:05\"\n       }\n   }",
+          "content": "HTTP/1.1 200 OK\n  {\n      \"status\": true,\n      \"data\": {\n          \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImV4cCI6IjIwMTYtMTEtMDkgMDY6MjA6MjAifQ.IXicDh41IfkZJBSvnfrZMv9L9ARkdfInOHNb4NYSFDo\",\n          \"expires\": \"2016-11-09 06:20:20\"\n      }\n  }",
           "type": "json"
         }
       ]
@@ -291,7 +291,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n\"response\":\n{\n    \"status\": true,\n    \"data\":\n    [\n        {\n            \"id\": 1,\n            \"reseller_id\": 1,\n            \"vendor_id\": 1,\n            \"status\": true,\n            \"created\": \"2016-10-20T11:15:26+00:00\",\n            \"modified\": \"2016-10-20T11:15:26+00:00\",\n            \"vendor\":\n            {\n                \"id\": 1,\n                \"name\": \"Vendor1\",\n                \"created\": \"2016-10-20T11:15:26+00:00\",\n                \"modified\": \"2016-10-20T11:15:26+00:00\",\n                \"status\": true,\n                \"deleted\": null,\n                \"vendor_reward_types\":\n                [\n                    {\n                        \"id\": 3,\n                        \"vendor_id\": 1,\n                        \"reward_method_id\": 6,\n                        \"created\": \"2016-11-01T02:03:43+00:00\",\n                        \"modified\": \"2016-11-01T02:03:43+00:00\",\n                        \"status\": true,\n                        \"reward_method\":\n                        {\n                            \"id\": 6,\n                            \"name\": \"instant_redeem\",\n                            \"label\": \"Instant Redeemption\",\n                            \"status\": true,\n                            \"created\": \"2016-11-04T08:06:10+00:00\",\n                            \"modified\": \"2016-11-04T08:06:10+00:00\"\n                        }\n                    }\n                ],\n                \"vendor_contacts\":\n                [\n                    {\n                        \"id\": 1,\n                        \"vendor_id\": 1,\n                        \"email\": \"vendor1@gmail.com\",\n                        \"phone\": \"1234567890\",\n                        \"is_primary\": true,\n                        \"created\": \"2016-10-20T11:15:26+00:00\",\n                        \"modified\": \"2016-10-20T11:15:26+00:00\"\n                    }\n                 ]\n             }\n         }\n       ]\n     }\n  }",
+          "content": "HTTP/1.1 200 OK\n{\n  \"status\": true,\n  \"data\": [\n      {\n          \"id\": 1,\n          \"reseller_id\": 1,\n          \"vendor_id\": 1,\n          \"status\": true,\n          \"created\": \"2016-10-20T11:15:26+00:00\",\n          \"modified\": \"2016-10-20T11:15:26+00:00\",\n          \"vendor\": {\n              \"id\": 1,\n              \"name\": \"Vendor1\",\n              \"created\": \"2016-10-20T11:15:26+00:00\",\n              \"modified\": \"2016-10-20T11:15:26+00:00\",\n              \"status\": true,\n              \"deleted\": null,\n              \"vendor_reward_types\": [\n                  {\n                      \"id\": 3,\n                      \"vendor_id\": 1,\n                      \"reward_method_id\": 6,\n                      \"created\": \"2016-11-01T02:03:43+00:00\",\n                      \"modified\": \"2016-11-01T02:03:43+00:00\",\n                      \"status\": true,\n                      \"reward_method\": {\n                          \"id\": 6,\n                          \"name\": \"instant_redeem\",\n                          \"label\": \"Instant Redeemption\",\n                          \"status\": true,\n                          \"created\": \"2016-11-04T08:06:10+00:00\",\n                          \"modified\": \"2016-11-04T08:06:10+00:00\"\n                      }\n                  }\n              ],\n              \"vendor_contacts\": [\n                  {\n                      \"id\": 1,\n                      \"vendor_id\": 1,\n                      \"email\": \"vendor1@gmail.com\",\n                      \"phone\": \"1234567890\",\n                      \"is_primary\": true,\n                      \"created\": \"2016-10-20T11:15:26+00:00\",\n                      \"modified\": \"2016-10-20T11:15:26+00:00\"\n                  }\n              ]\n          }\n      },\n      {\n          \"id\": 2,\n          \"reseller_id\": 1,\n          \"vendor_id\": 2,\n          \"status\": true,\n          \"created\": \"2016-10-20T11:15:26+00:00\",\n          \"modified\": \"2016-10-20T11:15:26+00:00\",\n          \"vendor\": {\n              \"id\": 2,\n              \"name\": \"Vendor2\",\n              \"created\": \"2016-10-20T11:15:26+00:00\",\n              \"modified\": \"2016-10-20T11:15:26+00:00\",\n              \"status\": true,\n              \"deleted\": null,\n              \"vendor_reward_types\": [],\n              \"vendor_contacts\": [\n                  {\n                      \"id\": 2,\n                      \"vendor_id\": 2,\n                      \"email\": \"vendor2@gmail.com\",\n                      \"phone\": \"1234567890\",\n                      \"is_primary\": true,\n                      \"created\": \"2016-10-20T11:15:26+00:00\",\n                      \"modified\": \"2016-10-20T11:15:26+00:00\"\n                  }\n              ]\n          }\n      }\n    ]\n  }",
           "type": "json"
         }
       ]
@@ -489,7 +489,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n \"response\": {\n              \"status\": true,\n               \"message\": \"Vendor's data updated successfully\"\n              }\n }",
+          "content": "HTTP/1.1 200 OK\n {\n    \"status\": true,\n    \"data\": {\n        \"id\": 6,\n        \"name\": \"niteesh311\",\n        \"created\": \"2016-11-09T06:18:36+00:00\",\n        \"modified\": \"2016-11-09T06:32:08+00:00\",\n        \"status\": true,\n        \"deleted\": null,\n        \"reseller_vendors\": [\n            {\n                \"id\": 6,\n                \"reseller_id\": 1,\n                \"vendor_id\": 6,\n                \"status\": true,\n                \"created\": \"2016-11-09T06:18:36+00:00\",\n                \"modified\": \"2016-11-09T06:18:36+00:00\",\n                \"reseller\": {\n                    \"id\": 1,\n                    \"uuid\": \"d6057bd3-a5b0-401c-b0ee-ad9b277d1d9d\",\n                    \"org_name\": \"twinspark123\",\n                    \"client_identifier\": \"123456789\",\n                    \"client_secret\": \"123456789\",\n                    \"security_deposit\": 1500,\n                    \"status\": true,\n                    \"created\": \"2016-11-09T06:13:03+00:00\",\n                    \"modified\": \"2016-11-09T06:13:03+00:00\",\n                    \"deleted\": null\n                }\n            }\n        ],\n        \"vendor_contacts\": [\n            {\n                \"id\": 6,\n                \"vendor_id\": 6,\n                \"email\": \"snwites3h@gmail.com\",\n                \"phone\": \"99610403239\",\n                \"is_primary\": true,\n                \"created\": \"2016-11-09T06:18:36+00:00\",\n                \"modified\": \"2016-11-09T06:18:36+00:00\"\n            }\n        ],\n        \"vendor_reward_types\": [\n            {\n                \"id\": 12,\n                \"vendor_id\": 6,\n                \"reward_method_id\": 1,\n                \"created\": \"2016-11-09T06:32:08+00:00\",\n                \"modified\": \"2016-11-09T06:32:08+00:00\",\n                \"status\": true\n            },\n            {\n                \"id\": 13,\n                \"vendor_id\": 6,\n                \"reward_method_id\": 2,\n                \"created\": \"2016-11-09T06:32:08+00:00\",\n                \"modified\": \"2016-11-09T06:32:08+00:00\",\n                \"status\": true\n            }\n        ]\n    }\n}",
           "type": "json"
         }
       ]
@@ -1042,10 +1042,10 @@
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "price",
+            "type": "amount",
             "optional": false,
             "field": "instant",
-            "description": "<p>redeem price.</p>"
+            "description": "<p>redeem amount.</p>"
           },
           {
             "group": "Parameter",
@@ -1057,23 +1057,16 @@
           {
             "group": "Parameter",
             "type": "String",
-            "optional": true,
+            "optional": false,
             "field": "service",
-            "description": "<p>service name amazon/tango to redeem reward, not required if redemption is in_house</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "Boolean",
-            "optional": true,
-            "field": "in_house",
-            "description": "<p>true if in house redemtion else false.</p>"
+            "description": "<p>service name amazon/tango/in_house to redeem reward</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
             "optional": true,
             "field": "description",
-            "description": "<p>description of redemtion, required if redemption is in_house else not</p>"
+            "description": "<p>description of redemtion, required if service is in_house else not</p>"
           }
         ]
       }
@@ -1203,7 +1196,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n  {\n\"response\": {\n    \"status\": true,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"service_id\": 2,\n            \"description\": \"asadd\",\n            \"vendor_id\": 1,\n            \"user_id\": 1,\n            \"price\": 100,\n            \"created\": \"2016-11-04T08:31:43+00:00\",\n            \"modified\": \"2016-11-04T08:31:43+00:00\",\n            \"deleted\": null,\n            \"status\": true,\n            \"service\": {\n                \"id\": 2,\n                \"name\": \"tango\",\n                \"label\": \"Tango Card\",\n                \"status\": true,\n                \"created\": \"2016-10-20T11:15:26+00:00\",\n                \"modified\": \"2016-10-20T11:15:26+00:00\"\n            },\n            \"user\": {\n                \"id\": 1,\n                \"uuid\": \"88e4bc36-a680-4a25-9b99-d125a82e3f22\",\n                \"name\": \"admin\",\n                \"email\": \"nitesh.srivastava@twinspark.co\",\n                \"phone\": null,\n                \"role_id\": 1,\n                \"created\": \"2016-10-20T11:15:25+00:00\",\n                \"modified\": \"2016-10-20T11:15:25+00:00\",\n                \"status\": true,\n                \"username\": \"admin\",\n                \"isEmailVerified\": false\n            }\n        }\n      ]\n    }\n  }",
+          "content": "HTTP/1.1 200 OK\n  {\n\"response\": {\n    \"status\": true,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"service_id\": 2,\n            \"description\": \"asadd\",\n            \"vendor_id\": 1,\n            \"user_id\": 1,\n            \"amount\": 100,\n            \"created\": \"2016-11-04T08:31:43+00:00\",\n            \"modified\": \"2016-11-04T08:31:43+00:00\",\n            \"deleted\": null,\n            \"status\": true,\n            \"service\": {\n                \"id\": 2,\n                \"name\": \"tango\",\n                \"label\": \"Tango Card\",\n                \"status\": true,\n                \"created\": \"2016-10-20T11:15:26+00:00\",\n                \"modified\": \"2016-10-20T11:15:26+00:00\"\n            },\n            \"user\": {\n                \"id\": 1,\n                \"uuid\": \"88e4bc36-a680-4a25-9b99-d125a82e3f22\",\n                \"name\": \"admin\",\n                \"email\": \"nitesh.srivastava@twinspark.co\",\n                \"phone\": null,\n                \"role_id\": 1,\n                \"created\": \"2016-10-20T11:15:25+00:00\",\n                \"modified\": \"2016-10-20T11:15:25+00:00\",\n                \"status\": true,\n                \"username\": \"admin\",\n                \"isEmailVerified\": false\n            }\n        }\n      ]\n    }\n  }",
           "type": "json"
         }
       ]

@@ -301,105 +301,6 @@
   },
   {
     "type": "put",
-    "url": "/api/vendor/vendors/",
-    "title": "Update vendor's detail",
-    "version": "1.1.0",
-    "name": "Update_Vendor_s_detail",
-    "group": "Reseller_Apis",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "integer",
-            "optional": false,
-            "field": "id",
-            "description": "<p>Vendor's Id.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": true,
-            "field": "name",
-            "description": "<p>Vendor's organizarion name.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "Boolean",
-            "optional": true,
-            "field": "status",
-            "description": "<p>Vendor's status.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "Array",
-            "optional": true,
-            "field": "vendor_contacts",
-            "description": "<p>Contain vendor contact relacted data.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": true,
-            "field": "email",
-            "description": "<p>Vendor's email.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": true,
-            "field": "phone",
-            "description": "<p>Vendor's Phone number.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "Boolean",
-            "optional": true,
-            "field": "is_primary",
-            "description": "<p>is primary contact.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "Array",
-            "optional": true,
-            "field": "vendor_reward_types",
-            "description": "<p>Contain vendor reward type relacted data.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": true,
-            "field": "reward_method_id",
-            "description": "<p>reward method's id: 1-wallet credit, 2-store credit.</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Boolean",
-            "optional": false,
-            "field": "success",
-            "description": "<p>status of the request.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n \"response\": {\n              \"status\": true,\n               \"message\": \"Vendor's data updated successfully\"\n              }\n }",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "src/Controller/Api/Vendor/VendorsController.php",
-    "groupTitle": "Reseller_Apis"
-  },
-  {
-    "type": "put",
     "url": "/api/reseller/vendors/:id",
     "title": "Update vendor detail",
     "version": "1.1.0",
@@ -966,6 +867,105 @@
         {
           "title": "Success-Response:",
           "content": "HTTP/1.1 200 OK\n\n{\n    \"response\": {\n        \"status\": true,\n        \"data\": {\n            \"users\": [\n                {\n                    \"id\": 2,\n                    \"uuid\": \"c5479454-ee9c-4761-81cf-ff09c09dd078\",\n                    \"name\": \"Test User 1\",\n                    \"email\": null,\n                    \"phone\": null,\n                    \"role_id\": 2,\n                    \"created\": \"2016-10-20T11:15:26+00:00\",\n                    \"modified\": \"2016-10-20T11:15:26+00:00\",\n                    \"status\": true,\n                    \"username\": \"testuser1\",\n                    \"isEmailVerified\": false,\n                    \"user_cards\": []\n                },\n                {\n                    \"id\": 3,\n                    \"uuid\": \"89bc68e9-44d4-4702-84b3-9e574563db64\",\n                    \"name\": \"Test User 2\",\n                    \"email\": null,\n                    \"phone\": null,\n                    \"role_id\": 2,\n                    \"created\": \"2016-10-20T11:15:26+00:00\",\n                    \"modified\": \"2016-10-20T11:15:26+00:00\",\n                    \"status\": true,\n                    \"username\": \"testuser2\",\n                    \"isEmailVerified\": false,\n                    \"user_cards\": []\n                },\n                {\n                    \"id\": 4,\n                    \"uuid\": \"5f815c0c-c4ca-4e89-82be-d889254b374e\",\n                    \"name\": \"Test User 3\",\n                    \"email\": null,\n                    \"phone\": null,\n                    \"role_id\": 2,\n                    \"created\": \"2016-10-20T11:15:26+00:00\",\n                    \"modified\": \"2016-10-20T11:15:26+00:00\",\n                    \"status\": true,\n                    \"username\": \"testuser3\",\n                    \"isEmailVerified\": false,\n                    \"user_cards\": []\n                },\n                {\n                    \"id\": 5,\n                    \"uuid\": \"3e5b110a-3565-4338-815e-268b853984b3\",\n                    \"name\": \"Test User 4\",\n                    \"email\": null,\n                    \"phone\": null,\n                    \"role_id\": 2,\n                    \"created\": \"2016-10-20T11:15:26+00:00\",\n                    \"modified\": \"2016-10-20T11:15:26+00:00\",\n                    \"status\": true,\n                    \"username\": \"testuser4\",\n                    \"isEmailVerified\": false,\n                    \"user_cards\": []\n                }\n            ],\n            \"unassociatedUsers\": []\n        }\n    }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/Controller/Api/Vendor/VendorsController.php",
+    "groupTitle": "Vendor_Apis"
+  },
+  {
+    "type": "put",
+    "url": "/api/vendor/vendors/",
+    "title": "Update vendor's detail",
+    "version": "1.1.0",
+    "name": "Update_Vendor_s_detail",
+    "group": "Vendor_Apis",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Vendor's Id.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "name",
+            "description": "<p>Vendor's organizarion name.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": true,
+            "field": "status",
+            "description": "<p>Vendor's status.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": true,
+            "field": "vendor_contacts",
+            "description": "<p>Contain vendor contact relacted data.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "email",
+            "description": "<p>Vendor's email.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "phone",
+            "description": "<p>Vendor's Phone number.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": true,
+            "field": "is_primary",
+            "description": "<p>is primary contact.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": true,
+            "field": "vendor_reward_types",
+            "description": "<p>Contain vendor reward type relacted data.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "reward_method_id",
+            "description": "<p>reward method's id: 1-wallet credit, 2-store credit.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": "<p>status of the request.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n \"response\": {\n              \"status\": true,\n               \"message\": \"Vendor's data updated successfully\"\n              }\n }",
           "type": "json"
         }
       ]

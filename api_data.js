@@ -861,7 +861,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "{\n  \"name\" : \"nikhil\",\n  \"email\" : \"nikhil11@gmail.com\",\n  \"password\" : \"nikhil\",\n  \"phone\" : \"7894562313\",\n  \"username\":\"asdfffe2\"\n}",
+          "content": "{\n  \"name\" : \"nikhil\",\n  \"email\" : \"nikhil11@gmail.com\",\n  \"phone\" : \"7894562313\",\n  \"username\":\"asdfffe2\"\n}",
           "type": "json"
         }
       ]
@@ -904,7 +904,7 @@ define({ "api": [
     "groupTitle": "Vendor_Apis"
   },
   {
-    "type": "POST",
+    "type": "GET",
     "url": "/api/vendor/user-search",
     "title": "Search User",
     "description": "<p>Search User.</p>",
@@ -917,16 +917,30 @@ define({ "api": [
           {
             "group": "Header",
             "type": "String",
-            "optional": true,
-            "field": "attributeType",
-            "description": "<p>can be email, username,phone,card</p>"
+            "optional": false,
+            "field": "token",
+            "description": "<p>Vendor's Access Token</p>"
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "\"token\" => \"Bearer Vendor's Access Token\"",
+          "type": "php"
+        }
+      ]
     },
     "parameter": {
       "fields": {
         "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "attributeType",
+            "description": "<p>can be email, username, phone, card</p>"
+          },
           {
             "group": "Parameter",
             "type": "String",
@@ -937,6 +951,11 @@ define({ "api": [
         ]
       }
     },
+    "sampleRequest": [
+      {
+        "url": "http://peoplehub.twinspark.co/api/vendor/user-search?attributeType=username&value=test"
+      }
+    ],
     "success": {
       "examples": [
         {
@@ -1126,7 +1145,14 @@ define({ "api": [
             "description": "<p>Vendor's Access Token</p>"
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "\"token\" => \"Bearer Vendor's Access Token",
+          "type": "php"
+        }
+      ]
     },
     "parameter": {
       "fields": {
@@ -1135,8 +1161,8 @@ define({ "api": [
             "group": "Parameter",
             "type": "amount",
             "optional": false,
-            "field": "instant",
-            "description": "<p>redeem amount.</p>"
+            "field": "amount",
+            "description": "<p>instant redeem amount.</p>"
           },
           {
             "group": "Parameter",
@@ -1160,7 +1186,14 @@ define({ "api": [
             "description": "<p>description of redemtion, required if service is in_house else not</p>"
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n  \"amount\":\"100\",\n  \"user_id\":1,\n  \"description\":\"t-shirt\",\n  \"service\":\"in_house\"\n}",
+          "type": "json"
+        }
+      ]
     },
     "success": {
       "fields": {
@@ -1281,8 +1314,20 @@ define({ "api": [
             "description": "<p>Vendor's Access Token</p>"
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "\"token\" => \"Bearer Vendor's Access Token",
+          "type": "php"
+        }
+      ]
     },
+    "sampleRequest": [
+      {
+        "url": "http://peoplehub.twinspark.co/api/vendor/UserInstantRedemptions/"
+      }
+    ],
     "success": {
       "examples": [
         {

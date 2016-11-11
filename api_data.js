@@ -603,6 +603,51 @@ define({ "api": [
     "groupTitle": "User_Apis"
   },
   {
+    "type": "GET",
+    "url": "/api/vendor/activies",
+    "title": "View user's activities",
+    "description": "<p>View user's activities.</p>",
+    "version": "1.1.0",
+    "name": "UserActivities",
+    "group": "User_Apis",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>User's Access Token</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "\"token\" => \"Bearer User's Access Token\"",
+          "type": "php"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "http://peoplehub.twinspark.co/api/user/activities"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"status\": true,\n    \"data\": {\n        \"Activities\": [\n            {\n                \"id\": 5,\n                \"vendor_id\": 6,\n                \"user_id\": 7,\n                \"reward_method_id\": 3,\n                \"service_id\": 3,\n                \"attribute\": null,\n                \"attribute_type\": null,\n                \"action\": \"instant_redeem\",\n                \"points\": \"100\",\n                \"status\": true,\n                \"created\": \"2016-11-11T08:39:09+00:00\",\n                \"modified\": \"2016-11-11T08:39:09+00:00\",\n                \"service\": {\n                    \"id\": 3,\n                    \"name\": \"in_house\",\n                    \"label\": \"In House\",\n                    \"status\": true,\n                    \"created\": \"2016-11-09T18:16:40+00:00\",\n                    \"modified\": \"2016-11-09T18:16:40+00:00\"\n                },\n                \"reward_method\": {\n                    \"id\": 3,\n                    \"name\": \"instant_redeem\",\n                    \"label\": \"Instant Redeemption\",\n                    \"status\": true,\n                    \"created\": \"2016-11-09T18:16:40+00:00\",\n                    \"modified\": \"2016-11-09T18:16:40+00:00\"\n                },\n                \"user\": {\n                    \"id\": 7,\n                    \"uuid\": \"6cf957c1-c0cf-46e2-9f45-863a550be2a9\",\n                    \"name\": \"nikhil\",\n                    \"email\": \"nikhil11@gmail.com\",\n                    \"phone\": null,\n                    \"role_id\": 2,\n                    \"created\": \"2016-11-11T07:09:33+00:00\",\n                    \"modified\": \"2016-11-11T07:09:33+00:00\",\n                    \"status\": true,\n                    \"username\": \"ns\",\n                    \"isEmailVerified\": false\n                },\n                \"vendor\": {\n                    \"id\": 6,\n                    \"name\": \"niteesh3\",\n                    \"created\": \"2016-11-11T08:27:13+00:00\",\n                    \"modified\": \"2016-11-11T08:27:13+00:00\",\n                    \"status\": true,\n                    \"deleted\": null\n                }\n            }\n        ]\n    }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/Controller/Api/User/ActivitiesController.php",
+    "groupTitle": "User_Apis"
+  },
+  {
     "type": "post",
     "url": "/api/user/login",
     "title": "Login User",
@@ -788,6 +833,51 @@ define({ "api": [
       ]
     },
     "filename": "src/Controller/Api/Vendor/VendorsController.php",
+    "groupTitle": "Vendor_Apis"
+  },
+  {
+    "type": "GET",
+    "url": "/api/vendor/activies",
+    "title": "View vendor's activities",
+    "description": "<p>View vendor's activities.</p>",
+    "version": "1.1.0",
+    "name": "MyActivities",
+    "group": "Vendor_Apis",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>Vendor's Access Token</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "\"token\" => \"Bearer Vendor's Access Token\"",
+          "type": "php"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "http://peoplehub.twinspark.co/api/vendor/activities"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"status\": true,\n    \"data\": {\n        \"Activities\": [\n            {\n                \"id\": 1,\n                \"vendor_id\": 6,\n                \"user_id\": 1,\n                \"reward_method_id\": 3,\n                \"service_id\": 3,\n                \"attribute\": null,\n                \"attribute_type\": null,\n                \"action\": \"instant_redeem\",\n                \"points\": \"100\",\n                \"status\": true,\n                \"created\": \"2016-11-11T08:28:13+00:00\",\n                \"modified\": \"2016-11-11T08:28:13+00:00\",\n                \"service\": {\n                    \"id\": 3,\n                    \"name\": \"in_house\",\n                    \"label\": \"In House\",\n                    \"status\": true,\n                    \"created\": \"2016-11-09T18:16:40+00:00\",\n                    \"modified\": \"2016-11-09T18:16:40+00:00\"\n                },\n                \"reward_method\": {\n                    \"id\": 3,\n                    \"name\": \"instant_redeem\",\n                    \"label\": \"Instant Redeemption\",\n                    \"status\": true,\n                    \"created\": \"2016-11-09T18:16:40+00:00\",\n                    \"modified\": \"2016-11-09T18:16:40+00:00\"\n                },\n                \"user\": {\n                    \"id\": 1,\n                    \"uuid\": \"1d0bb055-9432-49a1-938f-07c6d75cf86a\",\n                    \"name\": \"admin\",\n                    \"email\": null,\n                    \"phone\": null,\n                    \"role_id\": 1,\n                    \"created\": \"2016-11-09T18:16:40+00:00\",\n                    \"modified\": \"2016-11-09T18:16:40+00:00\",\n                    \"status\": true,\n                    \"username\": \"admin\",\n                    \"isEmailVerified\": false\n                },\n                \"vendor\": {\n                    \"id\": 6,\n                    \"name\": \"niteesh3\",\n                    \"created\": \"2016-11-11T08:27:13+00:00\",\n                    \"modified\": \"2016-11-11T08:27:13+00:00\",\n                    \"status\": true,\n                    \"deleted\": null\n                }\n            },\n            {\n                \"id\": 2,\n                \"vendor_id\": 6,\n                \"user_id\": 1,\n                \"reward_method_id\": 3,\n                \"service_id\": 3,\n                \"attribute\": null,\n                \"attribute_type\": null,\n                \"action\": \"instant_redeem\",\n                \"points\": \"100\",\n                \"status\": true,\n                \"created\": \"2016-11-11T08:28:16+00:00\",\n                \"modified\": \"2016-11-11T08:28:16+00:00\",\n                \"service\": {\n                    \"id\": 3,\n                    \"name\": \"in_house\",\n                    \"label\": \"In House\",\n                    \"status\": true,\n                    \"created\": \"2016-11-09T18:16:40+00:00\",\n                    \"modified\": \"2016-11-09T18:16:40+00:00\"\n                },\n                \"reward_method\": {\n                    \"id\": 3,\n                    \"name\": \"instant_redeem\",\n                    \"label\": \"Instant Redeemption\",\n                    \"status\": true,\n                    \"created\": \"2016-11-09T18:16:40+00:00\",\n                    \"modified\": \"2016-11-09T18:16:40+00:00\"\n                },\n                \"user\": {\n                    \"id\": 1,\n                    \"uuid\": \"1d0bb055-9432-49a1-938f-07c6d75cf86a\",\n                    \"name\": \"admin\",\n                    \"email\": null,\n                    \"phone\": null,\n                    \"role_id\": 1,\n                    \"created\": \"2016-11-09T18:16:40+00:00\",\n                    \"modified\": \"2016-11-09T18:16:40+00:00\",\n                    \"status\": true,\n                    \"username\": \"admin\",\n                    \"isEmailVerified\": false\n                },\n                \"vendor\": {\n                    \"id\": 6,\n                    \"name\": \"niteesh3\",\n                    \"created\": \"2016-11-11T08:27:13+00:00\",\n                    \"modified\": \"2016-11-11T08:27:13+00:00\",\n                    \"status\": true,\n                    \"deleted\": null\n                }\n            },\n            {\n                \"id\": 3,\n                \"vendor_id\": 6,\n                \"user_id\": 1,\n                \"reward_method_id\": 3,\n                \"service_id\": 3,\n                \"attribute\": null,\n                \"attribute_type\": null,\n                \"action\": \"instant_redeem\",\n                \"points\": \"100\",\n                \"status\": true,\n                \"created\": \"2016-11-11T08:28:16+00:00\",\n                \"modified\": \"2016-11-11T08:28:16+00:00\",\n                \"service\": {\n                    \"id\": 3,\n                    \"name\": \"in_house\",\n                    \"label\": \"In House\",\n                    \"status\": true,\n                    \"created\": \"2016-11-09T18:16:40+00:00\",\n                    \"modified\": \"2016-11-09T18:16:40+00:00\"\n                },\n                \"reward_method\": {\n                    \"id\": 3,\n                    \"name\": \"instant_redeem\",\n                    \"label\": \"Instant Redeemption\",\n                    \"status\": true,\n                    \"created\": \"2016-11-09T18:16:40+00:00\",\n                    \"modified\": \"2016-11-09T18:16:40+00:00\"\n                },\n                \"user\": {\n                    \"id\": 1,\n                    \"uuid\": \"1d0bb055-9432-49a1-938f-07c6d75cf86a\",\n                    \"name\": \"admin\",\n                    \"email\": null,\n                    \"phone\": null,\n                    \"role_id\": 1,\n                    \"created\": \"2016-11-09T18:16:40+00:00\",\n                    \"modified\": \"2016-11-09T18:16:40+00:00\",\n                    \"status\": true,\n                    \"username\": \"admin\",\n                    \"isEmailVerified\": false\n                },\n                \"vendor\": {\n                    \"id\": 6,\n                    \"name\": \"niteesh3\",\n                    \"created\": \"2016-11-11T08:27:13+00:00\",\n                    \"modified\": \"2016-11-11T08:27:13+00:00\",\n                    \"status\": true,\n                    \"deleted\": null\n                }\n            }\n        ]\n    }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/Controller/Api/Vendor/ActivitiesController.php",
     "groupTitle": "Vendor_Apis"
   },
   {
@@ -1081,6 +1171,64 @@ define({ "api": [
       ]
     },
     "filename": "src/Controller/Api/Vendor/VendorsController.php",
+    "groupTitle": "Vendor_Apis"
+  },
+  {
+    "type": "GET",
+    "url": "/api/vendor/activies",
+    "title": "View user's activities",
+    "description": "<p>View user's activities.</p>",
+    "version": "1.1.0",
+    "name": "UserActivities",
+    "group": "Vendor_Apis",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>Vendor's Access Token</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "\"token\" => \"Bearer Vendor's Access Token\"",
+          "type": "php"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "http://peoplehub.twinspark.co/api/vendor/activities"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "user_id",
+            "description": "<p>cantain user's id</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"status\": true,\n    \"data\": {\n        \"Activities\": [\n            {\n                \"id\": 5,\n                \"vendor_id\": 6,\n                \"user_id\": 7,\n                \"reward_method_id\": 3,\n                \"service_id\": 3,\n                \"attribute\": null,\n                \"attribute_type\": null,\n                \"action\": \"instant_redeem\",\n                \"points\": \"100\",\n                \"status\": true,\n                \"created\": \"2016-11-11T08:39:09+00:00\",\n                \"modified\": \"2016-11-11T08:39:09+00:00\",\n                \"service\": {\n                    \"id\": 3,\n                    \"name\": \"in_house\",\n                    \"label\": \"In House\",\n                    \"status\": true,\n                    \"created\": \"2016-11-09T18:16:40+00:00\",\n                    \"modified\": \"2016-11-09T18:16:40+00:00\"\n                },\n                \"reward_method\": {\n                    \"id\": 3,\n                    \"name\": \"instant_redeem\",\n                    \"label\": \"Instant Redeemption\",\n                    \"status\": true,\n                    \"created\": \"2016-11-09T18:16:40+00:00\",\n                    \"modified\": \"2016-11-09T18:16:40+00:00\"\n                },\n                \"user\": {\n                    \"id\": 7,\n                    \"uuid\": \"6cf957c1-c0cf-46e2-9f45-863a550be2a9\",\n                    \"name\": \"nikhil\",\n                    \"email\": \"nikhil11@gmail.com\",\n                    \"phone\": null,\n                    \"role_id\": 2,\n                    \"created\": \"2016-11-11T07:09:33+00:00\",\n                    \"modified\": \"2016-11-11T07:09:33+00:00\",\n                    \"status\": true,\n                    \"username\": \"ns\",\n                    \"isEmailVerified\": false\n                },\n                \"vendor\": {\n                    \"id\": 6,\n                    \"name\": \"niteesh3\",\n                    \"created\": \"2016-11-11T08:27:13+00:00\",\n                    \"modified\": \"2016-11-11T08:27:13+00:00\",\n                    \"status\": true,\n                    \"deleted\": null\n                }\n            }\n        ]\n    }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/Controller/Api/Vendor/ActivitiesController.php",
     "groupTitle": "Vendor_Apis"
   },
   {

@@ -604,7 +604,7 @@
   },
   {
     "type": "GET",
-    "url": "/api/vendor/activies",
+    "url": "/api/vendor/activities",
     "title": "View user's activities",
     "description": "<p>View user's activities.</p>",
     "version": "1.1.0",
@@ -837,7 +837,7 @@
   },
   {
     "type": "GET",
-    "url": "/api/vendor/activies",
+    "url": "/api/vendor/activities",
     "title": "View vendor's activities",
     "description": "<p>View vendor's activities.</p>",
     "version": "1.1.0",
@@ -865,7 +865,7 @@
     },
     "sampleRequest": [
       {
-        "url": "http://peoplehub.twinspark.co/api/vendor/activities"
+        "url": "http://peoplehub.twinspark.co/api/user/activities"
       }
     ],
     "success": {
@@ -1175,7 +1175,7 @@
   },
   {
     "type": "GET",
-    "url": "/api/vendor/activies",
+    "url": "/api/vendor/activities",
     "title": "View user's activities",
     "description": "<p>View user's activities.</p>",
     "version": "1.1.0",

@@ -1203,7 +1203,7 @@ define({ "api": [
     },
     "sampleRequest": [
       {
-        "url": "http://peoplehub.twinspark.co/api/vendor/activities?user_id=7"
+        "url": "http://peoplehub.twinspark.co/peoplehub/api/vendor/activities?user_id=7"
       }
     ],
     "parameter": {

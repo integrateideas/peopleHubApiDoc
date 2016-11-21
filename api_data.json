@@ -1367,6 +1367,195 @@
     "groupTitle": "Vendor_Apis"
   },
   {
+    "type": "POST",
+    "url": "api/vendor/redeemedCredits/",
+    "title": "redeem store credit of a user.",
+    "description": "<p>This api is used to redeem store credit of a user.</p>",
+    "version": "1.1.0",
+    "name": "redeemUsersStoreCredit",
+    "group": "Vendor_Apis",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>Vendor's Access Token</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "\"token\" => \"Bearer Vendor's Access Token",
+          "type": "php"
+        }
+      ]
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": true,
+            "field": "user_id",
+            "description": "<p>User's Id. If sending user_id then attribute and attribute type should not be sent.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": true,
+            "field": "attribute",
+            "description": "<p>value of attribute_type. If sending attribute and attribute type then user is should not be sent.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": true,
+            "field": "attribute_type",
+            "description": "<p>it can be phone or email or card only</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "service",
+            "description": "<p>service name amazon/tango to redeem reward.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "reward_type",
+            "description": "<p>it should be store_credit.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n  \"attribute\":\"9911002549\",\n  \"attribute_type\":\"phone\",\n  \"reward_type\":\"store_credit\",\n  \"points\":\"10\",\n}",
+          "type": "json"
+        },
+        {
+          "title": "Request-Example:",
+          "content": "{\n  \"user_id\":\"2\",\n  \"reward_type\":\"store_credit\",\n  \"points\":\"10\",\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "id",
+            "description": "<p>redemption Id.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n   \"status\": true,\n   \"data\": {\n       \"id\": 10,\n       \"message\": \"points redeemed\"\n   }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/Controller/Api/Vendor/RedeemedCreditsController.php",
+    "groupTitle": "Vendor_Apis"
+  },
+  {
+    "type": "POST",
+    "url": "api/vendor/redeemedCredits/",
+    "title": "redeem wallet credit of a user.",
+    "description": "<p>This api is used to redeem wallet credit of a user.</p>",
+    "version": "1.1.0",
+    "name": "redeemUsersWalletCredit",
+    "group": "Vendor_Apis",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>Vendor's Access Token</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "\"token\" => \"Bearer Vendor's Access Token",
+          "type": "php"
+        }
+      ]
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "user_id",
+            "description": "<p>User's Id.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "service",
+            "description": "<p>service name amazon/tango to redeem reward.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "reward_type",
+            "description": "<p>it should be wallet_credit.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n  \"user_id\":\"2\",\n  \"reward_type\":\"wallet_credit\",\n  \"service\":\"amazon\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "id",
+            "description": "<p>redemption Id.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n   \"status\": true,\n   \"data\": {\n       \"id\": 10,\n       \"message\": \"Gift coupon sent\"\n   }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/Controller/Api/Vendor/RedeemedCreditsController.php",
+    "groupTitle": "Vendor_Apis"
+  },
+  {
     "type": "post",
     "url": "/api/vendor/rewardCredits/",
     "title": "Reward Credit to user",

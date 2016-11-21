@@ -1203,7 +1203,7 @@
     },
     "sampleRequest": [
       {
-        "url": "http://peoplehub.twinspark.co/api/vendor/activities"
+        "url": "http://peoplehub.twinspark.co/api/vendor/activities?user_id=7"
       }
     ],
     "parameter": {
@@ -1214,7 +1214,7 @@
             "type": "Integer",
             "optional": false,
             "field": "user_id",
-            "description": "<p>cantain user's id</p>"
+            "description": "<p>cantain peoplehub id of key user</p>"
           }
         ]
       }

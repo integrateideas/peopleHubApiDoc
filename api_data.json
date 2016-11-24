@@ -863,9 +863,29 @@
         }
       ]
     },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Date",
+            "optional": true,
+            "field": "from",
+            "description": "<p>cantains date from which data is required in format Y-m-d</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Date",
+            "optional": true,
+            "field": "to",
+            "description": "<p>cantains date upto which data is required in format Y-m-d</p>"
+          }
+        ]
+      }
+    },
     "sampleRequest": [
       {
-        "url": "http://peoplehub.twinspark.co/api/user/activities"
+        "url": "http://peoplehub.twinspark.co/api/vendor/activities/?from=20-11-2016&to=22-11-2016"
       }
     ],
     "success": {
@@ -1201,24 +1221,38 @@
         }
       ]
     },
-    "sampleRequest": [
-      {
-        "url": "http://peoplehub.twinspark.co/peoplehub/api/vendor/activities?user_id=7"
-      }
-    ],
     "parameter": {
       "fields": {
         "Parameter": [
           {
             "group": "Parameter",
             "type": "Integer",
-            "optional": false,
+            "optional": true,
             "field": "user_id",
             "description": "<p>cantain peoplehub id of key user</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Date",
+            "optional": true,
+            "field": "from",
+            "description": "<p>cantains date from which data is required in format Y-m-d</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Date",
+            "optional": true,
+            "field": "to",
+            "description": "<p>cantains date upto which data is required in format Y-m-d</p>"
           }
         ]
       }
     },
+    "sampleRequest": [
+      {
+        "url": "http://peoplehub.twinspark.co/api/vendor/activities/?user_id=7&from=20-11-2016&to=22-11-2016"
+      }
+    ],
     "success": {
       "examples": [
         {

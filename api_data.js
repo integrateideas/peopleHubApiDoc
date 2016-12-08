@@ -649,6 +649,63 @@ define({ "api": [
   },
   {
     "type": "post",
+    "url": "/api/user/fbLogin",
+    "title": "Login User Via Facebook",
+    "version": "1.1.0",
+    "name": "fbLogin",
+    "group": "User_Apis",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "fbId",
+            "description": "<p>contains facebook id.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "status",
+            "description": "<p>status of the request.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>ID of the User.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>Auth Token.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n \"response\": {\n               \"status\": true,\n               \"data\": {\n                        \"id\": 7,\n                        \"token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjcsImV4cCI6MTQ3MDc0NDI5MX0.i1Jxt5__1oOlmltXoOVIC-17f4rM48nl4uzkahWmU1c\"\n                       }\n             }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/Controller/Api/User/UsersController.php",
+    "groupTitle": "User_Apis"
+  },
+  {
+    "type": "post",
     "url": "/api/user/login",
     "title": "Login User",
     "version": "1.1.0",
@@ -741,6 +798,84 @@ define({ "api": [
       ]
     },
     "filename": "src/Controller/Api/User/UsersController.php",
+    "groupTitle": "User_Apis"
+  },
+  {
+    "type": "POST",
+    "url": "/api/user/redeemedCredits/",
+    "title": "redeem wallet credit.",
+    "description": "<p>This api is used to redeem wallet credit.</p>",
+    "version": "1.1.0",
+    "name": "redeemUsersWalletCredit",
+    "group": "User_Apis",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>User's Access Token</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "\"token\" => \"Bearer User's Access Token",
+          "type": "php"
+        }
+      ]
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "service",
+            "description": "<p>service name amazon/tango to redeem reward.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "reward_type",
+            "description": "<p>it should be wallet_credit.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n  \"reward_type\":\"wallet_credit\",\n  \"service\":\"amazon\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "id",
+            "description": "<p>redemption Id.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n   \"status\": true,\n   \"data\": {\n       \"id\": 10,\n       \"message\": \"Gift coupon sent\"\n   }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/Controller/Api/User/RedeemedCreditsController.php",
     "groupTitle": "User_Apis"
   },
   {
@@ -1263,6 +1398,51 @@ define({ "api": [
       ]
     },
     "filename": "src/Controller/Api/Vendor/ActivitiesController.php",
+    "groupTitle": "Vendor_Apis"
+  },
+  {
+    "type": "GET",
+    "url": "/api/vendor/users/:id",
+    "title": "Fetch vendor specific user's wallet and store credit detail",
+    "description": "<p>Fetch vendor specific user's wallet and store credit detail</p>",
+    "version": "1.1.0",
+    "name": "getVendorSpecificUserDetail",
+    "group": "Vendor_Apis",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>Vendor's Access Token</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "\"token\" => \"Bearer Vendor's Access Token\"",
+          "type": "php"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "http://peoplehub.twinspark.co/api/vendor/users/2"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"status\": true,\n  \"data\": {\n      \"id\": 2,\n      \"fb_identifier\": \"122057828256703\",\n      \"uuid\": \"8c7acb4d-bb08-4e7d-8ace-b6e7dcaa3c4c\",\n      \"name\": \"Test User 1\",\n      \"email\": null,\n      \"phone\": \"9911002549\",\n      \"role_id\": 2,\n      \"created\": \"2016-11-28T06:36:18+00:00\",\n      \"modified\": \"2016-12-07T07:56:50+00:00\",\n      \"status\": true,\n      \"username\": \"testuser1\",\n      \"isEmailVerified\": false,\n      \"totalWalletCredits\": 100,\n      \"totalStoreCredits\": 100\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/Controller/Api/Vendor/UsersController.php",
     "groupTitle": "Vendor_Apis"
   },
   {

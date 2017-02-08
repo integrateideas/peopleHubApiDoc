@@ -1,14 +1,14 @@
 define({
-  "name": "People Hub",
+  "name": "Bountee",
   "version": "1.1.0",
-  "description": "People Hub Apis",
+  "description": "Bountee Apis",
   "title": "People Hub Apis",
-  "url": "https://peoplehub.twinspark.co/peoplehub",
+  "url": "https://app.thebountee.com/bountee",
   "sampleUrl": false,
   "apidoc": "0.2.0",
   "generator": {
     "name": "apidoc",
-    "time": "2016-12-08T05:02:56.672Z",
+    "time": "2017-02-07T13:41:57.652Z",
     "url": "http://apidocjs.com",
     "version": "0.16.1"
   }

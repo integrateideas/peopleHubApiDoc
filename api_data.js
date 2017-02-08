@@ -33,7 +33,7 @@ define({ "api": [
           {
             "group": "Parameter",
             "type": "String",
-            "size": "..255",
+            "size": "1..255",
             "optional": false,
             "field": "name",
             "description": "<p>Vendor's Organization Name.</p>"
@@ -65,7 +65,7 @@ define({ "api": [
           {
             "group": "vendor_contacts",
             "type": "String",
-            "size": "..255",
+            "size": "1..255",
             "optional": false,
             "field": "vendor_contacts.email",
             "description": "<p>contains vendor's email.</p>"
@@ -163,7 +163,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "Number",
+            "type": "Integer",
             "optional": false,
             "field": "id",
             "description": "<p>Vendor's Id.</p>"
@@ -226,14 +226,14 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "Authorization",
-            "description": "<p>Basic (Base_64encode(client_secret:client_id))</p>"
+            "description": "<p>Basic (Base_64encode(client_id:client_secret))</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Header-Example:",
-          "content": "\"Authorization\" => \"Basic (Base_64encode(client_secret:client_id)\"",
+          "content": "\"Authorization\" => \"Basic (Base_64encode(client_id:client_secret)\"",
           "type": "php"
         }
       ]
@@ -357,88 +357,109 @@ define({ "api": [
     "version": "1.1.0",
     "name": "Update_vendor_detail",
     "group": "Reseller_Apis",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Reseller Access Token</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "\"Authorization\" => \"Bearer Reseller's Access Token\"",
+          "type": "php"
+        }
+      ]
+    },
     "parameter": {
       "fields": {
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "integer",
-            "optional": false,
-            "field": "id",
-            "description": "<p>Vendor's Id.</p>"
-          },
-          {
-            "group": "Parameter",
             "type": "String",
-            "optional": true,
+            "size": "1..255",
+            "optional": false,
             "field": "name",
-            "description": "<p>Vendor's organizarion name.</p>"
+            "description": "<p>Vendor's Organization Name.</p>"
           },
           {
             "group": "Parameter",
             "type": "Boolean",
             "optional": true,
             "field": "status",
-            "description": "<p>Vendor's status.</p>"
+            "defaultValue": "enabled",
+            "description": ""
           },
           {
             "group": "Parameter",
             "type": "Array",
-            "optional": true,
+            "optional": false,
             "field": "vendor_contacts",
-            "description": "<p>Contain vendor contact relacted data.</p>"
+            "description": "<p>contains vendor's contact information.</p>"
           },
           {
             "group": "Parameter",
+            "type": "Array",
+            "optional": false,
+            "field": "vendor_reward_types",
+            "description": "<p>contains vendor's alloted reward type(s) information.</p>"
+          }
+        ],
+        "vendor_contacts": [
+          {
+            "group": "vendor_contacts",
             "type": "String",
-            "optional": true,
-            "field": "email",
-            "description": "<p>Vendor's email.</p>"
+            "size": "1..255",
+            "optional": false,
+            "field": "vendor_contacts.email",
+            "description": "<p>contains vendor's email.</p>"
           },
           {
-            "group": "Parameter",
+            "group": "vendor_contacts",
             "type": "String",
-            "optional": true,
-            "field": "phone",
-            "description": "<p>Vendor's Phone number.</p>"
+            "size": "10..15",
+            "optional": false,
+            "field": "vendor_contacts.phone",
+            "description": "<p>contains vendor's phone number.</p>"
           },
           {
-            "group": "Parameter",
+            "group": "vendor_contacts",
             "type": "Boolean",
             "optional": true,
             "field": "is_primary",
-            "description": "<p>is primary contact.</p>"
+            "defaultValue": "true",
+            "description": "<p>is primary contact?</p>"
+          }
+        ],
+        "vendor_reward_types": [
+          {
+            "group": "vendor_reward_types",
+            "type": "Integer",
+            "optional": false,
+            "field": "vendor_reward_types.reward_method_id",
+            "description": "<p>contains reward_method_id.</p>"
           },
           {
-            "group": "Parameter",
-            "type": "Array",
+            "group": "vendor_reward_types",
+            "type": "Boolean",
             "optional": true,
-            "field": "vendor_reward_types",
-            "description": "<p>Contain vendor reward type relacted data.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": true,
-            "field": "reward_method_id",
-            "description": "<p>reward method's id: 1-wallet credit, 2-store credit.</p>"
+            "field": "vendor_reward_types.status",
+            "defaultValue": "enabled",
+            "description": ""
           }
         ]
       },
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "{\n    \"name\": \"nitesh1\",\n    \"status\": 1,\n    \"vendor_contacts\": {\n        \"email\": \"snwites3h@gmail.com\",\n        \"phone\": \"99343403239\",\n        \"is_primary\": 1\n    },\n    \"vendor_reward_types\": [{\n        \"reward_method_id\": \"1\",\n        \"status\": 1\n    },\n    {\n        \"reward_method_id\": \"2\",\n        \"status\": 1\n    },\n    {\n        \"reward_method_id\": \"3\",\n        \"status\": 1\n    }\n  ]\n}",
+          "content": "{\n   \"name\": \"nitesh3\",\n   \"status\": 1\n}",
           "type": "json"
-        }
-      ]
-    },
-    "header": {
-      "examples": [
-        {
-          "title": "Header-Example:",
-          "content": "\"Authorization\" => \"Bearer Reseller's Access Token\"",
-          "type": "php"
         }
       ]
     },
@@ -457,7 +478,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n {\n     \"status\": true,\n     \"data\": {\n         \"id\": 3,\n         \"name\": \"nitesh1\",\n         \"created\": \"2016-11-09T18:31:28+00:00\",\n         \"modified\": \"2016-11-09T18:35:47+00:00\",\n         \"status\": true,\n         \"deleted\": null,\n         \"reseller_vendors\": [\n             {\n                 \"id\": 3,\n                 \"reseller_id\": 1,\n                 \"vendor_id\": 3,\n                 \"status\": true,\n                 \"created\": \"2016-11-09T18:31:28+00:00\",\n                 \"modified\": \"2016-11-09T18:31:28+00:00\",\n                 \"reseller\": {\n                     \"id\": 1,\n                     \"uuid\": \"0fbad06c-d980-42f3-8c63-d7c1dd049acb\",\n                     \"org_name\": \"twinspark123\",\n                     \"client_identifier\": \"123456789\",\n                     \"client_secret\": \"123456789\",\n                     \"security_deposit\": 1500,\n                     \"status\": true,\n                     \"created\": \"2016-11-09T18:16:40+00:00\",\n                     \"modified\": \"2016-11-09T18:16:40+00:00\",\n                     \"deleted\": null\n                 }\n             }\n         ],\n         \"vendor_contacts\": [\n             {\n                 \"id\": 3,\n                 \"vendor_id\": 3,\n               \"email\": \"snwites3h@gmail.com\",\n               \"phone\": \"99610403239\",\n                 \"is_primary\": true,\n                 \"created\": \"2016-11-09T18:31:28+00:00\",\n                 \"modified\": \"2016-11-09T18:31:28+00:00\"\n             }\n         ],\n         \"vendor_reward_types\": [\n             {\n                 \"id\": 7,\n                 \"vendor_id\": 3,\n              \"reward_method_id\": 1,\n                 \"created\": \"2016-11-09T18:35:47+00:00\",\n                 \"modified\": \"2016-11-09T18:35:47+00:00\",\n                 \"status\": true,\n                 \"reward_method\": {\n                     \"id\": 1,\n                     \"name\": \"wallet_credit\",\n                     \"label\": \"Wallet Credit\",\n                     \"status\": true,\n                     \"created\": \"2016-11-09T18:16:40+00:00\",\n                     \"modified\": \"2016-11-09T18:16:40+00:00\"\n                 }\n             },\n             {\n                 \"id\": 8,\n                 \"vendor_id\": 3,\n                 \"reward_method_id\": 2,\n                 \"created\": \"2016-11-09T18:35:47+00:00\",\n                 \"modified\": \"2016-11-09T18:35:47+00:00\",\n                 \"status\": true,\n                 \"reward_method\": {\n                     \"id\": 2,\n                     \"name\": \"store_credit\",\n                     \"label\": \"Store Credit\",\n                     \"status\": true,\n                     \"created\": \"2016-11-09T18:16:40+00:00\",\n                     \"modified\": \"2016-11-09T18:16:40+00:00\"\n                 }\n             },\n           {\n               \"id\": 9,\n                 \"vendor_id\": 3,\n                 \"reward_method_id\": 3,\n                 \"created\": \"2016-11-09T18:35:47+00:00\",\n                 \"modified\": \"2016-11-09T18:35:47+00:00\",\n                 \"status\": true,\n                 \"reward_method\": {\n                     \"id\": 3,\n                     \"name\": \"instant_redeem\",\n                     \"label\": \"Instant Redeemption\",\n                     \"status\": true,\n                     \"created\": \"2016-11-09T18:16:40+00:00\",\n                     \"modified\": \"2016-11-09T18:16:40+00:00\"\n                 }\n             }\n         ]\n   }\n }",
+          "content": "HTTP/1.1 200 OK\n{\n   \"status\": true,\n   \"data\": {\n       \"id\": 5,\n       \"name\": \"nitesh3\",\n       \"created\": \"2017-02-08T09:13:05+00:00\",\n       \"modified\": \"2017-02-08T09:58:41+00:00\",\n       \"status\": true,\n       \"deleted\": null,\n       \"reseller_vendors\": [\n           {\n               \"id\": 6,\n               \"reseller_id\": 1,\n               \"vendor_id\": 5,\n               \"status\": true,\n               \"created\": \"2017-02-08T09:13:05+00:00\",\n               \"modified\": \"2017-02-08T09:13:05+00:00\",\n               \"reseller\": {\n                   \"id\": 1,\n                   \"uuid\": \"0197351c-226a-42b5-bc02-0830440c9ec5\",\n                   \"org_name\": \"twinspark123\",\n                   \"client_identifier\": \"123456789\",\n                   \"client_secret\": \"123456789\",\n                   \"security_deposit\": 1500,\n                   \"status\": true,\n                   \"created\": \"2017-02-06T09:41:03+00:00\",\n                   \"modified\": \"2017-02-06T09:41:03+00:00\",\n                   \"deleted\": null\n               }\n           }\n       ],\n       \"vendor_contacts\": [\n           {\n               \"id\": 6,\n               \"vendor_id\": 5,\n               \"email\": \"snwites3h@gmail.com\",\n               \"phone\": \"99610403239\",\n               \"is_primary\": true,\n               \"created\": \"2017-02-08T09:13:05+00:00\",\n               \"modified\": \"2017-02-08T09:13:05+00:00\"\n           }\n       ],\n       \"vendor_reward_types\": [\n           {\n               \"id\": 22,\n               \"vendor_id\": 5,\n               \"reward_method_id\": 1,\n               \"created\": \"2017-02-08T09:56:05+00:00\",\n               \"modified\": \"2017-02-08T09:56:05+00:00\",\n               \"status\": true,\n               \"reward_method\": {\n                   \"id\": 1,\n                   \"name\": \"wallet_credit\",\n                   \"label\": \"Wallet Credit\",\n                   \"status\": true,\n                   \"created\": \"2017-02-06T09:41:03+00:00\",\n                   \"modified\": \"2017-02-06T09:41:03+00:00\"\n               }\n           },\n           {\n               \"id\": 23,\n               \"vendor_id\": 5,\n               \"reward_method_id\": 2,\n               \"created\": \"2017-02-08T09:56:05+00:00\",\n               \"modified\": \"2017-02-08T09:56:05+00:00\",\n               \"status\": true,\n               \"reward_method\": {\n                   \"id\": 2,\n                   \"name\": \"store_credit\",\n                   \"label\": \"Store Credit\",\n                   \"status\": true,\n                   \"created\": \"2017-02-06T09:41:03+00:00\",\n                   \"modified\": \"2017-02-06T09:41:03+00:00\"\n               }\n           },\n           {\n               \"id\": 24,\n               \"vendor_id\": 5,\n               \"reward_method_id\": 3,\n               \"created\": \"2017-02-08T09:56:05+00:00\",\n               \"modified\": \"2017-02-08T09:56:05+00:00\",\n               \"status\": true,\n               \"reward_method\": {\n                   \"id\": 3,\n                   \"name\": \"instant_redeem\",\n                   \"label\": \"Instant Redeemption\",\n                   \"status\": true,\n                   \"created\": \"2017-02-06T09:41:03+00:00\",\n                   \"modified\": \"2017-02-06T09:41:03+00:00\"\n               }\n           }\n       ]\n   }\n}",
           "type": "json"
         }
       ]
@@ -478,7 +499,7 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "Number",
+            "type": "Integer",
             "optional": false,
             "field": "id",
             "description": "<p>Vendor's Id.</p>"

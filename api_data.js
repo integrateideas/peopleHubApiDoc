@@ -856,6 +856,11 @@ define({ "api": [
           "title": "Success-Response:",
           "content": "HTTP/1.1 200 OK\n{\n   \"status\": true,\n   \"data\": {\n       \"id\": 4,\n       \"fb_identifier\": null,\n       \"uuid\": \"92945918-0e20-4233-a8d8-60c21b44e262\",\n       \"name\": \"Test User 3\",\n       \"email\": null,\n       \"phone\": null,\n       \"role_id\": 2,\n       \"created\": \"2017-01-02T11:50:38+00:00\",\n       \"modified\": \"2017-01-02T11:50:38+00:00\",\n       \"status\": true,\n       \"username\": \"testuser3\",\n       \"is_email_verified\": false,\n       \"guardian_email\": null,\n       \"relationship_id\": null,\n       \"reason\": null,\n       \"activities\": [],\n       \"user_cards\": [],\n       \"totalWalletCredits\": 0,\n       \"walletCredits\": [],\n       \"totalStoreCredits\": 0,\n       \"storeCredits\": []\n   }\n}",
           "type": "json"
+        },
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n   \"status\": true,\n   \"data\": {\n       \"name\": \"nikhis1l\",\n       \"username\": \"a1@go\",\n       \"phone\": \"78945613221\",\n       \"guardian_email\": \"aaa@asdsad.com\",\n       \"uuid\": \"384aacdd-ab37-4fa9-bc45-1b821fe72ffc\",\n       \"created\": \"2017-02-09T12:30:03+00:00\",\n       \"modified\": \"2017-02-09T12:30:03+00:00\",\n       \"id\": 8\n   }\n}",
+          "type": "json"
         }
       ]
     },
@@ -952,72 +957,6 @@ define({ "api": [
     "groupTitle": "User_Apis"
   },
   {
-    "type": "post",
-    "url": "/api/user/fbLogin",
-    "title": "Login User Via Facebook",
-    "version": "1.1.0",
-    "name": "fbLogin",
-    "group": "User_Apis",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "fbId",
-            "description": "<p>contains facebook id.</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Boolean",
-            "optional": false,
-            "field": "status",
-            "description": "<p>status of the request.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "Number",
-            "optional": false,
-            "field": "id",
-            "description": "<p>ID of the User.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "token",
-            "description": "<p>Auth Token.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n \"response\": {\n               \"status\": true,\n               \"data\": {\n                        \"id\": 7,\n                        \"token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjcsImV4cCI6MTQ3MDc0NDI5MX0.i1Jxt5__1oOlmltXoOVIC-17f4rM48nl4uzkahWmU1c\"\n                       }\n             }\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "header": {
-      "examples": [
-        {
-          "title": "Header-Example:",
-          "content": "\"Authorization\"=> \"Bearer Users's Access Token\"",
-          "type": "php"
-        }
-      ]
-    },
-    "filename": "bountee/userApis/UserController.js",
-    "groupTitle": "User_Apis"
-  },
-  {
     "type": "get",
     "url": "/api/user/user-cards",
     "title": "View user's card list",
@@ -1101,11 +1040,6 @@ define({ "api": [
       "examples": [
         {
           "title": "Header-Example:",
-          "content": "\"Authorization\" => \"Basic (Base_64encode(username:password)\"",
-          "type": "php"
-        },
-        {
-          "title": "Header-Example:",
           "content": "\"Authorization\"=> \"Bearer Users's Access Token\"",
           "type": "php"
         }
@@ -1166,7 +1100,14 @@ define({ "api": [
             "description": "<p>users's Access Token</p>"
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "\"Authorization\"=> \"Bearer Users's Access Token\"",
+          "type": "php"
+        }
+      ]
     },
     "success": {
       "examples": [
@@ -1194,6 +1135,7 @@ define({ "api": [
           {
             "group": "Parameter",
             "type": "String",
+            "size": "1..255",
             "optional": true,
             "field": "name",
             "description": "<p>contains User's Name.</p>"
@@ -1201,6 +1143,7 @@ define({ "api": [
           {
             "group": "Parameter",
             "type": "String",
+            "size": "5..255",
             "optional": true,
             "field": "email",
             "description": "<p>contains User's email, if username is not present then email is required.</p>"
@@ -1208,6 +1151,7 @@ define({ "api": [
           {
             "group": "Parameter",
             "type": "String",
+            "size": "5..255",
             "optional": true,
             "field": "username",
             "description": "<p>contains User's username, required if email is not present else not.</p>"
@@ -1215,6 +1159,7 @@ define({ "api": [
           {
             "group": "Parameter",
             "type": "String",
+            "size": "8..255",
             "optional": true,
             "field": "password",
             "description": "<p>contains user's new password.</p>"
@@ -1222,6 +1167,7 @@ define({ "api": [
           {
             "group": "Parameter",
             "type": "String",
+            "size": "8..255",
             "optional": true,
             "field": "old_password",
             "description": "<p>contains user's old password, required if password is provided.</p>"
@@ -1229,23 +1175,10 @@ define({ "api": [
           {
             "group": "Parameter",
             "type": "String",
+            "size": "5..255",
             "optional": true,
             "field": "guardian_email",
             "description": "<p>contains guardian email, required if email is not present else not.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "integer",
-            "optional": true,
-            "field": "relationship_id",
-            "description": "<p>contains user's relation with guardian, required if email is not present else not.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": true,
-            "field": "reason",
-            "description": "<p>contains reason why email is not available, required if email is not present else not.</p>"
           },
           {
             "group": "Parameter",

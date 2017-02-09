@@ -1040,7 +1040,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Header-Example:",
-          "content": "\"Authorization\"=> \"Bearer Users's Access Token\"",
+          "content": "\"Authorization\"=> \"Basic (Base_64encode(username:password))\"",
           "type": "php"
         }
       ]

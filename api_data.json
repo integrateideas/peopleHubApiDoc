@@ -65,7 +65,7 @@
           {
             "group": "vendor_contacts",
             "type": "String",
-            "size": "1..255",
+            "size": "5..255",
             "optional": false,
             "field": "vendor_contacts.email",
             "description": "<p>contains vendor's email.</p>"
@@ -74,7 +74,7 @@
             "group": "vendor_contacts",
             "type": "String",
             "size": "10..15",
-            "optional": false,
+            "optional": true,
             "field": "vendor_contacts.phone",
             "description": "<p>contains vendor's phone number.</p>"
           },
@@ -415,7 +415,7 @@
           {
             "group": "vendor_contacts",
             "type": "String",
-            "size": "1..255",
+            "size": "5..255",
             "optional": false,
             "field": "vendor_contacts.email",
             "description": "<p>contains vendor's email.</p>"
@@ -745,7 +745,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n   \"status\": true,\n   \"data\": {\n       \"id\": 4,\n       \"fb_identifier\": null,\n       \"uuid\": \"92945918-0e20-4233-a8d8-60c21b44e262\",\n       \"name\": \"Test User 3\",\n       \"email\": null,\n       \"phone\": null,\n       \"role_id\": 2,\n       \"created\": \"2017-01-02T11:50:38+00:00\",\n       \"modified\": \"2017-01-02T11:50:38+00:00\",\n       \"status\": true,\n       \"username\": \"testuser3\",\n       \"is_email_verified\": false,\n       \"guardian_email\": null,\n       \"relationship_id\": null,\n       \"reason\": null,\n       \"activities\": [],\n       \"user_cards\": [],\n       \"totalWalletCredits\": 0,\n       \"walletCredits\": [],\n       \"totalStoreCredits\": 0,\n       \"storeCredits\": []\n   }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n   \"status\": true,\n   \"data\": {\n       \"id\": 2,\n       \"fb_identifier\": null,\n       \"uuid\": \"a025727f-30b6-4feb-8b4f-6f66fd09abee\",\n       \"name\": \"nikhil\",\n       \"email\": null,\n       \"phone\": \"78945613221\",\n       \"role_id\": 2,\n       \"created\": \"2017-02-06T14:42:26+00:00\",\n       \"modified\": \"2017-02-06T14:42:26+00:00\",\n       \"status\": true,\n       \"username\": \"nikwhil21@gmail.com\",\n       \"is_email_verified\": false,\n       \"guardian_email\": \"nikhil11@gmail.com\",\n       \"relationship_id\": 1,\n       \"reason\": \"srry user do not have email\",\n       \"activities\": [],\n       \"user_cards\": [],\n       \"totalWalletCredits\": 0,\n       \"walletCredits\": [],\n       \"totalStoreCredits\": 0,\n       \"storeCredits\": [],\n       \"linkedAccount\": []\n   }\n}",
           "type": "json"
         }
       ]
@@ -772,6 +772,7 @@
           {
             "group": "Parameter",
             "type": "String",
+            "size": "1..255",
             "optional": false,
             "field": "name",
             "description": "<p>contains User's Name.</p>"
@@ -779,6 +780,7 @@
           {
             "group": "Parameter",
             "type": "String",
+            "size": "5..255",
             "optional": true,
             "field": "email",
             "description": "<p>contains User's email, if username is not present then email is required.</p>"
@@ -786,13 +788,7 @@
           {
             "group": "Parameter",
             "type": "String",
-            "optional": true,
-            "field": "username",
-            "description": "<p>contains User's username, required if email is not present else not.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
+            "size": "8..255",
             "optional": false,
             "field": "password",
             "description": "<p>contains user's password.</p>"
@@ -800,33 +796,41 @@
           {
             "group": "Parameter",
             "type": "String",
+            "size": "5..255",
             "optional": true,
-            "field": "guardian_email",
-            "description": "<p>contains guardian email, required if email is not present else not.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "integer",
-            "optional": true,
-            "field": "relationship_id",
-            "description": "<p>contains user's relation with guardian, required if email is not present else not.</p>"
+            "field": "username",
+            "description": "<p>contains username, if email is not present then username is required.</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
+            "size": "5..255",
             "optional": true,
-            "field": "reason",
-            "description": "<p>contains reason why email is not available, required if email is not present else not.</p>"
+            "field": "guardian_email",
+            "description": "<p>contains guardian email, required if username is present else not.</p>"
           },
           {
             "group": "Parameter",
             "type": "Boolean",
             "optional": true,
             "field": "status",
-            "description": "<p>Vendor's Status: Enabled or Disabled, By Default Enabled.</p>"
+            "defaultValue": "enabled",
+            "description": ""
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n\"name\" : \"nikhil\",\n\"email\" : \"nikhil11@gmail.com\",\n\"password\" : \"nikhil\",\n\"phone\" : \"78945613221\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "Request-Example:",
+          "content": "{\n\"name\" : \"nikhil\",\n\"username\" : \"nikhil11\",\n\"guardian_email\":\"nitesh_11@gmail.com\"\n\"password\" : \"nikhil\"\n}",
+          "type": "json"
+        }
+      ]
     },
     "success": {
       "fields": {

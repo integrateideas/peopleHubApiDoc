@@ -957,6 +957,64 @@ define({ "api": [
     "groupTitle": "User_Apis"
   },
   {
+    "type": "PUT",
+    "url": "/api/user/forgot_password",
+    "title": "forgot password method",
+    "description": "<p>forgot password method</p>",
+    "version": "1.1.0",
+    "name": "forgotPassword",
+    "group": "User_Apis",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "url",
+            "description": "<p>contains url from where request is coming</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "username",
+            "description": "<p>contains username</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n\"ref\":\"http://app.buzzydoc.com\",\n\"username\":\"nikhil11\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "data",
+            "description": "<p>cotains response.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n \"response\": {\n               \"status\": true,\n               \"data\": {\n                        \"token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjcsImV4cCI6MTQ3MDc0NDI5MX0.i1Jxt5__1oOlmltXoOVIC-17f4rM48nl4uzkahWmU1c\",\n                        \"url\": \"http%3A%2F%2Fwww.google.comreset-password%3Freset-token%3D%242y%2410%24uR1x5Qe4j.ktPLVFPAvmj.OrzyIZTW4XGbbrA468LNjuTJuiIpnj2\"\n                       }\n             }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "bountee/userApis/UserController.js",
+    "groupTitle": "User_Apis"
+  },
+  {
     "type": "get",
     "url": "/api/user/user-cards",
     "title": "View user's card list",
@@ -1057,7 +1115,7 @@ define({ "api": [
           },
           {
             "group": "Success 200",
-            "type": "Number",
+            "type": "Integer",
             "optional": false,
             "field": "id",
             "description": "<p>ID of the User.</p>"
@@ -1115,6 +1173,135 @@ define({ "api": [
           "title": "Success-Response:",
           "content": "  HTTP/1.1 200 OK\n  {\n\"response\": {\n\"status\": true,\n\"data\": {\n       \"message\": \"User Logged out Successfully\"\n       }\n   }\n}",
           "type": "json"
+        }
+      ]
+    },
+    "filename": "bountee/userApis/UserController.js",
+    "groupTitle": "User_Apis"
+  },
+  {
+    "type": "PUT",
+    "url": "/api/user/reset_password",
+    "title": "reset password method",
+    "description": "<p>reset password method</p>",
+    "version": "1.1.0",
+    "name": "resetUserPassword",
+    "group": "User_Apis",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "reset-token",
+            "description": "<p>contains token which is sent by forgot password api</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "new_password",
+            "description": "<p>contains new password</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "cnf_password",
+            "description": "<p>contains new password</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n  \"reset-token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjcsImV4cCI6MTQ3MDc0NDI5MX0.i1Jxt5__1oOlmltXoOVIC-17f4rM48nl4uzkahWmU1c\",\n  \"new_password\":\"12345678\",\n  \"cnf_password\":\"12345678\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "data",
+            "description": "<p>cotains response.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n \"response\": {\n               \"status\": true,\n               \"data\": {\n                        \"token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjcsImV4cCI6MTQ3MDc0NDI5MX0.i1Jxt5__1oOlmltXoOVIC-17f4rM48nl4uzkahWmU1c\",\n                        \"url\": \"http%3A%2F%2Fwww.google.comreset-password%3Freset-token%3D%242y%2410%24uR1x5Qe4j.ktPLVFPAvmj.OrzyIZTW4XGbbrA468LNjuTJuiIpnj2\"\n                       }\n             }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "bountee/userApis/UserController.js",
+    "groupTitle": "User_Apis"
+  },
+  {
+    "type": "PUT",
+    "url": "/api/user/switch_account",
+    "title": "switch user to linked account",
+    "description": "<p>switch to linked account</p>",
+    "version": "1.1.0",
+    "name": "switchUserAccount",
+    "group": "User_Apis",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "account_id",
+            "description": "<p>contains account_id to which user wants to switch</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "data",
+            "description": "<p>cotains response.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n \"response\": {\n               \"status\": true,\n               \"data\": {\n                        \"id\": 7,\n                        \"token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjcsImV4cCI6MTQ3MDc0NDI5MX0.i1Jxt5__1oOlmltXoOVIC-17f4rM48nl4uzkahWmU1c\"\n                       }\n             }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>User's Access Token</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "\"Authorization\"=> \"Bearer Users's Access Token\"",
+          "type": "php"
         }
       ]
     },

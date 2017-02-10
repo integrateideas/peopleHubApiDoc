@@ -1180,6 +1180,96 @@ define({ "api": [
     "groupTitle": "User_Apis"
   },
   {
+    "type": "POST",
+    "url": "/api/vendor/redeemedCredits/",
+    "title": "redeem wallet credit of a user.",
+    "description": "<p>This api is used to redeem wallet credit of a user.</p>",
+    "version": "1.1.0",
+    "name": "redeemUsersWalletCredit",
+    "group": "User_Apis",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>User's Access Token</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "\"token\" => \"Bearer User's Access Token",
+          "type": "php"
+        }
+      ]
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "ref",
+            "description": "<p>contains referral url from where request is coming</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "service",
+            "description": "<p>service name amazon/tango to redeem reward.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": true,
+            "field": "vendor_id",
+            "description": "<p>contains vendor's if if we want to redeem only sepecific vendor's walletCredits</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n  \"ref\":\"http://apps.buzzydoc.com/\",\n  \"service\":\"amazon\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "Request-Example:",
+          "content": "{\n  \"ref\":\"http://apps.buzzydoc.com/\",\n  \"vendor_id\":1,\n  \"service\":\"amazon\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "id",
+            "description": "<p>redemption Id.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n   \"status\": true,\n   \"data\": {\n       \"id\": 10,\n       \"message\": \"Gift coupon sent\"\n   }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "bountee/userApis/RedeemedCreditsController.js",
+    "groupTitle": "User_Apis"
+  },
+  {
     "type": "PUT",
     "url": "/api/user/reset_password",
     "title": "reset password method",

@@ -868,7 +868,52 @@ define({ "api": [
     "groupTitle": "User_Apis"
   },
   {
-    "type": "get",
+    "type": "GET",
+    "url": "/api/vendor/activities",
+    "title": "View user's activities",
+    "description": "<p>View user's activities.</p>",
+    "version": "1.1.0",
+    "name": "UserActivities",
+    "group": "User_Apis",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>User's Access Token</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "\"token\" => \"Bearer User's Access Token\"",
+          "type": "php"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/user/activities"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"status\": true,\n    \"data\": {\n        \"Activities\": [\n            {\n                \"id\": 5,\n                \"vendor_id\": 6,\n                \"user_id\": 7,\n                \"reward_method_id\": 3,\n                \"service_id\": 3,\n                \"attribute\": null,\n                \"attribute_type\": null,\n                \"action\": \"instant_redeem\",\n                \"points\": \"100\",\n                \"status\": true,\n                \"created\": \"2016-11-11T08:39:09+00:00\",\n                \"modified\": \"2016-11-11T08:39:09+00:00\",\n                \"service\": {\n                    \"id\": 3,\n                    \"name\": \"in_house\",\n                    \"label\": \"In House\",\n                    \"status\": true,\n                    \"created\": \"2016-11-09T18:16:40+00:00\",\n                    \"modified\": \"2016-11-09T18:16:40+00:00\"\n                },\n                \"reward_method\": {\n                    \"id\": 3,\n                    \"name\": \"instant_redeem\",\n                    \"label\": \"Instant Redeemption\",\n                    \"status\": true,\n                    \"created\": \"2016-11-09T18:16:40+00:00\",\n                    \"modified\": \"2016-11-09T18:16:40+00:00\"\n                },\n                \"user\": {\n                    \"id\": 7,\n                    \"uuid\": \"6cf957c1-c0cf-46e2-9f45-863a550be2a9\",\n                    \"name\": \"nikhil\",\n                    \"email\": \"nikhil11@gmail.com\",\n                    \"phone\": null,\n                    \"role_id\": 2,\n                    \"created\": \"2016-11-11T07:09:33+00:00\",\n                    \"modified\": \"2016-11-11T07:09:33+00:00\",\n                    \"status\": true,\n                    \"username\": \"ns\",\n                    \"isEmailVerified\": false\n                },\n                \"vendor\": {\n                    \"id\": 6,\n                    \"name\": \"niteesh3\",\n                    \"created\": \"2016-11-11T08:27:13+00:00\",\n                    \"modified\": \"2016-11-11T08:27:13+00:00\",\n                    \"status\": true,\n                    \"deleted\": null\n                }\n            }\n        ]\n    }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "bountee/userApis/UserActivitiesController.js",
+    "groupTitle": "User_Apis"
+  },
+  {
+    "type": "post",
     "url": "/api/user/user-cards",
     "title": "add user card",
     "version": "1.1.0",
@@ -971,8 +1016,8 @@ define({ "api": [
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "url",
-            "description": "<p>contains url from where request is coming</p>"
+            "field": "ref",
+            "description": "<p>contains referral url from where request is coming</p>"
           },
           {
             "group": "Parameter",
@@ -1400,7 +1445,7 @@ define({ "api": [
   },
   {
     "type": "PUT",
-    "url": "/api/user/register",
+    "url": "/api/user/users/{:id}",
     "title": "update user's info",
     "description": "<p>update user's info</p>",
     "version": "1.1.0",
@@ -1409,6 +1454,13 @@ define({ "api": [
     "parameter": {
       "fields": {
         "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "id",
+            "description": "<p>id user id of the users whose information weare going to update.</p>"
+          },
           {
             "group": "Parameter",
             "type": "String",

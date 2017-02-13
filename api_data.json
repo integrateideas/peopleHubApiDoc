@@ -288,6 +288,96 @@
     "groupTitle": "Reseller_Apis"
   },
   {
+    "type": "POST",
+    "url": "/api/vendor/token/",
+    "title": "Get Vendor Token",
+    "description": "<p>This api is used to get vendor's token.</p>",
+    "version": "1.1.0",
+    "name": "GetResellerToken",
+    "group": "Reseller_Apis",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Basic (Base_64encode(client_id:client_secret))</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "\"Authorization\" => \"Basic (Base_64encode(client_id:client_secret)\"",
+          "type": "php"
+        }
+      ]
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "vendor_id",
+            "description": "<p>Vendor's Id.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "status",
+            "description": "<p>status of the request.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "data",
+            "description": "<p>cotains response.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>Access token of vendor.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "expires",
+            "description": "<p>contains token expiry datetime.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n  {\n      \"status\": true,\n      \"data\": {\n          \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImV4cCI6IjIwMTYtMTEtMDkgMDY6MjA6MjAifQ.IXicDh41IfkZJBSvnfrZMv9L9ARkdfInOHNb4NYSFDo\",\n          \"expires\": \"2016-11-09 06:20:20\"\n      }\n  }",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "https://app.thebountee.com/api/vendor/token"
+      }
+    ],
+    "filename": "bountee/vendorApis/VendorController.js",
+    "groupTitle": "Reseller_Apis"
+  },
+  {
     "type": "GET",
     "url": "/api/reseller/vendors",
     "title": "Get Vendor's List",
@@ -1630,5 +1720,578 @@
     ],
     "filename": "bountee/userApis/UserCards.js",
     "groupTitle": "User_Apis"
+  },
+  {
+    "type": "POST",
+    "url": "/api/vendor/add-user",
+    "title": "Registrer new User",
+    "description": "<p>Registrer new User.</p>",
+    "version": "1.1.0",
+    "name": "RegisterNewUser",
+    "group": "Vendor_Apis",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Vendor's Access Token</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "\"Authorization\" => \"Bearer Vendor's Access Token\"",
+          "type": "php"
+        }
+      ]
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>User's Name.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "email",
+            "description": "<p>contains user's email.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "username",
+            "description": "<p>Username if email is not present then reason is mandatory.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "guardian_email",
+            "description": "<p>guardian_email if email is not present then guardian_email is mandatory.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "phone",
+            "description": "<p>contains user's phone number, mandatory if email is not present.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "password",
+            "description": "<p>contains user's password.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": true,
+            "field": "status",
+            "description": "<p>Vendor's Status: Enabled or Disabled, By Default Enabled.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n  \"name\" : \"nikhil\",\n  \"email\" : \"nikwhil21@gmail.com\",\n  \"password\":\"nikhil123\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "Request-Example:",
+          "content": "{\n\"name\" : \"nikhil\",\n\"username\":\"nikhil111\",\n\"guardian_email\":\"nikhil112@gmail.com\",\n\"phone\" : \"78945613221\",\n\"password\":\"nikhil123\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "status",
+            "description": "<p>status of the request.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "data",
+            "description": "<p>cotains response.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "id",
+            "description": "<p>cotains user's id.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n   \"status\": true,\n   \"data\": {\n       \"name\": \"nikhil\",\n       \"email\": \"nikhil21@gmail.com\",\n       \"username\": \"nikhi21@gmail.com\",\n       \"vendor_users\": [\n           {\n               \"vendor_id\": 1,\n               \"user_id\": 15,\n               \"created\": \"2017-02-13T13:16:44+00:00\",\n               \"modified\": \"2017-02-13T13:16:44+00:00\",\n               \"id\": 4\n           }\n       ],\n       \"uuid\": \"0ac08ace-5b26-470a-98ac-4cfae315060e\",\n       \"created\": \"2017-02-13T13:16:44+00:00\",\n       \"modified\": \"2017-02-13T13:16:44+00:00\",\n       \"id\": 15\n   }\n}",
+          "type": "json"
+        },
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n   \"status\": true,\n   \"data\": {\n       \"name\": \"nikhil\",\n       \"username\": \"nikhil111\",\n       \"guardian_email\": \"nikhil112@gmail.com\",\n       \"phone\": \"78945613221\",\n       \"vendor_users\": [\n           {\n               \"vendor_id\": 1,\n               \"user_id\": 14,\n               \"created\": \"2017-02-13T13:13:54+00:00\",\n               \"modified\": \"2017-02-13T13:13:54+00:00\",\n               \"id\": 3\n           }\n       ],\n       \"uuid\": \"e2d4b911-ee4e-49ef-8848-13bccc69efe6\",\n       \"created\": \"2017-02-13T13:13:54+00:00\",\n       \"modified\": \"2017-02-13T13:13:54+00:00\",\n       \"id\": 14\n   }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "bountee/vendorApis/UserController.js",
+    "groupTitle": "Vendor_Apis"
+  },
+  {
+    "type": "GET",
+    "url": "/api/vendor/user-search",
+    "title": "Search User",
+    "description": "<p>Search User.</p>",
+    "version": "1.1.0",
+    "name": "SearchUser",
+    "group": "Vendor_Apis",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Vendor's Access Token</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "\"Authorization\" => \"Bearer Vendor's Access Token\"",
+          "type": "php"
+        }
+      ]
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "attributeType",
+            "description": "<p>can be name, email, username, phone, card</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "value",
+            "description": "<p>contains search key.</p>"
+          }
+        ]
+      }
+    },
+    "sampleRequest": [
+      {
+        "url": "http://peoplehub.twinspark.co/api/vendor/user-search?attributeType=username&value=test"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n\n{\n    \"response\": {\n        \"status\": true,\n        \"data\": {\n            \"users\": [\n                {\n                    \"id\": 2,\n                    \"uuid\": \"c5479454-ee9c-4761-81cf-ff09c09dd078\",\n                    \"name\": \"Test User 1\",\n                    \"email\": null,\n                    \"phone\": null,\n                    \"role_id\": 2,\n                    \"created\": \"2016-10-20T11:15:26+00:00\",\n                    \"modified\": \"2016-10-20T11:15:26+00:00\",\n                    \"status\": true,\n                    \"username\": \"testuser1\",\n                    \"isEmailVerified\": false,\n                    \"user_cards\": []\n                },\n                {\n                    \"id\": 3,\n                    \"uuid\": \"89bc68e9-44d4-4702-84b3-9e574563db64\",\n                    \"name\": \"Test User 2\",\n                    \"email\": null,\n                    \"phone\": null,\n                    \"role_id\": 2,\n                    \"created\": \"2016-10-20T11:15:26+00:00\",\n                    \"modified\": \"2016-10-20T11:15:26+00:00\",\n                    \"status\": true,\n                    \"username\": \"testuser2\",\n                    \"isEmailVerified\": false,\n                    \"user_cards\": []\n                },\n                {\n                    \"id\": 4,\n                    \"uuid\": \"5f815c0c-c4ca-4e89-82be-d889254b374e\",\n                    \"name\": \"Test User 3\",\n                    \"email\": null,\n                    \"phone\": null,\n                    \"role_id\": 2,\n                    \"created\": \"2016-10-20T11:15:26+00:00\",\n                    \"modified\": \"2016-10-20T11:15:26+00:00\",\n                    \"status\": true,\n                    \"username\": \"testuser3\",\n                    \"isEmailVerified\": false,\n                    \"user_cards\": []\n                },\n                {\n                    \"id\": 5,\n                    \"uuid\": \"3e5b110a-3565-4338-815e-268b853984b3\",\n                    \"name\": \"Test User 4\",\n                    \"email\": null,\n                    \"phone\": null,\n                    \"role_id\": 2,\n                    \"created\": \"2016-10-20T11:15:26+00:00\",\n                    \"modified\": \"2016-10-20T11:15:26+00:00\",\n                    \"status\": true,\n                    \"username\": \"testuser4\",\n                    \"isEmailVerified\": false,\n                    \"user_cards\": []\n                }\n            ],\n            \"unassociatedUsers\": []\n        }\n    }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "bountee/vendorApis/UserController.js",
+    "groupTitle": "Vendor_Apis"
+  },
+  {
+    "type": "put",
+    "url": "/api/vendor/vendors/:id",
+    "title": "Update vendor detail",
+    "version": "1.1.0",
+    "name": "Update_vendor_detail",
+    "group": "Vendor_Apis",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Vendor Access Token</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "\"Authorization\" => \"Bearer Vendor's Access Token\"",
+          "type": "php"
+        }
+      ]
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "size": "1..255",
+            "optional": false,
+            "field": "name",
+            "description": "<p>Vendor's Organization Name.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": true,
+            "field": "status",
+            "defaultValue": "enabled",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": false,
+            "field": "vendor_contacts",
+            "description": "<p>contains vendor's contact information.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": false,
+            "field": "vendor_reward_types",
+            "description": "<p>contains vendor's alloted reward type(s) information.</p>"
+          }
+        ],
+        "vendor_contacts": [
+          {
+            "group": "vendor_contacts",
+            "type": "String",
+            "size": "5..255",
+            "optional": false,
+            "field": "vendor_contacts.email",
+            "description": "<p>contains vendor's email.</p>"
+          },
+          {
+            "group": "vendor_contacts",
+            "type": "String",
+            "size": "10..15",
+            "optional": false,
+            "field": "vendor_contacts.phone",
+            "description": "<p>contains vendor's phone number.</p>"
+          },
+          {
+            "group": "vendor_contacts",
+            "type": "Boolean",
+            "optional": true,
+            "field": "vendor_contacts.is_primary",
+            "defaultValue": "true",
+            "description": "<p>is primary contact?</p>"
+          }
+        ],
+        "vendor_reward_types": [
+          {
+            "group": "vendor_reward_types",
+            "type": "Integer",
+            "optional": false,
+            "field": "vendor_reward_types.reward_method_id",
+            "description": "<p>contains reward_method_id.</p>"
+          },
+          {
+            "group": "vendor_reward_types",
+            "type": "Boolean",
+            "optional": true,
+            "field": "vendor_reward_types.status",
+            "defaultValue": "enabled",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n   \"name\": \"nitesh3\",\n   \"status\": 1\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": "<p>status of the request.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n   \"status\": true,\n   \"data\": {\n       \"id\": 5,\n       \"name\": \"nitesh3\",\n       \"created\": \"2017-02-08T09:13:05+00:00\",\n       \"modified\": \"2017-02-08T09:58:41+00:00\",\n       \"status\": true,\n       \"deleted\": null,\n       \"reseller_vendors\": [\n           {\n               \"id\": 6,\n               \"reseller_id\": 1,\n               \"vendor_id\": 5,\n               \"status\": true,\n               \"created\": \"2017-02-08T09:13:05+00:00\",\n               \"modified\": \"2017-02-08T09:13:05+00:00\",\n               \"reseller\": {\n                   \"id\": 1,\n                   \"uuid\": \"0197351c-226a-42b5-bc02-0830440c9ec5\",\n                   \"org_name\": \"twinspark123\",\n                   \"client_identifier\": \"123456789\",\n                   \"client_secret\": \"123456789\",\n                   \"security_deposit\": 1500,\n                   \"status\": true,\n                   \"created\": \"2017-02-06T09:41:03+00:00\",\n                   \"modified\": \"2017-02-06T09:41:03+00:00\",\n                   \"deleted\": null\n               }\n           }\n       ],\n       \"vendor_contacts\": [\n           {\n               \"id\": 6,\n               \"vendor_id\": 5,\n               \"email\": \"snwites3h@gmail.com\",\n               \"phone\": \"99610403239\",\n               \"is_primary\": true,\n               \"created\": \"2017-02-08T09:13:05+00:00\",\n               \"modified\": \"2017-02-08T09:13:05+00:00\"\n           }\n       ],\n       \"vendor_reward_types\": [\n           {\n               \"id\": 22,\n               \"vendor_id\": 5,\n               \"reward_method_id\": 1,\n               \"created\": \"2017-02-08T09:56:05+00:00\",\n               \"modified\": \"2017-02-08T09:56:05+00:00\",\n               \"status\": true,\n               \"reward_method\": {\n                   \"id\": 1,\n                   \"name\": \"wallet_credit\",\n                   \"label\": \"Wallet Credit\",\n                   \"status\": true,\n                   \"created\": \"2017-02-06T09:41:03+00:00\",\n                   \"modified\": \"2017-02-06T09:41:03+00:00\"\n               }\n           },\n           {\n               \"id\": 23,\n               \"vendor_id\": 5,\n               \"reward_method_id\": 2,\n               \"created\": \"2017-02-08T09:56:05+00:00\",\n               \"modified\": \"2017-02-08T09:56:05+00:00\",\n               \"status\": true,\n               \"reward_method\": {\n                   \"id\": 2,\n                   \"name\": \"store_credit\",\n                   \"label\": \"Store Credit\",\n                   \"status\": true,\n                   \"created\": \"2017-02-06T09:41:03+00:00\",\n                   \"modified\": \"2017-02-06T09:41:03+00:00\"\n               }\n           },\n           {\n               \"id\": 24,\n               \"vendor_id\": 5,\n               \"reward_method_id\": 3,\n               \"created\": \"2017-02-08T09:56:05+00:00\",\n               \"modified\": \"2017-02-08T09:56:05+00:00\",\n               \"status\": true,\n               \"reward_method\": {\n                   \"id\": 3,\n                   \"name\": \"instant_redeem\",\n                   \"label\": \"Instant Redeemption\",\n                   \"status\": true,\n                   \"created\": \"2017-02-06T09:41:03+00:00\",\n                   \"modified\": \"2017-02-06T09:41:03+00:00\"\n               }\n           }\n       ]\n   }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "bountee/vendorApis/VendorController.js",
+    "groupTitle": "Vendor_Apis"
+  },
+  {
+    "type": "GET",
+    "url": "/api/vendor/users/:id",
+    "title": "Fetch vendor specific user's detail",
+    "description": "<p>Fetch vendor specific user's wallet and store credit detail</p>",
+    "version": "1.1.0",
+    "name": "getVendorSpecificUserDetail",
+    "group": "Vendor_Apis",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Vendor's Access Token</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "\"Authorization\" => \"Bearer Vendor's Access Token\"",
+          "type": "php"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "http://peoplehub.twinspark.co/api/vendor/users/15"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n   \"status\": true,\n   \"data\": {\n       \"id\": 15,\n       \"fb_identifier\": null,\n       \"uuid\": \"0ac08ace-5b26-470a-98ac-4cfae315060e\",\n       \"name\": \"nikhil\",\n       \"email\": \"nikhil1121@gmail.com\",\n       \"phone\": \"78945613221\",\n       \"role_id\": 2,\n       \"created\": \"2017-02-13T13:16:44+00:00\",\n       \"modified\": \"2017-02-13T13:16:44+00:00\",\n       \"status\": true,\n       \"username\": \"nikhil1121@gmail.com\",\n       \"is_email_verified\": false,\n       \"guardian_email\": null,\n       \"relationship_id\": null,\n       \"reason\": null,\n       \"user_cards\": [],\n       \"totalWalletCredits\": 0,\n       \"totalStoreCredits\": 0,\n       \"linkedAccount\": []\n   }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "bountee/vendorApis/UserController.js",
+    "groupTitle": "Vendor_Apis"
+  },
+  {
+    "type": "PUT",
+    "url": "/api/vendor/users/{:id}",
+    "title": "Update user's info",
+    "description": "<p>Update user's info</p>",
+    "version": "1.1.0",
+    "name": "updateUserInfo",
+    "group": "Vendor_Apis",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "id",
+            "description": "<p>id user id of the users whose information weare going to update.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "size": "1..255",
+            "optional": true,
+            "field": "name",
+            "description": "<p>contains User's Name.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "size": "5..255",
+            "optional": true,
+            "field": "email",
+            "description": "<p>contains User's email, if username is not present then email is required.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "size": "5..255",
+            "optional": true,
+            "field": "username",
+            "description": "<p>contains User's username, required if email is not present else not.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "size": "8..255",
+            "optional": true,
+            "field": "password",
+            "description": "<p>contains user's new password.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "size": "8..255",
+            "optional": true,
+            "field": "old_password",
+            "description": "<p>contains user's old password, required if password is provided.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "size": "5..255",
+            "optional": true,
+            "field": "guardian_email",
+            "description": "<p>contains guardian email, required if email is not present else not.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": true,
+            "field": "status",
+            "description": "<p>Vendor's Status: Enabled or Disabled, By Default Enabled.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "status",
+            "description": "<p>status of the request.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "data",
+            "description": "<p>cotains response.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n   \"status\": true,\n   \"data\": {\n       \"id\": 4,\n       \"fb_identifier\": null,\n       \"uuid\": \"92945918-0e20-4233-a8d8-60c21b44e262\",\n       \"name\": \"Test User 3\",\n       \"email\": null,\n       \"phone\": null,\n       \"role_id\": 2,\n       \"created\": \"2017-01-02T11:50:38+00:00\",\n       \"modified\": \"2017-01-02T11:50:38+00:00\",\n       \"status\": true,\n       \"username\": \"testuser3\",\n       \"is_email_verified\": false,\n       \"guardian_email\": null,\n       \"relationship_id\": null,\n       \"reason\": null,\n       \"activities\": [],\n       \"user_cards\": [],\n       \"totalWalletCredits\": 0,\n       \"walletCredits\": [],\n       \"totalStoreCredits\": 0,\n       \"storeCredits\": []\n   }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Vendor's Access Token</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "\"Authorization\"=> \"Bearer Vendor's Access Token\"",
+          "type": "php"
+        }
+      ]
+    },
+    "filename": "bountee/vendorApis/UserController.js",
+    "groupTitle": "Vendor_Apis"
+  },
+  {
+    "type": "get",
+    "url": "/api/vendor/me",
+    "title": "View Loggedin Vendor's Info",
+    "version": "1.1.0",
+    "name": "viewVendorDetail",
+    "group": "Vendor_Apis",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Bearer Vendor's Access Token</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "\"Authorization\" => \"Bearer Vendor's Access Token\"",
+          "type": "php"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": "<p>status of the request.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "status",
+            "description": "<p>status of the request.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "data",
+            "description": "<p>cotains response.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "   HTTP/1.1 200 OK\n   {\n\"response\": {\n           \"status\": true,\n           \"data\": {\n               \"id\": 10,\n               \"name\": \"nitesh\",\n               \"created\": \"2016-08-10T09:58:29+0000\",\n               \"modified\": \"2016-08-10T09:58:29+0000\",\n               \"status\": true,\n               \"vendor_reward_types\": [\n                   {\n                       \"id\": 4,\n                       \"vendor_id\": 10,\n                       \"reward_method_id\": 1,\n                       \"created\": \"2016-08-10T09:58:29+0000\",\n                       \"modified\": \"2016-08-10T09:58:29+0000\",\n                       \"status\": true,\n                       \"reward_method\": {\n                           \"id\": 1,\n                           \"name\": \"wallet_credit\",\n                           \"label\": \"Wallet Credit\",\n                           \"status\": true,\n                           \"created\": \"2016-08-10T06:11:13+0000\",\n                           \"modified\": \"2016-08-10T06:11:13+0000\"\n                       }\n                   }\n               ],\n               \"vendor_contacts\": [\n                   {\n                       \"id\": 4,\n                       \"vendor_id\": 10,\n                       \"email\": \"nitesh@gmail.com\",\n                       \"phone\": \"991110032449\",\n                       \"is_primary\": true,\n                       \"created\": \"2016-08-10T09:58:29+0000\",\n                       \"modified\": \"2016-08-10T09:58:29+0000\"\n                   }\n               ]\n           }\n       }\n   }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "bountee/vendorApis/VendorController.js",
+    "groupTitle": "Vendor_Apis"
   }
 ]

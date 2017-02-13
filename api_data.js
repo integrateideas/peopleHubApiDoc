@@ -972,7 +972,7 @@ define({ "api": [
             "group": "Header",
             "type": "String",
             "optional": false,
-            "field": "token",
+            "field": "Authorization",
             "description": "<p>User's Access Token</p>"
           }
         ]
@@ -980,7 +980,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Header-Example:",
-          "content": "\"token\" => \"Bearer User's Access Token\"",
+          "content": "\"Authorization\" => \"Bearer User's Access Token\"",
           "type": "php"
         }
       ]

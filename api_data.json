@@ -212,83 +212,6 @@
   },
   {
     "type": "POST",
-    "url": "/api/reseller/token/",
-    "title": "Get Reseller Token",
-    "description": "<p>This api is used to get reseller's token.</p>",
-    "version": "1.1.0",
-    "name": "GetResellerToken",
-    "group": "Reseller_Apis",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": "<p>Basic (Base_64encode(client_id:client_secret))</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Header-Example:",
-          "content": "\"Authorization\" => \"Basic (Base_64encode(client_id:client_secret)\"",
-          "type": "php"
-        }
-      ]
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Boolean",
-            "optional": false,
-            "field": "status",
-            "description": "<p>status of the request.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "Array",
-            "optional": false,
-            "field": "data",
-            "description": "<p>cotains response.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "token",
-            "description": "<p>Access token of reseller.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "Date",
-            "optional": false,
-            "field": "expires",
-            "description": "<p>contains token expiry datetime.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n  {\n      \"status\": true,\n      \"data\": {\n          \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImV4cCI6IjIwMTYtMTEtMDkgMDY6MjA6MjAifQ.IXicDh41IfkZJBSvnfrZMv9L9ARkdfInOHNb4NYSFDo\",\n          \"expires\": \"2016-11-09 06:20:20\"\n      }\n  }",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "https://app.thebountee.com/api/reseller/token"
-      }
-    ],
-    "filename": "bountee/resellerApis/ResellerController.js",
-    "groupTitle": "Reseller_Apis"
-  },
-  {
-    "type": "POST",
     "url": "/api/vendor/token/",
     "title": "Get Vendor Token",
     "description": "<p>This api is used to get vendor's token.</p>",
@@ -375,6 +298,83 @@
       }
     ],
     "filename": "bountee/vendorApis/VendorController.js",
+    "groupTitle": "Reseller_Apis"
+  },
+  {
+    "type": "POST",
+    "url": "/api/reseller/token/",
+    "title": "Get Reseller Token",
+    "description": "<p>This api is used to get reseller's token.</p>",
+    "version": "1.1.0",
+    "name": "GetResellerToken",
+    "group": "Reseller_Apis",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Basic (Base_64encode(client_id:client_secret))</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "\"Authorization\" => \"Basic (Base_64encode(client_id:client_secret)\"",
+          "type": "php"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "status",
+            "description": "<p>status of the request.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "data",
+            "description": "<p>cotains response.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>Access token of reseller.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "expires",
+            "description": "<p>contains token expiry datetime.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n  {\n      \"status\": true,\n      \"data\": {\n          \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImV4cCI6IjIwMTYtMTEtMDkgMDY6MjA6MjAifQ.IXicDh41IfkZJBSvnfrZMv9L9ARkdfInOHNb4NYSFDo\",\n          \"expires\": \"2016-11-09 06:20:20\"\n      }\n  }",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "https://app.thebountee.com/api/reseller/token"
+      }
+    ],
+    "filename": "bountee/resellerApis/ResellerController.js",
     "groupTitle": "Reseller_Apis"
   },
   {
@@ -1092,7 +1092,7 @@
     "groupTitle": "User_Apis"
   },
   {
-    "type": "PUT",
+    "type": "POST",
     "url": "/api/user/forgot_password",
     "title": "forgot password method",
     "description": "<p>forgot password method</p>",
@@ -1405,7 +1405,7 @@
     "groupTitle": "User_Apis"
   },
   {
-    "type": "PUT",
+    "type": "POST",
     "url": "/api/user/reset_password",
     "title": "reset password method",
     "description": "<p>reset password method</p>",
@@ -2255,6 +2255,49 @@
     "groupTitle": "Vendor_Apis"
   },
   {
+    "type": "GET",
+    "url": "/api/vendor/rewardCredits/",
+    "title": "Get all available rewards and detail",
+    "version": "1.1.0",
+    "name": "get_all_reward_credits",
+    "group": "Vendor_Apis",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>Vendor's Access Token</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": "<p>status of the request.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "    HTTP/1.1 200 OK\n     {\n   \"status\": true,\n   \"data\": {\n       \"id\": 1,\n       \"store_credits\": [\n           {\n               \"id\": 1,\n               \"vendor_id\": 1,\n               \"user_id\": 9,\n               \"points\": 300,\n               \"reward_method_id\": 2,\n               \"created\": \"2017-02-10T11:49:30+00:00\",\n               \"modified\": \"2017-02-14T10:21:03+00:00\",\n               \"deleted\": null,\n               \"status\": true,\n               \"user\": {\n                   \"id\": 9,\n                   \"fb_identifier\": null,\n                   \"uuid\": \"4e79e0ab-e2f1-4730-8003-ad06b44d55dd\",\n                   \"name\": \"anonymous\",\n                   \"email\": null,\n                   \"phone\": \"9911002549\",\n                   \"role_id\": 2,\n                   \"created\": \"2017-02-10T11:49:30+00:00\",\n                   \"modified\": \"2017-02-10T11:49:30+00:00\",\n                   \"status\": true,\n                   \"username\": \"anonymous1\",\n                   \"is_email_verified\": false,\n                   \"guardian_email\": null,\n                   \"relationship_id\": null,\n                   \"reason\": null\n               }\n           },\n           {\n               \"id\": 3,\n               \"vendor_id\": 1,\n               \"user_id\": 11,\n               \"points\": 100,\n               \"reward_method_id\": 2,\n               \"created\": \"2017-02-10T11:52:37+00:00\",\n               \"modified\": \"2017-02-10T11:52:37+00:00\",\n               \"deleted\": null,\n               \"status\": true,\n               \"user\": {\n                   \"id\": 11,\n                   \"fb_identifier\": null,\n                   \"uuid\": \"9fda49c0-25ca-4e90-a8a9-15a70e62fbc5\",\n                   \"name\": \"anonymous\",\n                   \"email\": null,\n                   \"phone\": null,\n                   \"role_id\": 2,\n                   \"created\": \"2017-02-10T11:52:37+00:00\",\n                   \"modified\": \"2017-02-10T11:52:37+00:00\",\n                   \"status\": true,\n                   \"username\": \"anonymous3\",\n                   \"is_email_verified\": false,\n                   \"guardian_email\": null,\n                   \"relationship_id\": null,\n                   \"reason\": null\n               }\n           },\n           {\n               \"id\": 2,\n               \"vendor_id\": 1,\n               \"user_id\": 10,\n               \"points\": 100,\n               \"reward_method_id\": 2,\n               \"created\": \"2017-02-10T11:50:40+00:00\",\n               \"modified\": \"2017-02-10T11:50:40+00:00\",\n               \"deleted\": null,\n               \"status\": true,\n               \"user\": {\n                   \"id\": 10,\n                   \"fb_identifier\": null,\n                   \"uuid\": \"019b8508-2ba6-4a2f-bc8a-098bf28c6f3d\",\n                   \"name\": \"anonymous\",\n                   \"email\": null,\n                   \"phone\": null,\n                   \"role_id\": 2,\n                   \"created\": \"2017-02-10T11:50:40+00:00\",\n                   \"modified\": \"2017-02-10T11:50:40+00:00\",\n                   \"status\": true,\n                   \"username\": \"anonymous2\",\n                   \"is_email_verified\": false,\n                   \"guardian_email\": null,\n                   \"relationship_id\": null,\n                   \"reason\": null\n               }\n           }\n       ],\n       \"wallet_credits\": [\n           {\n               \"id\": 5,\n               \"vendor_id\": 1,\n               \"user_id\": 9,\n               \"points\": 500,\n               \"reward_method_id\": 1,\n               \"created\": \"2017-02-10T11:59:49+00:00\",\n               \"modified\": \"2017-02-14T10:30:42+00:00\",\n               \"deleted\": null,\n               \"status\": true,\n               \"user\": {\n                   \"id\": 9,\n                   \"fb_identifier\": null,\n                   \"uuid\": \"4e79e0ab-e2f1-4730-8003-ad06b44d55dd\",\n                   \"name\": \"anonymous\",\n                   \"email\": null,\n                   \"phone\": \"9911002549\",\n                   \"role_id\": 2,\n                   \"created\": \"2017-02-10T11:49:30+00:00\",\n                   \"modified\": \"2017-02-10T11:49:30+00:00\",\n                   \"status\": true,\n                   \"username\": \"anonymous1\",\n                   \"is_email_verified\": false,\n                   \"guardian_email\": null,\n                   \"relationship_id\": null,\n                   \"reason\": null\n               }\n           },\n           {\n               \"id\": 6,\n               \"vendor_id\": 1,\n               \"user_id\": 5,\n               \"points\": 100,\n               \"reward_method_id\": 1,\n               \"created\": \"2017-02-10T12:03:57+00:00\",\n               \"modified\": \"2017-02-10T12:03:57+00:00\",\n               \"deleted\": null,\n               \"status\": true,\n               \"user\": {\n                   \"id\": 5,\n                   \"fb_identifier\": null,\n                   \"uuid\": \"b3cde1fa-d40b-4f27-89b2-c2ce7e7d57bd\",\n                   \"name\": \"nikhil\",\n                   \"email\": null,\n                   \"phone\": null,\n                   \"role_id\": 2,\n                   \"created\": \"2017-02-09T11:46:24+00:00\",\n                   \"modified\": \"2017-02-09T11:46:24+00:00\",\n                   \"status\": true,\n                   \"username\": \"nikhil12\",\n                   \"is_email_verified\": false,\n                   \"guardian_email\": \"nitesh_11@gmail.com\",\n                   \"relationship_id\": null,\n                   \"reason\": null\n               }\n           },\n           {\n               \"id\": 4,\n               \"vendor_id\": 1,\n               \"user_id\": 12,\n               \"points\": 100,\n               \"reward_method_id\": 1,\n               \"created\": \"2017-02-10T11:57:15+00:00\",\n               \"modified\": \"2017-02-10T11:57:15+00:00\",\n               \"deleted\": null,\n               \"status\": true,\n               \"user\": {\n                   \"id\": 12,\n                   \"fb_identifier\": null,\n                   \"uuid\": \"f0df6f24-5d27-4491-8614-c73ca0b4c305\",\n                   \"name\": \"anonymous\",\n                   \"email\": null,\n                   \"phone\": null,\n                   \"role_id\": 2,\n                   \"created\": \"2017-02-10T11:57:15+00:00\",\n                   \"modified\": \"2017-02-10T11:57:15+00:00\",\n                   \"status\": true,\n                   \"username\": \"anonymous4\",\n                   \"is_email_verified\": false,\n                   \"guardian_email\": null,\n                   \"relationship_id\": null,\n                   \"reason\": null\n               }\n           }\n       ]\n   }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "bountee/vendorApis/CreditRewardController.js",
+    "groupTitle": "Vendor_Apis"
+  },
+  {
     "type": "POST",
     "url": "/api/vendor/UserInstantRedemptions/",
     "title": "instant redemption",
@@ -2344,6 +2387,107 @@
       ]
     },
     "filename": "bountee/vendorApis/UserInstantRedemptionsController.js",
+    "groupTitle": "Vendor_Apis"
+  },
+  {
+    "type": "post",
+    "url": "/api/vendor/rewardCredits/",
+    "title": "Reward Credit to user",
+    "version": "1.1.0",
+    "name": "rewardCreditToUser",
+    "group": "Vendor_Apis",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Vendor's Access Token</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "\"Authorization\" => \"Bearer Vendor's Access Token\"",
+          "type": "php"
+        }
+      ]
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "attribute_type",
+            "description": "<p>attribute type: can be email or phone or card or username.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "attribute",
+            "description": "<p>value of attribute type.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "integer",
+            "optional": false,
+            "field": "points",
+            "description": "<p>reward to credit.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "reward_type",
+            "description": "<p>: can be wallet_credit or reward_credit.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n   \"attribute\": \"9911002549\",\n   \"attribute_type\": \"phone\",\n    \"points\": 100,\n   \"reward_type\": \"store_credit\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "Request-Example:",
+          "content": "{\n   \"attribute\": \"9\",\n   \"attribute_type\": \"id\",\n    \"points\": 100,\n   \"reward_type\": \"wallet_credit\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": "<p>status of the request.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "    HTTP/1.1 200 OK\n  {\n   \"status\": true,\n   \"data\": {\n       \"id\": 9,\n       \"message\": \"Reward offered successfully\"\n   }\n}",
+          "type": "json"
+        },
+        {
+          "title": "Success-Response:",
+          "content": "    HTTP/1.1 200 OK\n  {\n   \"status\": true,\n   \"data\": {\n       \"id\": 8,\n       \"message\": \"Reward offered successfully\"\n   }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "bountee/vendorApis/CreditRewardController.js",
     "groupTitle": "Vendor_Apis"
   },
   {

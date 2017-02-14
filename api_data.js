@@ -1722,6 +1722,71 @@ define({ "api": [
     "groupTitle": "User_Apis"
   },
   {
+    "type": "GET",
+    "url": "/api/vendor/activities",
+    "title": "View vendor's activities",
+    "description": "<p>View vendor's activities.</p>",
+    "version": "1.1.0",
+    "name": "MyActivities",
+    "group": "Vendor_Apis",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Bearer Vendor's Access Token</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "\"Authorization\"=> \"Bearer Vendor's Access Token\"",
+          "type": "php"
+        }
+      ]
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Date",
+            "optional": true,
+            "field": "from",
+            "description": "<p>cantains date from which data is required in format Y-m-d</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Date",
+            "optional": true,
+            "field": "to",
+            "description": "<p>cantains date upto which data is required in format Y-m-d</p>"
+          }
+        ]
+      }
+    },
+    "sampleRequest": [
+      {
+        "url": "http://peoplehub.twinspark.co/api/vendor/activities/?from=20-11-2016&to=22-11-2016"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"status\": true,\n    \"data\": {\n        [\n                \"id\": 1,\n                \"vendor_id\": 6,\n                \"user_id\": 1,\n                \"reward_method_id\": 3,\n                \"service_id\": 3,\n                \"attribute\": null,\n                \"attribute_type\": null,\n                \"action\": \"instant_redeem\",\n                \"points\": \"100\",\n                \"status\": true,\n                \"created\": \"2016-11-11T08:28:13+00:00\",\n                \"modified\": \"2016-11-11T08:28:13+00:00\",\n                \"service\": {\n                    \"id\": 3,\n                    \"name\": \"in_house\",\n                    \"label\": \"In House\",\n                    \"status\": true,\n                    \"created\": \"2016-11-09T18:16:40+00:00\",\n                    \"modified\": \"2016-11-09T18:16:40+00:00\"\n                },\n                \"reward_method\": {\n                    \"id\": 3,\n                    \"name\": \"instant_redeem\",\n                    \"label\": \"Instant Redeemption\",\n                    \"status\": true,\n                    \"created\": \"2016-11-09T18:16:40+00:00\",\n                    \"modified\": \"2016-11-09T18:16:40+00:00\"\n                },\n                \"user\": {\n                    \"id\": 1,\n                    \"uuid\": \"1d0bb055-9432-49a1-938f-07c6d75cf86a\",\n                    \"name\": \"admin\",\n                    \"email\": null,\n                    \"phone\": null,\n                    \"role_id\": 1,\n                    \"created\": \"2016-11-09T18:16:40+00:00\",\n                    \"modified\": \"2016-11-09T18:16:40+00:00\",\n                    \"status\": true,\n                    \"username\": \"admin\",\n                    \"isEmailVerified\": false\n                },\n                \"vendor\": {\n                    \"id\": 6,\n                    \"name\": \"niteesh3\",\n                    \"created\": \"2016-11-11T08:27:13+00:00\",\n                    \"modified\": \"2016-11-11T08:27:13+00:00\",\n                    \"status\": true,\n                    \"deleted\": null\n                }\n            },\n            {\n                \"id\": 2,\n                \"vendor_id\": 6,\n                \"user_id\": 1,\n                \"reward_method_id\": 3,\n                \"service_id\": 3,\n                \"attribute\": null,\n                \"attribute_type\": null,\n                \"action\": \"instant_redeem\",\n                \"points\": \"100\",\n                \"status\": true,\n                \"created\": \"2016-11-11T08:28:16+00:00\",\n                \"modified\": \"2016-11-11T08:28:16+00:00\",\n                \"service\": {\n                    \"id\": 3,\n                    \"name\": \"in_house\",\n                    \"label\": \"In House\",\n                    \"status\": true,\n                    \"created\": \"2016-11-09T18:16:40+00:00\",\n                    \"modified\": \"2016-11-09T18:16:40+00:00\"\n                },\n                \"reward_method\": {\n                    \"id\": 3,\n                    \"name\": \"instant_redeem\",\n                    \"label\": \"Instant Redeemption\",\n                    \"status\": true,\n                    \"created\": \"2016-11-09T18:16:40+00:00\",\n                    \"modified\": \"2016-11-09T18:16:40+00:00\"\n                },\n                \"user\": {\n                    \"id\": 1,\n                    \"uuid\": \"1d0bb055-9432-49a1-938f-07c6d75cf86a\",\n                    \"name\": \"admin\",\n                    \"email\": null,\n                    \"phone\": null,\n                    \"role_id\": 1,\n                    \"created\": \"2016-11-09T18:16:40+00:00\",\n                    \"modified\": \"2016-11-09T18:16:40+00:00\",\n                    \"status\": true,\n                    \"username\": \"admin\",\n                    \"isEmailVerified\": false\n                },\n                \"vendor\": {\n                    \"id\": 6,\n                    \"name\": \"niteesh3\",\n                    \"created\": \"2016-11-11T08:27:13+00:00\",\n                    \"modified\": \"2016-11-11T08:27:13+00:00\",\n                    \"status\": true,\n                    \"deleted\": null\n                }\n            },\n            {\n                \"id\": 3,\n                \"vendor_id\": 6,\n                \"user_id\": 1,\n                \"reward_method_id\": 3,\n                \"service_id\": 3,\n                \"attribute\": null,\n                \"attribute_type\": null,\n                \"action\": \"instant_redeem\",\n                \"points\": \"100\",\n                \"status\": true,\n                \"created\": \"2016-11-11T08:28:16+00:00\",\n                \"modified\": \"2016-11-11T08:28:16+00:00\",\n                \"service\": {\n                    \"id\": 3,\n                    \"name\": \"in_house\",\n                    \"label\": \"In House\",\n                    \"status\": true,\n                    \"created\": \"2016-11-09T18:16:40+00:00\",\n                    \"modified\": \"2016-11-09T18:16:40+00:00\"\n                },\n                \"reward_method\": {\n                    \"id\": 3,\n                    \"name\": \"instant_redeem\",\n                    \"label\": \"Instant Redeemption\",\n                    \"status\": true,\n                    \"created\": \"2016-11-09T18:16:40+00:00\",\n                    \"modified\": \"2016-11-09T18:16:40+00:00\"\n                },\n                \"user\": {\n                    \"id\": 1,\n                    \"uuid\": \"1d0bb055-9432-49a1-938f-07c6d75cf86a\",\n                    \"name\": \"admin\",\n                    \"email\": null,\n                    \"phone\": null,\n                    \"role_id\": 1,\n                    \"created\": \"2016-11-09T18:16:40+00:00\",\n                    \"modified\": \"2016-11-09T18:16:40+00:00\",\n                    \"status\": true,\n                    \"username\": \"admin\",\n                    \"isEmailVerified\": false\n                },\n                \"vendor\": {\n                    \"id\": 6,\n                    \"name\": \"niteesh3\",\n                    \"created\": \"2016-11-11T08:27:13+00:00\",\n                    \"modified\": \"2016-11-11T08:27:13+00:00\",\n                    \"status\": true,\n                    \"deleted\": null\n               }\n        ]\n    }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "bountee/vendorApis/ActivitiesController.js",
+    "groupTitle": "Vendor_Apis"
+  },
+  {
     "type": "POST",
     "url": "/api/vendor/add-user",
     "title": "Registrer new User",
@@ -1938,7 +2003,7 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "Authorization",
-            "description": "<p>Vendor Access Token</p>"
+            "description": "<p>Bearer Vendor's Access Token</p>"
           }
         ]
       },
@@ -2061,6 +2126,78 @@ define({ "api": [
   },
   {
     "type": "GET",
+    "url": "/api/vendor/activities/?user_id=",
+    "title": "View user's activities",
+    "description": "<p>View user's activities.</p>",
+    "version": "1.1.0",
+    "name": "UserActivities",
+    "group": "Vendor_Apis",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Bearer Vendor's Access Token</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "\"Authorization\" => \"Bearer Vendor's Access Token\"",
+          "type": "php"
+        }
+      ]
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": true,
+            "field": "user_id",
+            "description": "<p>cantain peoplehub id of key user</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Date",
+            "optional": true,
+            "field": "from",
+            "description": "<p>cantains date from which data is required in format Y-m-d</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Date",
+            "optional": true,
+            "field": "to",
+            "description": "<p>cantains date upto which data is required in format Y-m-d</p>"
+          }
+        ]
+      }
+    },
+    "sampleRequest": [
+      {
+        "url": "http://peoplehub.twinspark.co/api/vendor/activities/?user_id=7&from=20-11-2016&to=22-11-2016"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"status\": true,\n    \"data\": {\n        [\n                \"id\": 5,\n                \"vendor_id\": 6,\n                \"user_id\": 7,\n                \"reward_method_id\": 3,\n                \"service_id\": 3,\n                \"attribute\": null,\n                \"attribute_type\": null,\n                \"action\": \"instant_redeem\",\n                \"points\": \"100\",\n                \"status\": true,\n                \"created\": \"2016-11-11T08:39:09+00:00\",\n                \"modified\": \"2016-11-11T08:39:09+00:00\",\n                \"service\": {\n                    \"id\": 3,\n                    \"name\": \"in_house\",\n                    \"label\": \"In House\",\n                    \"status\": true,\n                    \"created\": \"2016-11-09T18:16:40+00:00\",\n                    \"modified\": \"2016-11-09T18:16:40+00:00\"\n                },\n                \"reward_method\": {\n                    \"id\": 3,\n                    \"name\": \"instant_redeem\",\n                    \"label\": \"Instant Redeemption\",\n                    \"status\": true,\n                    \"created\": \"2016-11-09T18:16:40+00:00\",\n                    \"modified\": \"2016-11-09T18:16:40+00:00\"\n                },\n                \"user\": {\n                    \"id\": 7,\n                    \"uuid\": \"6cf957c1-c0cf-46e2-9f45-863a550be2a9\",\n                    \"name\": \"nikhil\",\n                    \"email\": \"nikhil11@gmail.com\",\n                    \"phone\": null,\n                    \"role_id\": 2,\n                    \"created\": \"2016-11-11T07:09:33+00:00\",\n                    \"modified\": \"2016-11-11T07:09:33+00:00\",\n                    \"status\": true,\n                    \"username\": \"ns\",\n                    \"isEmailVerified\": false\n                },\n                \"vendor\": {\n                    \"id\": 6,\n                    \"name\": \"niteesh3\",\n                    \"created\": \"2016-11-11T08:27:13+00:00\",\n                    \"modified\": \"2016-11-11T08:27:13+00:00\",\n                    \"status\": true,\n                    \"deleted\": null\n                }\n        ]\n    }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "bountee/vendorApis/ActivitiesController.js",
+    "groupTitle": "Vendor_Apis"
+  },
+  {
+    "type": "GET",
     "url": "/api/vendor/users/:id",
     "title": "Fetch vendor specific user's detail",
     "description": "<p>Fetch vendor specific user's wallet and store credit detail</p>",
@@ -2087,6 +2224,19 @@ define({ "api": [
         }
       ]
     },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "id",
+            "description": "<p>user id of the users whose information we are going to fetch.</p>"
+          }
+        ]
+      }
+    },
     "sampleRequest": [
       {
         "url": "http://peoplehub.twinspark.co/api/vendor/users/15"
@@ -2098,6 +2248,178 @@ define({ "api": [
           "title": "Success-Response:",
           "content": "HTTP/1.1 200 OK\n{\n   \"status\": true,\n   \"data\": {\n       \"id\": 15,\n       \"fb_identifier\": null,\n       \"uuid\": \"0ac08ace-5b26-470a-98ac-4cfae315060e\",\n       \"name\": \"nikhil\",\n       \"email\": \"nikhil1121@gmail.com\",\n       \"phone\": \"78945613221\",\n       \"role_id\": 2,\n       \"created\": \"2017-02-13T13:16:44+00:00\",\n       \"modified\": \"2017-02-13T13:16:44+00:00\",\n       \"status\": true,\n       \"username\": \"nikhil1121@gmail.com\",\n       \"is_email_verified\": false,\n       \"guardian_email\": null,\n       \"relationship_id\": null,\n       \"reason\": null,\n       \"user_cards\": [],\n       \"totalWalletCredits\": 0,\n       \"totalStoreCredits\": 0,\n       \"linkedAccount\": []\n   }\n}",
           "type": "json"
+        }
+      ]
+    },
+    "filename": "bountee/vendorApis/UserController.js",
+    "groupTitle": "Vendor_Apis"
+  },
+  {
+    "type": "POST",
+    "url": "/api/vendor/UserInstantRedemptions/",
+    "title": "instant redemption",
+    "description": "<p>This api is used to redeem instantly.</p>",
+    "version": "1.1.0",
+    "name": "provideInstantRedemptions",
+    "group": "Vendor_Apis",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Bearer Vendor's Access Token</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "\"Authorization\" => \"Bearer Vendor's Access Token",
+          "type": "php"
+        }
+      ]
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "amount",
+            "optional": false,
+            "field": "amount",
+            "description": "<p>instant redeem amount.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "user_id",
+            "description": "<p>User's Id.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "service",
+            "description": "<p>service name can be amazon/tango/in_house to redeem reward</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "description",
+            "description": "<p>description of redemtion, required if service is in_house else not</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n  \"amount\":\"100\",\n  \"user_id\":1,\n  \"description\":\"t-shirt\",\n  \"service\":\"in_house\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "id",
+            "description": "<p>redemption Id.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n   \"status\": true,\n   \"data\": {\n       \"id\": 10,\n       \"message\": \"Reward offered successfully\"\n   }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "bountee/vendorApis/UserInstantRedemptionsController.js",
+    "groupTitle": "Vendor_Apis"
+  },
+  {
+    "type": "POST",
+    "url": "/api/vendor/suggest_username/",
+    "title": "suggest username",
+    "description": "<p>suggest username</p>",
+    "version": "1.1.0",
+    "name": "suggestUsername",
+    "group": "Vendor_Apis",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "size": "1..255",
+            "optional": false,
+            "field": "first_name",
+            "description": "<p>contains User's first Name.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "size": "1..255",
+            "optional": false,
+            "field": "last_name",
+            "description": "<p>contains User's last name.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n  \"first_name\" : \"nitesh\",\n  \"last_name\" : \"srivastava\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "data",
+            "description": "<p>cotains response.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n   \"status\": true,\n   \"data\": {\n       \"username\": \"niteshsrivastava\"\n   }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Vendor's Access Token</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "\"Authorization\"=> \"Bearer Vendor's Access Token\"",
+          "type": "php"
         }
       ]
     },
@@ -2120,7 +2442,7 @@ define({ "api": [
             "type": "Integer",
             "optional": false,
             "field": "id",
-            "description": "<p>id user id of the users whose information weare going to update.</p>"
+            "description": "<p>user id of the users whose information we are going to update.</p>"
           },
           {
             "group": "Parameter",
@@ -2228,6 +2550,51 @@ define({ "api": [
       ]
     },
     "filename": "bountee/vendorApis/UserController.js",
+    "groupTitle": "Vendor_Apis"
+  },
+  {
+    "type": "GET",
+    "url": "/api/vendor/UserInstantRedemptions/",
+    "title": "view all instant redemptions",
+    "description": "<p>This api is used to view all instant redemptions.</p>",
+    "version": "1.1.0",
+    "name": "viewInstantRedemptions",
+    "group": "Vendor_Apis",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Bearer Vendor's Access Token</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "\"Authorization\" => \"Bearer Vendor's Access Token",
+          "type": "php"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "http://peoplehub.twinspark.co/api/vendor/UserInstantRedemptions/"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n  {\n\"response\": {\n    \"status\": true,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"service_id\": 2,\n            \"description\": \"asadd\",\n            \"vendor_id\": 1,\n            \"user_id\": 1,\n            \"amount\": 100,\n            \"created\": \"2016-11-04T08:31:43+00:00\",\n            \"modified\": \"2016-11-04T08:31:43+00:00\",\n            \"deleted\": null,\n            \"status\": true,\n            \"service\": {\n                \"id\": 2,\n                \"name\": \"tango\",\n                \"label\": \"Tango Card\",\n                \"status\": true,\n                \"created\": \"2016-10-20T11:15:26+00:00\",\n                \"modified\": \"2016-10-20T11:15:26+00:00\"\n            },\n            \"user\": {\n                \"id\": 1,\n                \"uuid\": \"88e4bc36-a680-4a25-9b99-d125a82e3f22\",\n                \"name\": \"admin\",\n                \"email\": \"nitesh.srivastava@twinspark.co\",\n                \"phone\": null,\n                \"role_id\": 1,\n                \"created\": \"2016-10-20T11:15:25+00:00\",\n                \"modified\": \"2016-10-20T11:15:25+00:00\",\n                \"status\": true,\n                \"username\": \"admin\",\n                \"isEmailVerified\": false\n            }\n        }\n      ]\n    }\n  }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "bountee/vendorApis/UserInstantRedemptionsController.js",
     "groupTitle": "Vendor_Apis"
   },
   {

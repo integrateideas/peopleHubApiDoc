@@ -212,96 +212,6 @@ define({ "api": [
   },
   {
     "type": "POST",
-    "url": "/api/vendor/token/",
-    "title": "Get Vendor Token",
-    "description": "<p>This api is used to get vendor's token.</p>",
-    "version": "1.1.0",
-    "name": "GetResellerToken",
-    "group": "Reseller_Apis",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": "<p>Basic (Base_64encode(client_id:client_secret))</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Header-Example:",
-          "content": "\"Authorization\" => \"Basic (Base_64encode(client_id:client_secret)\"",
-          "type": "php"
-        }
-      ]
-    },
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "Integer",
-            "optional": false,
-            "field": "vendor_id",
-            "description": "<p>Vendor's Id.</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Boolean",
-            "optional": false,
-            "field": "status",
-            "description": "<p>status of the request.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "Array",
-            "optional": false,
-            "field": "data",
-            "description": "<p>cotains response.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "token",
-            "description": "<p>Access token of vendor.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "Date",
-            "optional": false,
-            "field": "expires",
-            "description": "<p>contains token expiry datetime.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n  {\n      \"status\": true,\n      \"data\": {\n          \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImV4cCI6IjIwMTYtMTEtMDkgMDY6MjA6MjAifQ.IXicDh41IfkZJBSvnfrZMv9L9ARkdfInOHNb4NYSFDo\",\n          \"expires\": \"2016-11-09 06:20:20\"\n      }\n  }",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "https://app.thebountee.com/api/vendor/token"
-      }
-    ],
-    "filename": "bountee/vendorApis/VendorController.js",
-    "groupTitle": "Reseller_Apis"
-  },
-  {
-    "type": "POST",
     "url": "/api/reseller/token/",
     "title": "Get Reseller Token",
     "description": "<p>This api is used to get reseller's token.</p>",
@@ -901,6 +811,14 @@ define({ "api": [
           },
           {
             "group": "Parameter",
+            "type": "String",
+            "size": "10..15",
+            "optional": true,
+            "field": "phone",
+            "description": "<p>contains user's phone number.</p>"
+          },
+          {
+            "group": "Parameter",
             "type": "Boolean",
             "optional": true,
             "field": "status",
@@ -959,7 +877,7 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/api/vendor/activities",
+    "url": "/api/user/activities",
     "title": "View user's activities",
     "description": "<p>View user's activities.</p>",
     "version": "1.1.0",
@@ -1722,6 +1640,96 @@ define({ "api": [
     "groupTitle": "User_Apis"
   },
   {
+    "type": "POST",
+    "url": "/api/vendor/token/",
+    "title": "Get Vendor Token",
+    "description": "<p>This api is used to get vendor's token.</p>",
+    "version": "1.1.0",
+    "name": "GetVenorToken",
+    "group": "Vendor_Apis",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Basic (Base_64encode(client_id:client_secret))</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "\"Authorization\" => \"Basic (Base_64encode(client_id:client_secret)\"",
+          "type": "php"
+        }
+      ]
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "vendor_id",
+            "description": "<p>Vendor's Id.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "status",
+            "description": "<p>status of the request.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "data",
+            "description": "<p>cotains response.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>Access token of vendor.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "expires",
+            "description": "<p>contains token expiry datetime.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n  {\n      \"status\": true,\n      \"data\": {\n          \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImV4cCI6IjIwMTYtMTEtMDkgMDY6MjA6MjAifQ.IXicDh41IfkZJBSvnfrZMv9L9ARkdfInOHNb4NYSFDo\",\n          \"expires\": \"2016-11-09 06:20:20\"\n      }\n  }",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "https://app.thebountee.com/api/vendor/token"
+      }
+    ],
+    "filename": "bountee/vendorApis/VendorController.js",
+    "groupTitle": "Vendor_Apis"
+  },
+  {
     "type": "GET",
     "url": "/api/vendor/activities",
     "title": "View vendor's activities",
@@ -1848,9 +1856,10 @@ define({ "api": [
           {
             "group": "Parameter",
             "type": "String",
+            "size": "10..15",
             "optional": true,
             "field": "phone",
-            "description": "<p>contains user's phone number, mandatory if email is not present.</p>"
+            "description": "<p>contains user's phone number.</p>"
           },
           {
             "group": "Parameter",

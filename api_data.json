@@ -2207,6 +2207,74 @@
   },
   {
     "type": "GET",
+    "url": "/api/vendor/rewardCredits/:id",
+    "title": "Get store and wallet credit of a user",
+    "version": "1.1.0",
+    "name": "UsersStoreAndWalletCreditInfo",
+    "group": "Vendor_Apis",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "id",
+            "description": "<p>contains user's id.</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Vendor's Access Token</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "\"Authorization\" => \"Bearer Vendor's Access Token\"",
+          "type": "php"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "http://peoplehub.twinspark.co/peoplehub/api/vendor/rewardCredits/"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": "<p>status of the request.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"status\": true,\n  \"data\": {\n      \"id\": \"9\",\n      \"wallet_credit\": 0,\n      \"store_credit\": 900\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "bountee/vendorApis/CreditRewardController.js",
+    "groupTitle": "Vendor_Apis"
+  },
+  {
+    "type": "GET",
     "url": "/api/vendor/users/:id",
     "title": "Fetch vendor specific user's detail",
     "description": "<p>Fetch vendor specific user's wallet and store credit detail</p>",
@@ -2277,12 +2345,24 @@
             "group": "Header",
             "type": "String",
             "optional": false,
-            "field": "token",
+            "field": "Authorization",
             "description": "<p>Vendor's Access Token</p>"
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "\"Authorization\" => \"Bearer Vendor's Access Token\"",
+          "type": "php"
+        }
+      ]
     },
+    "sampleRequest": [
+      {
+        "url": "http://peoplehub.twinspark.co/peoplehub/api/vendor/rewardCredits/"
+      }
+    ],
     "success": {
       "fields": {
         "Success 200": [

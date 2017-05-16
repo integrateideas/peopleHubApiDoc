@@ -3,7 +3,7 @@ define({ "api": [
     "type": "POST",
     "url": "/api/reseller/vendors",
     "title": "Add Vendor",
-    "description": "<p>Add new vendor.</p>",
+    "description": "<p>This API adds a new vendor.</p>",
     "version": "1.1.0",
     "name": "AddVendor",
     "group": "Reseller_Apis",
@@ -121,21 +121,21 @@ define({ "api": [
             "type": "Boolean",
             "optional": false,
             "field": "status",
-            "description": "<p>status of the request.</p>"
+            "description": "<p>This contains the status of the request.</p>"
           },
           {
             "group": "Success 200",
             "type": "Array",
             "optional": false,
             "field": "data",
-            "description": "<p>cotains response.</p>"
+            "description": "<p>This contains the response.</p>"
           },
           {
             "group": "Success 200",
             "type": "Integer",
             "optional": false,
             "field": "id",
-            "description": "<p>cotains vednor's id.</p>"
+            "description": "<p>This contains the vendor's id.</p>"
           }
         ]
       },
@@ -166,7 +166,7 @@ define({ "api": [
             "type": "Integer",
             "optional": false,
             "field": "id",
-            "description": "<p>Vendor's Id.</p>"
+            "description": "<p>This contains the vendor's Id.</p>"
           }
         ]
       }
@@ -188,14 +188,14 @@ define({ "api": [
             "type": "Boolean",
             "optional": false,
             "field": "status",
-            "description": "<p>status of the request.</p>"
+            "description": "<p>This contains the status of the request.</p>"
           },
           {
             "group": "Success 200",
             "type": "Array",
             "optional": false,
             "field": "data",
-            "description": "<p>cotains response.</p>"
+            "description": "<p>This contains the response.</p>"
           }
         ]
       },
@@ -246,28 +246,28 @@ define({ "api": [
             "type": "Boolean",
             "optional": false,
             "field": "status",
-            "description": "<p>status of the request.</p>"
+            "description": "<p>This contains the status of the request.</p>"
           },
           {
             "group": "Success 200",
             "type": "Array",
             "optional": false,
             "field": "data",
-            "description": "<p>cotains response.</p>"
+            "description": "<p>This contains the response.</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "optional": false,
             "field": "token",
-            "description": "<p>Access token of reseller.</p>"
+            "description": "<p>This contains the access token of reseller.</p>"
           },
           {
             "group": "Success 200",
             "type": "Date",
             "optional": false,
             "field": "expires",
-            "description": "<p>contains token expiry datetime.</p>"
+            "description": "<p>This contains the token's expiration date &amp; time.</p>"
           }
         ]
       },
@@ -291,7 +291,7 @@ define({ "api": [
     "type": "GET",
     "url": "/api/reseller/vendors",
     "title": "Get Vendor's List",
-    "description": "<p>Get vendor's list of a reseller.</p>",
+    "description": "<p>This API is for getiing the entire vendor's list of a reseller.</p>",
     "version": "1.1.0",
     "name": "GetVendors",
     "group": "Reseller_Apis",
@@ -323,14 +323,14 @@ define({ "api": [
             "type": "Boolean",
             "optional": false,
             "field": "status",
-            "description": "<p>status of the request.</p>"
+            "description": "<p>This contains the status of the request.</p>"
           },
           {
             "group": "Success 200",
             "type": "Array",
             "optional": false,
             "field": "data",
-            "description": "<p>cotains response.</p>"
+            "description": "<p>This contains the response.</p>"
           }
         ]
       },
@@ -344,7 +344,7 @@ define({ "api": [
     },
     "sampleRequest": [
       {
-        "url": "https://app.thebountee.com/api/reseller/vendors"
+        "url": "https://app.peoplehub.io/api/reseller/vendors"
       }
     ],
     "filename": "bountee/resellerApis/VendorController.js",
@@ -471,7 +471,7 @@ define({ "api": [
             "type": "Boolean",
             "optional": false,
             "field": "success",
-            "description": "<p>status of the request.</p>"
+            "description": "<p>This is the status of the request.</p>"
           }
         ]
       },
@@ -502,7 +502,7 @@ define({ "api": [
             "type": "Integer",
             "optional": false,
             "field": "id",
-            "description": "<p>Vendor's Id.</p>"
+            "description": "<p>This contains the vendor's Id.</p>"
           }
         ]
       }
@@ -535,14 +535,14 @@ define({ "api": [
             "type": "Boolean",
             "optional": false,
             "field": "status",
-            "description": "<p>status of the request.</p>"
+            "description": "<p>This contains the status of the request.</p>"
           },
           {
             "group": "Success 200",
             "type": "Array",
             "optional": false,
             "field": "data",
-            "description": "<p>cotains response.</p>"
+            "description": "<p>This contains the response.</p>"
           }
         ]
       },
@@ -566,7 +566,7 @@ define({ "api": [
     "type": "GET",
     "url": "/api/user/me",
     "title": "Get My info",
-    "description": "<p>Get loggedIn user's info.</p>",
+    "description": "<p>This API is used for getting loggedIn user's info.</p>",
     "version": "1.1.0",
     "name": "GetMyInfo",
     "group": "User_Apis",
@@ -598,161 +598,161 @@ define({ "api": [
             "type": "Boolean",
             "optional": false,
             "field": "status",
-            "description": "<p>status of the request.</p>"
+            "description": "<p>This contains the status of the request.</p>"
           },
           {
             "group": "Success 200",
             "type": "Array",
             "optional": false,
             "field": "data",
-            "description": "<p>cotains response.</p>"
+            "description": "<p>This contains the response.</p>"
           },
           {
             "group": "Success 200",
             "type": "Integer",
             "optional": false,
             "field": "id",
-            "description": "<p>cotains user's id.</p>"
+            "description": "<p>This contains the user's id.</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "optional": false,
             "field": "fb_identifier",
-            "description": "<p>cotains user's facebook id.</p>"
+            "description": "<p>This contains the user's facebook id.</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "optional": false,
             "field": "name",
-            "description": "<p>cotains user's id.</p>"
+            "description": "<p>This contains the user's id.</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "optional": false,
             "field": "email",
-            "description": "<p>cotains user's email.</p>"
+            "description": "<p>This contains the user's email.</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "optional": false,
             "field": "phone",
-            "description": "<p>cotains user's phone number.</p>"
+            "description": "<p>This contains the user's phone number.</p>"
           },
           {
             "group": "Success 200",
             "type": "Integer",
             "optional": false,
             "field": "role_id",
-            "description": "<p>cotains role_id.</p>"
+            "description": "<p>This contains the role_id.</p>"
           },
           {
             "group": "Success 200",
             "type": "DateTime",
             "optional": false,
             "field": "created",
-            "description": "<p>cotains user's created date time.</p>"
+            "description": "<p>This contains the user's created date time.</p>"
           },
           {
             "group": "Success 200",
             "type": "DateTime",
             "optional": false,
             "field": "modified",
-            "description": "<p>cotains user's last modified date time.</p>"
+            "description": "<p>This contains the user's last modified date time.</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "optional": false,
             "field": "username",
-            "description": "<p>cotains user's username.</p>"
+            "description": "<p>This contains the user's username.</p>"
           },
           {
             "group": "Success 200",
             "type": "Boolean",
             "optional": false,
             "field": "is_email_verified",
-            "description": "<p>cotains true if email is verified.</p>"
+            "description": "<p>This is true if email is verified.</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "optional": false,
             "field": "guardian_email",
-            "description": "<p>cotains guardian's email: this will be present if user is not having email id.</p>"
+            "description": "<p>This contains the guardian's email: This will be present if a user doesn't has an email id.</p>"
           },
           {
             "group": "Success 200",
             "type": "Integer",
             "optional": false,
             "field": "relationship_id",
-            "description": "<p>cotains relationship_id which is relation with guardian whose email is given, if user is not having email id.</p>"
+            "description": "<p>This contains the relationship id related to the guardian's email, used if the user doesn't has a personal email.</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "optional": false,
             "field": "reason",
-            "description": "<p>cotains reason why user is not having email.</p>"
+            "description": "<p>This describes the reason why user is not having email.</p>"
           },
           {
             "group": "Success 200",
             "type": "Array",
             "optional": false,
             "field": "activities",
-            "description": "<p>cotains user's activities.</p>"
+            "description": "<p>This contains the user's activities.</p>"
           },
           {
             "group": "Success 200",
             "type": "Array",
             "optional": false,
             "field": "user_cards",
-            "description": "<p>cotains user's cards.</p>"
+            "description": "<p>This contains the user's cards.</p>"
           },
           {
             "group": "Success 200",
             "type": "Integer",
             "optional": false,
             "field": "totalWalletCredits",
-            "description": "<p>cotains user's total wallet credit.</p>"
+            "description": "<p>This contains the user's total wallet credit.</p>"
           },
           {
             "group": "Success 200",
             "type": "Integer",
             "optional": false,
             "field": "totalStoreCredits",
-            "description": "<p>cotains user's total store credit.</p>"
+            "description": "<p>This contains the user's total store credit.</p>"
           },
           {
             "group": "Success 200",
             "type": "Array",
             "optional": false,
             "field": "walletCredits",
-            "description": "<p>cotains user's active wallet credit details.</p>"
+            "description": "<p>This contains the user's active wallet credit details.</p>"
           },
           {
             "group": "Success 200",
             "type": "Array",
             "optional": false,
             "field": "storeCredits",
-            "description": "<p>cotains user's active store credit details.</p>"
+            "description": "<p>This contains the user's active store credit details.</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n   \"status\": true,\n   \"data\": {\n       \"id\": 2,\n       \"fb_identifier\": null,\n       \"uuid\": \"a025727f-30b6-4feb-8b4f-6f66fd09abee\",\n       \"name\": \"nikhil\",\n       \"email\": null,\n       \"phone\": \"78945613221\",\n       \"role_id\": 2,\n       \"created\": \"2017-02-06T14:42:26+00:00\",\n       \"modified\": \"2017-02-06T14:42:26+00:00\",\n       \"status\": true,\n       \"username\": \"nikwhil21@gmail.com\",\n       \"is_email_verified\": false,\n       \"guardian_email\": \"nikhil11@gmail.com\",\n       \"relationship_id\": 1,\n       \"reason\": \"srry user do not have email\",\n       \"activities\": [],\n       \"user_cards\": [],\n       \"totalWalletCredits\": 0,\n       \"walletCredits\": [],\n       \"totalStoreCredits\": 0,\n       \"storeCredits\": [],\n       \"linkedAccount\": []\n   }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n   \"status\": true,\n   \"data\": {\n       \"id\": 2,\n       \"fb_identifier\": null,\n       \"uuid\": \"a025727f-30b6-4feb-8b4f-6f66fd09abee\",\n       \"name\": \"david\",\n       \"email\": null,\n       \"phone\": \"78945613221\",\n       \"role_id\": 2,\n       \"created\": \"2017-02-06T14:42:26+00:00\",\n       \"modified\": \"2017-02-06T14:42:26+00:00\",\n       \"status\": true,\n       \"username\": \"david@example.com\",\n       \"is_email_verified\": false,\n       \"guardian_email\": \"guardian@example.com\",\n       \"relationship_id\": 1,\n       \"reason\": \"Sorry, this user does not has an email.\",\n       \"activities\": [],\n       \"user_cards\": [],\n       \"totalWalletCredits\": 0,\n       \"walletCredits\": [],\n       \"totalStoreCredits\": 0,\n       \"storeCredits\": [],\n       \"linkedAccount\": []\n   }\n}",
           "type": "json"
         }
       ]
     },
     "sampleRequest": [
       {
-        "url": "https://app.thebountee.com/api/user/me"
+        "url": "https://app.peoplehub.io/api/user/me"
       }
     ],
     "filename": "bountee/userApis/UserController.js",
@@ -762,7 +762,7 @@ define({ "api": [
     "type": "POST",
     "url": "/api/user/register",
     "title": "Register new User",
-    "description": "<p>Registrer new User.</p>",
+    "description": "<p>This API is used for registering a new User.</p>",
     "version": "1.1.0",
     "name": "RegisterNewUser",
     "group": "User_Apis",
@@ -775,7 +775,7 @@ define({ "api": [
             "size": "1..255",
             "optional": false,
             "field": "name",
-            "description": "<p>contains User's Name.</p>"
+            "description": "<p>This contains the user's name.</p>"
           },
           {
             "group": "Parameter",
@@ -783,7 +783,7 @@ define({ "api": [
             "size": "5..255",
             "optional": true,
             "field": "email",
-            "description": "<p>contains User's email, if username is not present then email is required.</p>"
+            "description": "<p>This contains the user's email, if there's no username then email is a required field.</p>"
           },
           {
             "group": "Parameter",
@@ -791,7 +791,7 @@ define({ "api": [
             "size": "8..255",
             "optional": false,
             "field": "password",
-            "description": "<p>contains user's password.</p>"
+            "description": "<p>This contains the user's password.</p>"
           },
           {
             "group": "Parameter",
@@ -799,7 +799,7 @@ define({ "api": [
             "size": "5..255",
             "optional": true,
             "field": "username",
-            "description": "<p>contains username, if email is not present then username is required.</p>"
+            "description": "<p>This contains the username, if email is not present then username is required.</p>"
           },
           {
             "group": "Parameter",
@@ -807,7 +807,7 @@ define({ "api": [
             "size": "5..255",
             "optional": true,
             "field": "guardian_email",
-            "description": "<p>contains guardian email, required if username is present else not.</p>"
+            "description": "<p>This contains the guardian's email, required if username is present else not.</p>"
           },
           {
             "group": "Parameter",
@@ -815,7 +815,7 @@ define({ "api": [
             "size": "10..15",
             "optional": true,
             "field": "phone",
-            "description": "<p>contains user's phone number.</p>"
+            "description": "<p>This contains the user's phone number.</p>"
           },
           {
             "group": "Parameter",
@@ -830,12 +830,12 @@ define({ "api": [
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "{\n\"name\" : \"nikhil\",\n\"email\" : \"nikhil11@gmail.com\",\n\"password\" : \"nikhil\",\n\"phone\" : \"78945613221\"\n}",
+          "content": "{\n\"name\" : \"david\",\n\"email\" : \"daivd@example.com\",\n\"password\" : \"david\",\n\"phone\" : \"78945613221\"\n}",
           "type": "json"
         },
         {
           "title": "Request-Example:",
-          "content": "{\n\"name\" : \"nikhil\",\n\"username\" : \"nikhil11\",\n\"guardian_email\":\"nitesh_11@gmail.com\"\n\"password\" : \"nikhil\"\n}",
+          "content": "{\n\"name\" : \"david\",\n\"username\" : \"david\",\n\"guardian_email\":\"guardian@example.com\"\n\"password\" : \"david\"\n}",
           "type": "json"
         }
       ]
@@ -848,14 +848,14 @@ define({ "api": [
             "type": "Boolean",
             "optional": false,
             "field": "status",
-            "description": "<p>status of the request.</p>"
+            "description": "<p>This is the status of the request.</p>"
           },
           {
             "group": "Success 200",
             "type": "Array",
             "optional": false,
             "field": "data",
-            "description": "<p>cotains response.</p>"
+            "description": "<p>This contains the response.</p>"
           }
         ]
       },
@@ -867,7 +867,7 @@ define({ "api": [
         },
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n   \"status\": true,\n   \"data\": {\n       \"name\": \"nikhis1l\",\n       \"username\": \"a1@go\",\n       \"phone\": \"78945613221\",\n       \"guardian_email\": \"aaa@asdsad.com\",\n       \"uuid\": \"384aacdd-ab37-4fa9-bc45-1b821fe72ffc\",\n       \"created\": \"2017-02-09T12:30:03+00:00\",\n       \"modified\": \"2017-02-09T12:30:03+00:00\",\n       \"id\": 8\n   }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n   \"status\": true,\n   \"data\": {\n       \"name\": \"david\",\n       \"username\": \"d1@go\",\n       \"phone\": \"78945613221\",\n       \"guardian_email\": \"guardian@example.com\",\n       \"uuid\": \"384aacdd-ab37-4fa9-bc45-1b821fe72ffc\",\n       \"created\": \"2017-02-09T12:30:03+00:00\",\n       \"modified\": \"2017-02-09T12:30:03+00:00\",\n       \"id\": 8\n   }\n}",
           "type": "json"
         }
       ]
@@ -879,7 +879,7 @@ define({ "api": [
     "type": "GET",
     "url": "/api/user/activities",
     "title": "View user's activities",
-    "description": "<p>View user's activities.</p>",
+    "description": "<p>This API is used to view user's activities.</p>",
     "version": "1.1.0",
     "name": "UserActivities",
     "group": "User_Apis",
@@ -912,7 +912,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"status\": true,\n    \"data\": {\n        \"Activities\": [\n            {\n                \"id\": 5,\n                \"vendor_id\": 6,\n                \"user_id\": 7,\n                \"reward_method_id\": 3,\n                \"service_id\": 3,\n                \"attribute\": null,\n                \"attribute_type\": null,\n                \"action\": \"instant_redeem\",\n                \"points\": \"100\",\n                \"status\": true,\n                \"created\": \"2016-11-11T08:39:09+00:00\",\n                \"modified\": \"2016-11-11T08:39:09+00:00\",\n                \"service\": {\n                    \"id\": 3,\n                    \"name\": \"in_house\",\n                    \"label\": \"In House\",\n                    \"status\": true,\n                    \"created\": \"2016-11-09T18:16:40+00:00\",\n                    \"modified\": \"2016-11-09T18:16:40+00:00\"\n                },\n                \"reward_method\": {\n                    \"id\": 3,\n                    \"name\": \"instant_redeem\",\n                    \"label\": \"Instant Redeemption\",\n                    \"status\": true,\n                    \"created\": \"2016-11-09T18:16:40+00:00\",\n                    \"modified\": \"2016-11-09T18:16:40+00:00\"\n                },\n                \"user\": {\n                    \"id\": 7,\n                    \"uuid\": \"6cf957c1-c0cf-46e2-9f45-863a550be2a9\",\n                    \"name\": \"nikhil\",\n                    \"email\": \"nikhil11@gmail.com\",\n                    \"phone\": null,\n                    \"role_id\": 2,\n                    \"created\": \"2016-11-11T07:09:33+00:00\",\n                    \"modified\": \"2016-11-11T07:09:33+00:00\",\n                    \"status\": true,\n                    \"username\": \"ns\",\n                    \"isEmailVerified\": false\n                },\n                \"vendor\": {\n                    \"id\": 6,\n                    \"name\": \"niteesh3\",\n                    \"created\": \"2016-11-11T08:27:13+00:00\",\n                    \"modified\": \"2016-11-11T08:27:13+00:00\",\n                    \"status\": true,\n                    \"deleted\": null\n                }\n            }\n        ]\n    }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"status\": true,\n    \"data\": {\n        \"Activities\": [\n            {\n                \"id\": 5,\n                \"vendor_id\": 6,\n                \"user_id\": 7,\n                \"reward_method_id\": 3,\n                \"service_id\": 3,\n                \"attribute\": null,\n                \"attribute_type\": null,\n                \"action\": \"instant_redeem\",\n                \"points\": \"100\",\n                \"status\": true,\n                \"created\": \"2016-11-11T08:39:09+00:00\",\n                \"modified\": \"2016-11-11T08:39:09+00:00\",\n                \"service\": {\n                    \"id\": 3,\n                    \"name\": \"in_house\",\n                    \"label\": \"In House\",\n                    \"status\": true,\n                    \"created\": \"2016-11-09T18:16:40+00:00\",\n                    \"modified\": \"2016-11-09T18:16:40+00:00\"\n                },\n                \"reward_method\": {\n                    \"id\": 3,\n                    \"name\": \"instant_redeem\",\n                    \"label\": \"Instant Redeemption\",\n                    \"status\": true,\n                    \"created\": \"2016-11-09T18:16:40+00:00\",\n                    \"modified\": \"2016-11-09T18:16:40+00:00\"\n                },\n                \"user\": {\n                    \"id\": 7,\n                    \"uuid\": \"6cf957c1-c0cf-46e2-9f45-863a550be2a9\",\n                    \"name\": \"nikhil\",\n                    \"email\": \"david@example.com\",\n                    \"phone\": null,\n                    \"role_id\": 2,\n                    \"created\": \"2016-11-11T07:09:33+00:00\",\n                    \"modified\": \"2016-11-11T07:09:33+00:00\",\n                    \"status\": true,\n                    \"username\": \"david\",\n                    \"isEmailVerified\": false\n                },\n                \"vendor\": {\n                    \"id\": 6,\n                    \"name\": \"Samuel\",\n                    \"created\": \"2016-11-11T08:27:13+00:00\",\n                    \"modified\": \"2016-11-11T08:27:13+00:00\",\n                    \"status\": true,\n                    \"deleted\": null\n                }\n            }\n        ]\n    }\n}",
           "type": "json"
         }
       ]
@@ -923,7 +923,7 @@ define({ "api": [
   {
     "type": "post",
     "url": "/api/user/user-cards",
-    "title": "add user card",
+    "title": "Add user card",
     "version": "1.1.0",
     "name": "addUserCard",
     "group": "User_Apis",
@@ -982,14 +982,14 @@ define({ "api": [
             "type": "Boolean",
             "optional": false,
             "field": "success",
-            "description": "<p>status of the request.</p>"
+            "description": "<p>This contains the status of the request.</p>"
           },
           {
             "group": "Success 200",
             "type": "Array",
             "optional": false,
             "field": "data",
-            "description": "<p>cotains response.</p>"
+            "description": "<p>This contains the response.</p>"
           }
         ]
       },
@@ -1012,8 +1012,8 @@ define({ "api": [
   {
     "type": "POST",
     "url": "/api/user/forgot_password",
-    "title": "forgot password method",
-    "description": "<p>forgot password method</p>",
+    "title": "Forgot password method",
+    "description": "<p>This API includes the method for forgot password.</p>",
     "version": "1.1.0",
     "name": "forgotPassword",
     "group": "User_Apis",
@@ -1025,21 +1025,21 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "ref",
-            "description": "<p>contains referral url from where request is coming</p>"
+            "description": "<p>This contains the referral url from where the request is arriving.</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
             "optional": false,
             "field": "username",
-            "description": "<p>contains username</p>"
+            "description": "<p>This contains the username</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "{\n\"ref\":\"http://app.buzzydoc.com\",\n\"username\":\"nikhil11\"\n}",
+          "content": "{\n\"ref\":\"http://app.buzzydoc.com\",\n\"username\":\"david\"\n}",
           "type": "json"
         }
       ]
@@ -1052,7 +1052,7 @@ define({ "api": [
             "type": "Array",
             "optional": false,
             "field": "data",
-            "description": "<p>cotains response.</p>"
+            "description": "<p>This contains the response.</p>"
           }
         ]
       },
@@ -1096,7 +1096,7 @@ define({ "api": [
     },
     "sampleRequest": [
       {
-        "url": "https://app.thebountee.com/api/user/user-cards/"
+        "url": "https://app.peoplehub.io/api/user/user-cards/"
       }
     ],
     "success": {
@@ -1107,14 +1107,14 @@ define({ "api": [
             "type": "Boolean",
             "optional": false,
             "field": "success",
-            "description": "<p>status of the request.</p>"
+            "description": "<p>This contains the status of the request.</p>"
           },
           {
             "group": "Success 200",
             "type": "Array",
             "optional": false,
             "field": "data",
-            "description": "<p>cotains response.</p>"
+            "description": "<p>This contains the response.</p>"
           }
         ]
       },
@@ -1164,14 +1164,14 @@ define({ "api": [
             "type": "Boolean",
             "optional": false,
             "field": "status",
-            "description": "<p>status of the request.</p>"
+            "description": "<p>This contains the status of the request.</p>"
           },
           {
             "group": "Success 200",
             "type": "Integer",
             "optional": false,
             "field": "id",
-            "description": "<p>ID of the User.</p>"
+            "description": "<p>This contains the ID of the User.</p>"
           },
           {
             "group": "Success 200",
@@ -1224,7 +1224,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "  HTTP/1.1 200 OK\n  {\n\"response\": {\n\"status\": true,\n\"data\": {\n       \"message\": \"User Logged out Successfully\"\n       }\n   }\n}",
+          "content": "  HTTP/1.1 200 OK\n  {\n\"response\": {\n\"status\": true,\n\"data\": {\n       \"message\": \"User Logged out Successfully!\"\n       }\n   }\n}",
           "type": "json"
         }
       ]
@@ -1235,8 +1235,8 @@ define({ "api": [
   {
     "type": "POST",
     "url": "/api/vendor/redeemedCredits/",
-    "title": "redeem wallet credit of a user.",
-    "description": "<p>This api is used to redeem wallet credit of a user.</p>",
+    "title": "Redeem wallet credit of a user",
+    "description": "<p>This API is used to redeem wallet credit of a user.</p>",
     "version": "1.1.0",
     "name": "redeemUsersWalletCredit",
     "group": "User_Apis",
@@ -1268,21 +1268,21 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "ref",
-            "description": "<p>contains referral url from where request is coming</p>"
+            "description": "<p>This contains the referral url from where the request is coming.</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
             "optional": false,
             "field": "service",
-            "description": "<p>service name amazon/tango to redeem reward.</p>"
+            "description": "<p>This contains the service name amazon/tango used for redeem reward.</p>"
           },
           {
             "group": "Parameter",
             "type": "Integer",
             "optional": true,
             "field": "vendor_id",
-            "description": "<p>contains vendor's if if we want to redeem only sepecific vendor's walletCredits</p>"
+            "description": "<p>This contains vendor's id used for redeeming sepecific vendor's wallet credits.</p>"
           }
         ]
       },
@@ -1325,8 +1325,8 @@ define({ "api": [
   {
     "type": "POST",
     "url": "/api/user/reset_password",
-    "title": "reset password method",
-    "description": "<p>reset password method</p>",
+    "title": "Reset password method",
+    "description": "<p>This API includes the method for reset password.</p>",
     "version": "1.1.0",
     "name": "resetUserPassword",
     "group": "User_Apis",
@@ -1338,21 +1338,21 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "reset-token",
-            "description": "<p>contains token which is sent by forgot password api</p>"
+            "description": "<p>This contains the token sent by forgot password API.</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
             "optional": false,
             "field": "new_password",
-            "description": "<p>contains new password</p>"
+            "description": "<p>This contains the new password</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
             "optional": false,
             "field": "cnf_password",
-            "description": "<p>contains new password</p>"
+            "description": "<p>This contains the new password</p>"
           }
         ]
       },
@@ -1372,7 +1372,7 @@ define({ "api": [
             "type": "Array",
             "optional": false,
             "field": "data",
-            "description": "<p>cotains response.</p>"
+            "description": "<p>This contains the response.</p>"
           }
         ]
       },
@@ -1390,8 +1390,8 @@ define({ "api": [
   {
     "type": "PUT",
     "url": "/api/user/switch_account",
-    "title": "switch user to linked account",
-    "description": "<p>switch to linked account</p>",
+    "title": "Switch user to linked account",
+    "description": "<p>This API is used to switch a user to a linked account.</p>",
     "version": "1.1.0",
     "name": "switchUserAccount",
     "group": "User_Apis",
@@ -1403,7 +1403,7 @@ define({ "api": [
             "type": "Integer",
             "optional": false,
             "field": "account_id",
-            "description": "<p>contains account_id to which user wants to switch</p>"
+            "description": "<p>This contains the account id to which the user wants to switch.</p>"
           }
         ]
       }
@@ -1416,7 +1416,7 @@ define({ "api": [
             "type": "Array",
             "optional": false,
             "field": "data",
-            "description": "<p>cotains response.</p>"
+            "description": "<p>This contains the response.</p>"
           }
         ]
       },
@@ -1454,8 +1454,8 @@ define({ "api": [
   {
     "type": "PUT",
     "url": "/api/user/users/{:id}",
-    "title": "update user's info",
-    "description": "<p>update user's info</p>",
+    "title": "Update user's info",
+    "description": "<p>This API is used for updating a user's saved information.</p>",
     "version": "1.1.0",
     "name": "updateUserInfo",
     "group": "User_Apis",
@@ -1467,7 +1467,7 @@ define({ "api": [
             "type": "Integer",
             "optional": false,
             "field": "id",
-            "description": "<p>id user id of the users whose information weare going to update.</p>"
+            "description": "<p>This contains the id of the users whose information needs updation.</p>"
           },
           {
             "group": "Parameter",
@@ -1475,7 +1475,7 @@ define({ "api": [
             "size": "1..255",
             "optional": true,
             "field": "name",
-            "description": "<p>contains User's Name.</p>"
+            "description": "<p>This contains the user's name.</p>"
           },
           {
             "group": "Parameter",
@@ -1483,7 +1483,7 @@ define({ "api": [
             "size": "5..255",
             "optional": true,
             "field": "email",
-            "description": "<p>contains User's email, if username is not present then email is required.</p>"
+            "description": "<p>This contains the user's email, required if username is not present.</p>"
           },
           {
             "group": "Parameter",
@@ -1491,7 +1491,7 @@ define({ "api": [
             "size": "5..255",
             "optional": true,
             "field": "username",
-            "description": "<p>contains User's username, required if email is not present else not.</p>"
+            "description": "<p>This contains the user's username, required if email is not present else not.</p>"
           },
           {
             "group": "Parameter",
@@ -1499,7 +1499,7 @@ define({ "api": [
             "size": "8..255",
             "optional": true,
             "field": "password",
-            "description": "<p>contains user's new password.</p>"
+            "description": "<p>This contains the user's new password.</p>"
           },
           {
             "group": "Parameter",
@@ -1507,7 +1507,7 @@ define({ "api": [
             "size": "8..255",
             "optional": true,
             "field": "old_password",
-            "description": "<p>contains user's old password, required if password is provided.</p>"
+            "description": "<p>This contains the user's old password, required if password is provided.</p>"
           },
           {
             "group": "Parameter",
@@ -1515,14 +1515,14 @@ define({ "api": [
             "size": "5..255",
             "optional": true,
             "field": "guardian_email",
-            "description": "<p>contains guardian email, required if email is not present else not.</p>"
+            "description": "<p>This contains the guardian email, required if email is not present else not.</p>"
           },
           {
             "group": "Parameter",
             "type": "Boolean",
             "optional": true,
             "field": "status",
-            "description": "<p>Vendor's Status: Enabled or Disabled, By Default Enabled.</p>"
+            "description": "<p>Vendor's Status: Enabled or Disabled, Enabled By Default.</p>"
           }
         ]
       }
@@ -1535,14 +1535,14 @@ define({ "api": [
             "type": "Boolean",
             "optional": false,
             "field": "status",
-            "description": "<p>status of the request.</p>"
+            "description": "<p>This contains the status of the request.</p>"
           },
           {
             "group": "Success 200",
             "type": "Array",
             "optional": false,
             "field": "data",
-            "description": "<p>cotains response.</p>"
+            "description": "<p>This contains the response.</p>"
           }
         ]
       },
@@ -1612,14 +1612,14 @@ define({ "api": [
             "type": "Boolean",
             "optional": false,
             "field": "success",
-            "description": "<p>status of the request.</p>"
+            "description": "<p>Status of the request.</p>"
           },
           {
             "group": "Success 200",
             "type": "Array",
             "optional": false,
             "field": "data",
-            "description": "<p>cotains response.</p>"
+            "description": "<p>Contains the response.</p>"
           }
         ]
       },
@@ -1633,7 +1633,7 @@ define({ "api": [
     },
     "sampleRequest": [
       {
-        "url": "https://app.thebountee.com/api/user/user-cards/2"
+        "url": "https://app.peoplehub.io/api/user/user-cards/2"
       }
     ],
     "filename": "bountee/userApis/UserCards.js",
@@ -1643,7 +1643,7 @@ define({ "api": [
     "type": "POST",
     "url": "/api/vendor/token/",
     "title": "Get Vendor Token",
-    "description": "<p>This api is used to get vendor's token.</p>",
+    "description": "<p>This API is used to get a vendor's token.</p>",
     "version": "1.1.0",
     "name": "GetVenorToken",
     "group": "Vendor_Apis",
@@ -1675,7 +1675,7 @@ define({ "api": [
             "type": "Integer",
             "optional": false,
             "field": "vendor_id",
-            "description": "<p>Vendor's Id.</p>"
+            "description": "<p>This contains the vendor's id.</p>"
           }
         ]
       }
@@ -1688,28 +1688,28 @@ define({ "api": [
             "type": "Boolean",
             "optional": false,
             "field": "status",
-            "description": "<p>status of the request.</p>"
+            "description": "<p>This contains the status of the request.</p>"
           },
           {
             "group": "Success 200",
             "type": "Array",
             "optional": false,
             "field": "data",
-            "description": "<p>cotains response.</p>"
+            "description": "<p>This contains the response.</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "optional": false,
             "field": "token",
-            "description": "<p>Access token of vendor.</p>"
+            "description": "<p>This contains the access token of vendor.</p>"
           },
           {
             "group": "Success 200",
             "type": "Date",
             "optional": false,
             "field": "expires",
-            "description": "<p>contains token expiry datetime.</p>"
+            "description": "<p>This contains the token's expiration date &amp; time.</p>"
           }
         ]
       },
@@ -1723,7 +1723,7 @@ define({ "api": [
     },
     "sampleRequest": [
       {
-        "url": "https://app.thebountee.com/api/vendor/token"
+        "url": "https://app.peoplehub.io/api/vendor/token"
       }
     ],
     "filename": "bountee/vendorApis/VendorController.js",
@@ -1733,7 +1733,7 @@ define({ "api": [
     "type": "GET",
     "url": "/api/vendor/activities",
     "title": "View vendor's activities",
-    "description": "<p>View vendor's activities.</p>",
+    "description": "<p>This API is used for viewing vendor's activities.</p>",
     "version": "1.1.0",
     "name": "MyActivities",
     "group": "Vendor_Apis",
@@ -1765,14 +1765,14 @@ define({ "api": [
             "type": "Date",
             "optional": true,
             "field": "from",
-            "description": "<p>cantains date from which data is required in format Y-m-d</p>"
+            "description": "<p>This contains the 'from date' in Y-m-d format for the required data.</p>"
           },
           {
             "group": "Parameter",
             "type": "Date",
             "optional": true,
             "field": "to",
-            "description": "<p>cantains date upto which data is required in format Y-m-d</p>"
+            "description": "<p>This contains the date upto which data is required in Y-m-d format.</p>"
           }
         ]
       }
@@ -1797,8 +1797,8 @@ define({ "api": [
   {
     "type": "POST",
     "url": "/api/vendor/add-user",
-    "title": "Registrer new User",
-    "description": "<p>Registrer new User.</p>",
+    "title": "Register new User",
+    "description": "<p>This API is used for registering a new user.</p>",
     "version": "1.1.0",
     "name": "RegisterNewUser",
     "group": "Vendor_Apis",
@@ -1837,7 +1837,7 @@ define({ "api": [
             "type": "String",
             "optional": true,
             "field": "email",
-            "description": "<p>contains user's email.</p>"
+            "description": "<p>Contains the user's email.</p>"
           },
           {
             "group": "Parameter",
@@ -1851,7 +1851,7 @@ define({ "api": [
             "type": "String",
             "optional": true,
             "field": "guardian_email",
-            "description": "<p>guardian_email if email is not present then guardian_email is mandatory.</p>"
+            "description": "<p>Mandatory if user's email is not present.</p>"
           },
           {
             "group": "Parameter",
@@ -1859,14 +1859,14 @@ define({ "api": [
             "size": "10..15",
             "optional": true,
             "field": "phone",
-            "description": "<p>contains user's phone number.</p>"
+            "description": "<p>Contains the user's phone number.</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
             "optional": false,
             "field": "password",
-            "description": "<p>contains user's password.</p>"
+            "description": "<p>Contains the user's password.</p>"
           },
           {
             "group": "Parameter",
@@ -1898,21 +1898,21 @@ define({ "api": [
             "type": "Boolean",
             "optional": false,
             "field": "status",
-            "description": "<p>status of the request.</p>"
+            "description": "<p>This contains the status of the request.</p>"
           },
           {
             "group": "Success 200",
             "type": "Array",
             "optional": false,
             "field": "data",
-            "description": "<p>cotains response.</p>"
+            "description": "<p>This contains the response.</p>"
           },
           {
             "group": "Success 200",
             "type": "Integer",
             "optional": false,
             "field": "id",
-            "description": "<p>cotains user's id.</p>"
+            "description": "<p>This contains the user's id.</p>"
           }
         ]
       },
@@ -1924,7 +1924,7 @@ define({ "api": [
         },
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n   \"status\": true,\n   \"data\": {\n       \"name\": \"nikhil\",\n       \"username\": \"nikhil111\",\n       \"guardian_email\": \"nikhil112@gmail.com\",\n       \"phone\": \"78945613221\",\n       \"vendor_users\": [\n           {\n               \"vendor_id\": 1,\n               \"user_id\": 14,\n               \"created\": \"2017-02-13T13:13:54+00:00\",\n               \"modified\": \"2017-02-13T13:13:54+00:00\",\n               \"id\": 3\n           }\n       ],\n       \"uuid\": \"e2d4b911-ee4e-49ef-8848-13bccc69efe6\",\n       \"created\": \"2017-02-13T13:13:54+00:00\",\n       \"modified\": \"2017-02-13T13:13:54+00:00\",\n       \"id\": 14\n   }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n   \"status\": true,\n   \"data\": {\n       \"name\": \"david\",\n       \"username\": \"david111\",\n       \"guardian_email\": \"david@example.com\",\n       \"phone\": \"78945613221\",\n       \"vendor_users\": [\n           {\n               \"vendor_id\": 1,\n               \"user_id\": 14,\n               \"created\": \"2017-02-13T13:13:54+00:00\",\n               \"modified\": \"2017-02-13T13:13:54+00:00\",\n               \"id\": 3\n           }\n       ],\n       \"uuid\": \"e2d4b911-ee4e-49ef-8848-13bccc69efe6\",\n       \"created\": \"2017-02-13T13:13:54+00:00\",\n       \"modified\": \"2017-02-13T13:13:54+00:00\",\n       \"id\": 14\n   }\n}",
           "type": "json"
         }
       ]
@@ -1936,7 +1936,7 @@ define({ "api": [
     "type": "GET",
     "url": "/api/vendor/user-search",
     "title": "Search User",
-    "description": "<p>Search User.</p>",
+    "description": "<p>This API allows you to search a user.</p>",
     "version": "1.1.0",
     "name": "SearchUser",
     "group": "Vendor_Apis",
@@ -1975,7 +1975,7 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "value",
-            "description": "<p>contains search key.</p>"
+            "description": "<p>Contains the search key.</p>"
           }
         ]
       }
@@ -2001,6 +2001,7 @@ define({ "api": [
     "type": "put",
     "url": "/api/vendor/vendors/:id",
     "title": "Update vendor detail",
+    "description": "<p>This API is used to update a vendor's information.</p>",
     "version": "1.1.0",
     "name": "Update_vendor_detail",
     "group": "Vendor_Apis",
@@ -2048,14 +2049,14 @@ define({ "api": [
             "type": "Array",
             "optional": false,
             "field": "vendor_contacts",
-            "description": "<p>contains vendor's contact information.</p>"
+            "description": "<p>This contains the vendor's contact information.</p>"
           },
           {
             "group": "Parameter",
             "type": "Array",
             "optional": false,
             "field": "vendor_reward_types",
-            "description": "<p>contains vendor's alloted reward type(s) information.</p>"
+            "description": "<p>This contains the vendor's alloted reward type(s) information.</p>"
           }
         ],
         "vendor_contacts": [
@@ -2065,7 +2066,7 @@ define({ "api": [
             "size": "5..255",
             "optional": false,
             "field": "vendor_contacts.email",
-            "description": "<p>contains vendor's email.</p>"
+            "description": "<p>This contains the vendor's email.</p>"
           },
           {
             "group": "vendor_contacts",
@@ -2073,7 +2074,7 @@ define({ "api": [
             "size": "10..15",
             "optional": false,
             "field": "vendor_contacts.phone",
-            "description": "<p>contains vendor's phone number.</p>"
+            "description": "<p>This contains the vendor's phone number.</p>"
           },
           {
             "group": "vendor_contacts",
@@ -2090,7 +2091,7 @@ define({ "api": [
             "type": "Integer",
             "optional": false,
             "field": "vendor_reward_types.reward_method_id",
-            "description": "<p>contains reward_method_id.</p>"
+            "description": "<p>This contains the reward_method_id.</p>"
           },
           {
             "group": "vendor_reward_types",
@@ -2118,7 +2119,7 @@ define({ "api": [
             "type": "Boolean",
             "optional": false,
             "field": "success",
-            "description": "<p>status of the request.</p>"
+            "description": "<p>This describes the status of the request.</p>"
           }
         ]
       },
@@ -2137,7 +2138,7 @@ define({ "api": [
     "type": "GET",
     "url": "/api/vendor/activities/?user_id=",
     "title": "View user's activities",
-    "description": "<p>View user's activities.</p>",
+    "description": "<p>This API is used to view user's activities.</p>",
     "version": "1.1.0",
     "name": "UserActivities",
     "group": "Vendor_Apis",
@@ -2169,21 +2170,21 @@ define({ "api": [
             "type": "Integer",
             "optional": true,
             "field": "user_id",
-            "description": "<p>cantain peoplehub id of key user</p>"
+            "description": "<p>This contains the peoplehub id of the key user.</p>"
           },
           {
             "group": "Parameter",
             "type": "Date",
             "optional": true,
             "field": "from",
-            "description": "<p>cantains date from which data is required in format Y-m-d</p>"
+            "description": "<p>This contains the 'from date' in Y-m-d format for the required data.</p>"
           },
           {
             "group": "Parameter",
             "type": "Date",
             "optional": true,
             "field": "to",
-            "description": "<p>cantains date upto which data is required in format Y-m-d</p>"
+            "description": "<p>This contains the date upto which data is required in Y-m-d format.</p>"
           }
         ]
       }
@@ -2208,7 +2209,7 @@ define({ "api": [
   {
     "type": "GET",
     "url": "/api/vendor/rewardCredits/:id",
-    "title": "Get store and wallet credit of a user",
+    "title": "Getting store and wallet credits of a user",
     "version": "1.1.0",
     "name": "UsersStoreAndWalletCreditInfo",
     "group": "Vendor_Apis",
@@ -2220,7 +2221,7 @@ define({ "api": [
             "type": "Integer",
             "optional": false,
             "field": "id",
-            "description": "<p>contains user's id.</p>"
+            "description": "<p>This contains the user's id.</p>"
           }
         ]
       }
@@ -2276,8 +2277,8 @@ define({ "api": [
   {
     "type": "GET",
     "url": "/api/vendor/users/:id",
-    "title": "Fetch vendor specific user's detail",
-    "description": "<p>Fetch vendor specific user's wallet and store credit detail</p>",
+    "title": "Fetching vendor specific user's detail",
+    "description": "<p>This API allows you to fetch vendor specific user's wallet and store credit details.</p>",
     "version": "1.1.0",
     "name": "getVendorSpecificUserDetail",
     "group": "Vendor_Apis",
@@ -2309,7 +2310,7 @@ define({ "api": [
             "type": "Integer",
             "optional": false,
             "field": "id",
-            "description": "<p>user id of the users whose information we are going to fetch.</p>"
+            "description": "<p>User id of the users whose information is to be fetched.</p>"
           }
         ]
       }
@@ -2334,7 +2335,7 @@ define({ "api": [
   {
     "type": "GET",
     "url": "/api/vendor/rewardCredits/",
-    "title": "Get all available rewards and detail",
+    "title": "Getting available rewards details",
     "version": "1.1.0",
     "name": "get_all_reward_credits",
     "group": "Vendor_Apis",
@@ -2371,7 +2372,7 @@ define({ "api": [
             "type": "Boolean",
             "optional": false,
             "field": "success",
-            "description": "<p>status of the request.</p>"
+            "description": "<p>This describes the status of the request.</p>"
           }
         ]
       },
@@ -2390,7 +2391,7 @@ define({ "api": [
     "type": "POST",
     "url": "/api/vendor/UserInstantRedemptions/",
     "title": "instant redemption",
-    "description": "<p>This api is used to redeem instantly.</p>",
+    "description": "<p>This API is used to redeem rewards instantly.</p>",
     "version": "1.1.0",
     "name": "provideInstantRedemptions",
     "group": "Vendor_Apis",
@@ -2422,28 +2423,28 @@ define({ "api": [
             "type": "amount",
             "optional": false,
             "field": "amount",
-            "description": "<p>instant redeem amount.</p>"
+            "description": "<p>This contains the instant redeem amount.</p>"
           },
           {
             "group": "Parameter",
             "type": "Integer",
             "optional": false,
             "field": "user_id",
-            "description": "<p>User's Id.</p>"
+            "description": "<p>This contains the User's Id.</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
             "optional": false,
             "field": "service",
-            "description": "<p>service name can be amazon/tango/in_house to redeem reward</p>"
+            "description": "<p>Service name can be amazon/tango/in_house to redeem reward</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
             "optional": true,
             "field": "description",
-            "description": "<p>description of redemtion, required if service is in_house else not</p>"
+            "description": "<p>Description of redemtion, required if service is in_house else not</p>"
           }
         ]
       },
@@ -2463,7 +2464,7 @@ define({ "api": [
             "type": "Integer",
             "optional": false,
             "field": "id",
-            "description": "<p>redemption Id.</p>"
+            "description": "<p>This contains the redemption id.</p>"
           }
         ]
       },
@@ -2481,7 +2482,7 @@ define({ "api": [
   {
     "type": "post",
     "url": "/api/vendor/rewardCredits/",
-    "title": "Reward Credit to user",
+    "title": "Rewarding credits to a user",
     "version": "1.1.0",
     "name": "rewardCreditToUser",
     "group": "Vendor_Apis",
@@ -2513,28 +2514,28 @@ define({ "api": [
             "type": "string",
             "optional": false,
             "field": "attribute_type",
-            "description": "<p>attribute type: can be email or phone or card or username.</p>"
+            "description": "<p>Attribute type: can be email or phone or card or username.</p>"
           },
           {
             "group": "Parameter",
             "type": "string",
             "optional": false,
             "field": "attribute",
-            "description": "<p>value of attribute type.</p>"
+            "description": "<p>Value of attribute type.</p>"
           },
           {
             "group": "Parameter",
             "type": "integer",
             "optional": false,
-            "field": "points",
-            "description": "<p>reward to credit.</p>"
+            "field": "Points",
+            "description": "<p>Reward in points that is to be credited.</p>"
           },
           {
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "reward_type",
-            "description": "<p>: can be wallet_credit or reward_credit.</p>"
+            "field": "Reward_type",
+            "description": "<p>This can be wallet_credit or reward_credit.</p>"
           }
         ]
       },
@@ -2559,7 +2560,7 @@ define({ "api": [
             "type": "Boolean",
             "optional": false,
             "field": "success",
-            "description": "<p>status of the request.</p>"
+            "description": "<p>This describes the status of the request.</p>"
           }
         ]
       },
@@ -2596,7 +2597,7 @@ define({ "api": [
             "size": "1..255",
             "optional": false,
             "field": "first_name",
-            "description": "<p>contains User's first Name.</p>"
+            "description": "<p>This contains the user's first Name.</p>"
           },
           {
             "group": "Parameter",
@@ -2604,14 +2605,14 @@ define({ "api": [
             "size": "1..255",
             "optional": false,
             "field": "last_name",
-            "description": "<p>contains User's last name.</p>"
+            "description": "<p>This contains the user's last name.</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "{\n  \"first_name\" : \"nitesh\",\n  \"last_name\" : \"srivastava\"\n}",
+          "content": "{\n  \"first_name\" : \"David\",\n  \"last_name\" : \"Levine\"\n}",
           "type": "json"
         }
       ]
@@ -2624,14 +2625,14 @@ define({ "api": [
             "type": "Array",
             "optional": false,
             "field": "data",
-            "description": "<p>cotains response.</p>"
+            "description": "<p>This contains the response.</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n   \"status\": true,\n   \"data\": {\n       \"username\": \"niteshsrivastava\"\n   }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n   \"status\": true,\n   \"data\": {\n       \"username\": \"davidlevine\"\n   }\n}",
           "type": "json"
         }
       ]
@@ -2644,7 +2645,7 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "Authorization",
-            "description": "<p>Vendor's Access Token</p>"
+            "description": "<p>This contains the vendor's Access Token</p>"
           }
         ]
       },
@@ -2663,7 +2664,7 @@ define({ "api": [
     "type": "PUT",
     "url": "/api/vendor/users/{:id}",
     "title": "Update user's info",
-    "description": "<p>Update user's info</p>",
+    "description": "<p>This API is used to update a user's data.</p>",
     "version": "1.1.0",
     "name": "updateUserInfo",
     "group": "Vendor_Apis",
@@ -2675,7 +2676,7 @@ define({ "api": [
             "type": "Integer",
             "optional": false,
             "field": "id",
-            "description": "<p>user id of the users whose information we are going to update.</p>"
+            "description": "<p>user id of the users whose information is to be updated.</p>"
           },
           {
             "group": "Parameter",
@@ -2683,7 +2684,7 @@ define({ "api": [
             "size": "1..255",
             "optional": true,
             "field": "name",
-            "description": "<p>contains User's Name.</p>"
+            "description": "<p>This contains the user's Name.</p>"
           },
           {
             "group": "Parameter",
@@ -2691,7 +2692,7 @@ define({ "api": [
             "size": "5..255",
             "optional": true,
             "field": "email",
-            "description": "<p>contains User's email, if username is not present then email is required.</p>"
+            "description": "<p>This contains the user's email, mandatory if username is not present.</p>"
           },
           {
             "group": "Parameter",
@@ -2699,7 +2700,7 @@ define({ "api": [
             "size": "5..255",
             "optional": true,
             "field": "username",
-            "description": "<p>contains User's username, required if email is not present else not.</p>"
+            "description": "<p>This contains the user's username, mandatory if email is not present else not.</p>"
           },
           {
             "group": "Parameter",
@@ -2707,7 +2708,7 @@ define({ "api": [
             "size": "8..255",
             "optional": true,
             "field": "password",
-            "description": "<p>contains user's new password.</p>"
+            "description": "<p>This contains the user's new password.</p>"
           },
           {
             "group": "Parameter",
@@ -2715,7 +2716,7 @@ define({ "api": [
             "size": "8..255",
             "optional": true,
             "field": "old_password",
-            "description": "<p>contains user's old password, required if password is provided.</p>"
+            "description": "<p>This contains the user's old password, required if password is provided.</p>"
           },
           {
             "group": "Parameter",
@@ -2723,14 +2724,14 @@ define({ "api": [
             "size": "5..255",
             "optional": true,
             "field": "guardian_email",
-            "description": "<p>contains guardian email, required if email is not present else not.</p>"
+            "description": "<p>This contains the guardian email, required if email is not present else not.</p>"
           },
           {
             "group": "Parameter",
             "type": "Boolean",
             "optional": true,
             "field": "status",
-            "description": "<p>Vendor's Status: Enabled or Disabled, By Default Enabled.</p>"
+            "description": "<p>Vendor's Status Enabled or Disabled, By Default Enabled.</p>"
           }
         ]
       }
@@ -2743,14 +2744,14 @@ define({ "api": [
             "type": "Boolean",
             "optional": false,
             "field": "status",
-            "description": "<p>status of the request.</p>"
+            "description": "<p>This contains the status of the request.</p>"
           },
           {
             "group": "Success 200",
             "type": "Array",
             "optional": false,
             "field": "data",
-            "description": "<p>cotains response.</p>"
+            "description": "<p>This contains the response.</p>"
           }
         ]
       },
@@ -2788,8 +2789,8 @@ define({ "api": [
   {
     "type": "GET",
     "url": "/api/vendor/UserInstantRedemptions/",
-    "title": "view all instant redemptions",
-    "description": "<p>This api is used to view all instant redemptions.</p>",
+    "title": "View all instant redemptions",
+    "description": "<p>This API is used to view all instant redemptions.</p>",
     "version": "1.1.0",
     "name": "viewInstantRedemptions",
     "group": "Vendor_Apis",
@@ -2822,7 +2823,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n  {\n\"response\": {\n    \"status\": true,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"service_id\": 2,\n            \"description\": \"asadd\",\n            \"vendor_id\": 1,\n            \"user_id\": 1,\n            \"amount\": 100,\n            \"created\": \"2016-11-04T08:31:43+00:00\",\n            \"modified\": \"2016-11-04T08:31:43+00:00\",\n            \"deleted\": null,\n            \"status\": true,\n            \"service\": {\n                \"id\": 2,\n                \"name\": \"tango\",\n                \"label\": \"Tango Card\",\n                \"status\": true,\n                \"created\": \"2016-10-20T11:15:26+00:00\",\n                \"modified\": \"2016-10-20T11:15:26+00:00\"\n            },\n            \"user\": {\n                \"id\": 1,\n                \"uuid\": \"88e4bc36-a680-4a25-9b99-d125a82e3f22\",\n                \"name\": \"admin\",\n                \"email\": \"nitesh.srivastava@twinspark.co\",\n                \"phone\": null,\n                \"role_id\": 1,\n                \"created\": \"2016-10-20T11:15:25+00:00\",\n                \"modified\": \"2016-10-20T11:15:25+00:00\",\n                \"status\": true,\n                \"username\": \"admin\",\n                \"isEmailVerified\": false\n            }\n        }\n      ]\n    }\n  }",
+          "content": "HTTP/1.1 200 OK\n  {\n\"response\": {\n    \"status\": true,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"service_id\": 2,\n            \"description\": \"Here goes the description.\",\n            \"vendor_id\": 1,\n            \"user_id\": 1,\n            \"amount\": 100,\n            \"created\": \"2016-11-04T08:31:43+00:00\",\n            \"modified\": \"2016-11-04T08:31:43+00:00\",\n            \"deleted\": null,\n            \"status\": true,\n            \"service\": {\n                \"id\": 2,\n                \"name\": \"tango\",\n                \"label\": \"Tango Card\",\n                \"status\": true,\n                \"created\": \"2016-10-20T11:15:26+00:00\",\n                \"modified\": \"2016-10-20T11:15:26+00:00\"\n            },\n            \"user\": {\n                \"id\": 1,\n                \"uuid\": \"88e4bc36-a680-4a25-9b99-d125a82e3f22\",\n                \"name\": \"admin\",\n                \"email\": \"david@example.com\",\n                \"phone\": null,\n                \"role_id\": 1,\n                \"created\": \"2016-10-20T11:15:25+00:00\",\n                \"modified\": \"2016-10-20T11:15:25+00:00\",\n                \"status\": true,\n                \"username\": \"admin\",\n                \"isEmailVerified\": false\n            }\n        }\n      ]\n    }\n  }",
           "type": "json"
         }
       ]
@@ -2834,6 +2835,7 @@ define({ "api": [
     "type": "get",
     "url": "/api/vendor/me",
     "title": "View Loggedin Vendor's Info",
+    "description": "<p>This API is used to view the loggedin vendor's information.</p>",
     "version": "1.1.0",
     "name": "viewVendorDetail",
     "group": "Vendor_Apis",
@@ -2865,28 +2867,28 @@ define({ "api": [
             "type": "Boolean",
             "optional": false,
             "field": "success",
-            "description": "<p>status of the request.</p>"
+            "description": "<p>This contains the status of the request.</p>"
           },
           {
             "group": "Success 200",
             "type": "Boolean",
             "optional": false,
             "field": "status",
-            "description": "<p>status of the request.</p>"
+            "description": "<p>This contains the status of the request.</p>"
           },
           {
             "group": "Success 200",
             "type": "Array",
             "optional": false,
             "field": "data",
-            "description": "<p>cotains response.</p>"
+            "description": "<p>This contains the response.</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "   HTTP/1.1 200 OK\n   {\n\"response\": {\n           \"status\": true,\n           \"data\": {\n               \"id\": 10,\n               \"name\": \"nitesh\",\n               \"created\": \"2016-08-10T09:58:29+0000\",\n               \"modified\": \"2016-08-10T09:58:29+0000\",\n               \"status\": true,\n               \"vendor_reward_types\": [\n                   {\n                       \"id\": 4,\n                       \"vendor_id\": 10,\n                       \"reward_method_id\": 1,\n                       \"created\": \"2016-08-10T09:58:29+0000\",\n                       \"modified\": \"2016-08-10T09:58:29+0000\",\n                       \"status\": true,\n                       \"reward_method\": {\n                           \"id\": 1,\n                           \"name\": \"wallet_credit\",\n                           \"label\": \"Wallet Credit\",\n                           \"status\": true,\n                           \"created\": \"2016-08-10T06:11:13+0000\",\n                           \"modified\": \"2016-08-10T06:11:13+0000\"\n                       }\n                   }\n               ],\n               \"vendor_contacts\": [\n                   {\n                       \"id\": 4,\n                       \"vendor_id\": 10,\n                       \"email\": \"nitesh@gmail.com\",\n                       \"phone\": \"991110032449\",\n                       \"is_primary\": true,\n                       \"created\": \"2016-08-10T09:58:29+0000\",\n                       \"modified\": \"2016-08-10T09:58:29+0000\"\n                   }\n               ]\n           }\n       }\n   }",
+          "content": "   HTTP/1.1 200 OK\n   {\n\"response\": {\n           \"status\": true,\n           \"data\": {\n               \"id\": 10,\n               \"name\": \"david\",\n               \"created\": \"2016-08-10T09:58:29+0000\",\n               \"modified\": \"2016-08-10T09:58:29+0000\",\n               \"status\": true,\n               \"vendor_reward_types\": [\n                   {\n                       \"id\": 4,\n                       \"vendor_id\": 10,\n                       \"reward_method_id\": 1,\n                       \"created\": \"2016-08-10T09:58:29+0000\",\n                       \"modified\": \"2016-08-10T09:58:29+0000\",\n                       \"status\": true,\n                       \"reward_method\": {\n                           \"id\": 1,\n                           \"name\": \"wallet_credit\",\n                           \"label\": \"Wallet Credit\",\n                           \"status\": true,\n                           \"created\": \"2016-08-10T06:11:13+0000\",\n                           \"modified\": \"2016-08-10T06:11:13+0000\"\n                       }\n                   }\n               ],\n               \"vendor_contacts\": [\n                   {\n                       \"id\": 4,\n                       \"vendor_id\": 10,\n                       \"email\": \"david@example.com\",\n                       \"phone\": \"991110032449\",\n                       \"is_primary\": true,\n                       \"created\": \"2016-08-10T09:58:29+0000\",\n                       \"modified\": \"2016-08-10T09:58:29+0000\"\n                   }\n               ]\n           }\n       }\n   }",
           "type": "json"
         }
       ]
